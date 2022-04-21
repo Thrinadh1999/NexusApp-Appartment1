@@ -83,8 +83,8 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	}
 	
 	public String determineTargetUrl(HttpServletRequest request) {
-		if(request.isUserInRole(ROLE_CONSTANTS.SUPER_ADMIN)) {
-        	return URL_CONSTANTS.SUPER_ADMIN_HOME;
+		if(request.isUserInRole(ROLE_CONSTANTS.ADMIN)) {
+        	return URL_CONSTANTS.MY_PROFILE;
         }
 		return URL_CONSTANTS.SIGNIN;
 	}

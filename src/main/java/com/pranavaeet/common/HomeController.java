@@ -19,11 +19,7 @@ import com.pranavaeet.config.SuccessHandler;
 import com.pranavaeet.constants.SQL_QUERIES;
 import com.pranavaeet.constants.URL_CONSTANTS;
 import com.pranavaeet.constants.VIEW_CONSTANTS;
-import com.pranavaeet.common.ControllerHelper;
-import com.pranavaeet.common.LoginHelper;
-import com.pranavaeet.common.ObjectDAO;
-import com.pranavaeet.common.Password;
-import com.pranavaeet.common.UserProfile;
+
 import com.pranavaeet.utils.GoogleCloudStorage;
 
 @Controller

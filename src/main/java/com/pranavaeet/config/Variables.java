@@ -33,7 +33,7 @@ public class Variables {
 			logger.error(e.getMessage());
 			try{ 
 				logger.info("Loading properties for localhost . . . ");        
-				input = new FileInputStream(Paths.get(Variables.class.getResource("/app-config.properties").toURI()).toFile());  
+				input = new FileInputStream(Paths.get(Variables.class.getResource("/app-config.properties").toURI()).toString());  
 				prop.load(input);
 				loaded = true;
 			}catch(Exception ex){
