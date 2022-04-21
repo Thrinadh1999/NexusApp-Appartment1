@@ -3,6 +3,7 @@ package com.pranavaeet.common;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class ObjectDAOImpl implements ObjectDAO {
 
 	@Override
 	public boolean addOrUpdate(String query, String[] args) {
-		logger.info("Executing Query: " + query);
+		logger.info("Executing Query: " + query+" with params: "+Arrays.toString(args));
 		int result = jdbcTemplate.update(query, (Object[]) args);
 		if (result > 0)
 			return true;
@@ -38,21 +39,21 @@ public class ObjectDAOImpl implements ObjectDAO {
 
 	@Override
 	public Object singleResultSelect(String query, String[] args, Class<?> objectClass) {
-		logger.info("Executing Query: " + query);
+		logger.info("Executing Query: " + query+" with params: "+Arrays.toString(args));
 		Map<String, Object> returnMap = jdbcTemplate.queryForMap(query, (Object[]) args);
 		return createObject(returnMap, objectClass);
 	}
 
 	@Override
 	public Map<String, Object> singleResultSelect(String query, String[] args) {
-		logger.info("Executing Query: " + query);
+		logger.info("Executing Query: " + query+" with params: "+Arrays.toString(args));
 		Map<String, Object> returnMap = jdbcTemplate.queryForMap(query, (Object[]) args);
 		return returnMap;
 	}
 
 	@Override
 	public List<?> multipleResultSelect(String query, String[] args, Class<?> objectClass) {
-		logger.info("Executing Query: " + query);
+		logger.info("Executing Query: " + query+" with params: "+Arrays.toString(args));
 		List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(query, (Object[]) args);
 		List<Object> returnList = new LinkedList<Object>();
 		for (Map<String, Object> map : queryResult) {
@@ -63,7 +64,7 @@ public class ObjectDAOImpl implements ObjectDAO {
 
 	@Override
 	public List<Map<String, Object>> multipleResultSelect(String query, String[] args) {
-		logger.info("Executing Query: " + query);
+		logger.info("Executing Query: " + query+" with params: "+Arrays.toString(args));
 		List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(query, (Object[]) args);
 		return queryResult;
 	}

@@ -22,17 +22,19 @@ public class ControllerHelper {
 	
 	public void populateSession(HttpServletRequest request) {
 		String username = request.getRemoteUser();
-		request.getSession().setAttribute("featureList", objectDAO.multipleResultSelect(SQL_QUERIES.getUserFeatures, new String[] {username}, Feature.class));
+		
 		try {
 			UserProfile userProfile = (UserProfile) request.getSession().getAttribute("profile");
 			if(null == userProfile.getFirstname()) {
 				UserProfile profile = (UserProfile) objectDAO.singleResultSelect(SQL_QUERIES.getUserProfile, new String[] {username}, UserProfile.class);
 				request.getSession().setAttribute("profile", profile);
+				
 			}
 		}catch(Exception e) {
 			logger.error("Profile In Session: "+e.getMessage());
 			UserProfile profile = (UserProfile) objectDAO.singleResultSelect(SQL_QUERIES.getUserProfile, new String[] {username}, UserProfile.class);
 			request.getSession().setAttribute("profile", profile);
+			logger.info("currentUser is:"+ request.getSession().getAttribute("profile"));
 		}		
 		request.getSession().setAttribute("profilePicture", Variables.defaultUserString);
 	}

@@ -13,7 +13,6 @@ import com.pranavaeet.email.api.ElasticEmail;
 import com.pranavaeet.email.api.Email;
 import com.pranavaeet.email.api.EmailFormatter;
 import com.pranavaeet.common.LoginHelper;
-import com.pranavaeet.common.ObjectDAO;
 import com.pranavaeet.utils.KeyGenerator;
 
 @Service

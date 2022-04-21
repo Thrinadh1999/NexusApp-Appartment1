@@ -1,4 +1,4 @@
-<title>Pranava EET</title>
+<title>S&M Employee Manager</title>
 <link rel="icon" href="resources/images/favicon.png" type="image/png" />
 <!-- Bootstrap -->
 <link href="resources/vendors/bootstrap/dist/css/bootstrap.css"	rel="stylesheet">
@@ -12,7 +12,7 @@
 <link href="resources/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
 <link href="resources/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 <link href="resources/css/fileinput.min.css" rel="stylesheet">
-<link href="resources/vendors/summernote.0.8.12/summernote.css" rel="stylesheet">
+<link href="resources/vendors/summernote/summernote.css" rel="stylesheet">
 <link href="resources/vendors/inputmask/css/inputmask.css" rel="stylesheet">
 <style>
 p,ul,ol{

@@ -33,6 +33,5 @@ public final class URL_CONSTANTS {
 	public static final String UPDATE_USER_PICTURE = "updateUserPicture";
 	
 	public static final String USER_HOME = "/user";
-	public static final String SUPER_ADMIN_HOME = "/super-admin";
 	
 }

@@ -250,13 +250,7 @@ th {
 	background-position: Right;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
-}
 .wrapper {
 	padding: 120px 0 0;
 	text-align: center;
@@ -278,8 +272,7 @@ th {
 	cursor: pointer;
 }
 
-<
-style>ul {
+ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -330,8 +323,7 @@ li.dropdown {
 	display: block;
 }
 
-</
-style>#nav {
+#nav {
 	height: 39px;
 	border-radius: 3px;
 	min-width: 500px;
@@ -451,8 +443,7 @@ style>#nav {
 	animation-duration: 4.5s;
 }
 
-@
--webkit-keyframes fade {
+@-webkit-keyframes fade {
 	from {opacity: .4
 }
 
@@ -461,8 +452,7 @@ to {
 }
 
 }
-@
-keyframes fade {
+@keyframes fade {
 	from {opacity: .4
 }
 
