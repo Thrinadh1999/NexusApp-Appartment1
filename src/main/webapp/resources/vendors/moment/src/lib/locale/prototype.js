@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Locale } from './constructor';
 
 var proto = Locale.prototype;
@@ -85,3 +86,5 @@ import { localeIsPM, defaultLocaleMeridiemParse, localeMeridiem } from '../units
 proto.isPM = localeIsPM;
 proto._meridiemParse = defaultLocaleMeridiemParse;
 proto.meridiem = localeMeridiem;
+=======
+>>>>>>> branch 'master' of https://github.com/SMNexus/ProjectManager.git
