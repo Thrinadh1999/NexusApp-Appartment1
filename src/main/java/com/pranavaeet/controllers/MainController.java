@@ -75,10 +75,13 @@ public class MainController {
 	@GetMapping(value = "/employees")
 	public ModelAndView employeePage(HttpServletRequest request, HttpSession session) {
 		List<Employee> empList = new ArrayList<Employee>();
-		Integer count = (Integer) objectDAO.insertAndGetResult(SQL_QUERIES.getEmployeeCount, "empCount", null);
-		if(count!=0) {
-			empList = (List<Employee>)objectDAO.multipleResultSelect(SQL_QUERIES.getEmployeeList, null, Employee.class);
-		}
+		/*
+		 * Integer count = (Integer)
+		 * objectDAO.insertAndGetResult(SQL_QUERIES.getEmployeeCount, "empCount", null);
+		 * if(count!=0) { empList =
+		 * (List<Employee>)objectDAO.multipleResultSelect(SQL_QUERIES.getEmployeeList,
+		 * null, Employee.class); }
+		 */
 		ModelAndView page = new ModelAndView();
 		page.setViewName("Employee");
 		page.addObject("employeeList", empList);
