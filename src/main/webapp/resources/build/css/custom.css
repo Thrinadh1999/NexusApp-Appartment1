@@ -1024,9 +1024,13 @@
 body .container.body .right_col {
   background: #F7F7F7; }
 
+.main_container{
+	height:94vh;
+}
 .nav-md .container.body .right_col {
   padding: 10px 20px 0;
-  margin-left: 230px; }
+  margin-left: 230px;
+  height:inherit; }
 
 .nav_title {
   width: 230px;
@@ -4968,3 +4972,7 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+  
+  .page-action-btn{
+  float:right;
+  }

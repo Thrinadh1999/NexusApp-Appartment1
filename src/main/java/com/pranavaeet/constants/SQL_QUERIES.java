@@ -43,5 +43,9 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getUserRolesList = "SELECT * FROM user_roles_lkp WHERE user_role NOT IN ('ROLE_SUPERADMIN', 'ROLE_ADMIN')";
 	
 	public static final String checkUsernameExists = "SELECT username FROM users WHERE username=?";
+	public static final String getDepartments = "SELECT * FROM department";
+	public static final String addDepartment = "INSERT INTO department (name,description,code) VALUES(?,?,?)";
+	public static final String getEmployeeCount = "SELECT COUNT(*) as empCount FROM employee";
+	public static final String getEmployeeList = "SELECT * FROM employee";
 	
 }
