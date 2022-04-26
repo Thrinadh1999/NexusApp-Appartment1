@@ -9,142 +9,226 @@
 <!-- page content -->
 <div class="right_col" role="main">
 
-<div class="container row">
-<div class="col-md-9">
-<h4>Employee</h4>
-</div>
-<div class="col-md-3">
-<button type="button" class="btn btn-info btn-md page-action-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create User</button>
+	<div class="container row">
+		<div class="col-md-9">
+			<h4>Employee</h4>
+		</div>
+		<div class="col-md-3">
+			<button type="button" class="btn btn-info btn-md page-action-btn"
+				data-toggle="modal" data-target="#myModal">
+				<i class="fa fa-plus"></i> Create User
+			</button>
 
-</div>
+		</div>
 
-</div>
-	
+	</div>
 
-	
+
+
 	<table id="datatable" class="table">
-	<thead>
-	<tr>
-	<th>EmployeeID</th>
-	<th>First Name</th>
-	<th>Last Name</th>
-	<th>Address</th>
-	<th>Mobile_NO</th>
-	<th>Employee_Unique_ID</th>
-	<th>Join_Date</th>
-	<th>Relieve_Date</th>
-	<th>DepartmentID</th>
-	<th>Role</th>
-	</tr>
-	</thead>
-	<tbody>
-	
-	
-	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	</tbody>
+		<thead>
+			<tr>
+				<th>EUID</th>
+				<th>Department Name</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Mobile</th>
+				<th>Email</th>
+				<th>Join_Date</th>
+				<th>DepartmentID</th>
+				<th>Role</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
 	</table>
-	  <!-- Trigger the modal with a button -->
+	<!-- Trigger the modal with a button -->
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add Employee</h4>
-      </div>
-      <div class="modal-body">
-        <form:form modelAttribute="newEmployee" action="addEmployee" id="demo-form2" class="form-horizontal form-label-left" method="POST">
-										<form:input id="middle-name" maxlength="2" class="form-control" type="hidden" path="id"></form:input>.
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Employee</h4>
+				</div>
+				<div class="modal-body">
+					<form:form modelAttribute="newEmployee" action="addEmployee"
+						id="demo-form2" class="form-horizontal form-label-left"
+						method="POST">
+						<form:input id="middle-name" maxlength="2" class="form-control"
+							type="hidden" path="id"></form:input>.
+										<form:input id="middle-name" maxlength="2"
+							class="form-control" type="hidden" path="departmentId"></form:input>.
 										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="firstName">FirstName <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="FirstName" path="firstName" required="required" class="form-control "></form:input>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="FirstName">LastName <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="LastName" path="lastName" required="required" class="form-control "></form:input>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="last-name">Address <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:textarea type="text" id="Address" path="address" required="required" class="form-control"></form:textarea>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="middle-name" class="col-form-label col-md-4 col-sm-4 label-align">Mobile_NO</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input id="Mobile_NO" maxlength="10" class="form-control" type="number" path="mobile" required="required"></form:input>
-											</div>
-										</div>
-										
-												<form:input type="hidden" maxlength="5" id="Employee_Unique_ID" path="empUnique" class="form-control " value="SM"></form:input>
-											
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="FirstName">Join_Date <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="Join_Date" path="joinDate" required="required" class="form-control "></form:input>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="FirstName">Relieve_Date <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="Relieve_Date" path="relieveDate" required="required" class="form-control "></form:input>
-											</div>
-										</div>
-										
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="FirstName">Role <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="Role" path="role" required="required" class="form-control "></form:input>
-											</div>
-										</div>
-										
-										
-										<div class="ln_solid"></div>
-										<div class="item form-group">
-											<div class="col-md-6 col-sm-6 offset-md-3 text-center">
-												<form:button id="submit-button" type="submit" class="btn btn-success">Submit</form:button>
-												<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
-											</div>
-										</div>
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">Department <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
 
-									</form:form>
+								<form:select id="Department" class="form-control "
+									path="departmentId">
+									<c:forEach items='${depList}' var="list">
+										<form:option value="${list.departmentId }"> ${list.name }</form:option>
+									</c:forEach>
+								</form:select>
 
- 									
-									
-      </div>
-    </div>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">Role <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="Role" path="role"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="firstName">First Name <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="firstName" path="firstName"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">LastName <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="LastName" path="lastName"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label for="middle-name"
+								class="col-form-label col-md-4 col-sm-4 label-align">Mobile</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input id="Mobile_NO" maxlength="10" class="form-control"
+									type="number" path="mobile" required="required"></form:input>
+							</div>
+						</div>
+						
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="email">Email <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="email " path="email"
+									required="required" class="form-control"></form:input>
+							</div>
+						</div>
+						
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="last-name">Address <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="Address" path="address"
+									required="required" class="form-control"></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="city">City <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="City" path="city"
+									required="required" class="form-control"></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">State <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
 
-  </div>
-</div>
-	
-	
-	
-	
+								<form:select id="Statelkp" class="form-control "
+									path="stateName">
+									<c:forEach items='${stateList}' var="list">
+										<form:option value="${list.id }"> ${list.stateName }</form:option>
+									</c:forEach>
+								</form:select>
+
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">Country <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+
+								<form:select id="Country" class="form-control " path="countryId">
+									<c:forEach items='${countryList}' var="cntrylst">
+										<form:option value="${cntrylst.id }"> ${cntrylst.countryName }</form:option>
+									</c:forEach>
+								</form:select>
+
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="city">ZipCode <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="Zip" path="zipCode"
+									required="required" class="form-control"></form:input>
+							</div>
+						</div>
+
+						<form:input type="hidden" maxlength="5" id="Employee_Unique_ID"
+							path="empUnique" class="form-control " value="SM"></form:input>
+
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="FirstName">Join_Date <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="date" id="Join_Date" path="joinDate"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+
+						<div class="ln_solid"></div>
+						<div class="item form-group">
+							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
+								<form:button id="submit-button" type="submit"
+									class="btn btn-success">Submit</form:button>
+								<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+							</div>
+						</div>
+
+					</form:form>
+
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
 
 
 </div>
@@ -154,23 +238,35 @@
 
 <%@ include file="Includes/FooterScripts.jsp"%>
 <!-- Datatables -->
-    <script src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script
+	src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script
+	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <script>
-$('#datatable').DataTable();
-$('#cancel-button').on("click",function(){
-	$('#myModal').modal('hide');
-})
+	//$('#datatable').DataTable();
+	$('#cancel-button').on('click', function() {
+		$('#myModal').modal('hide');
+	});
 </script>
 </body>
 </html>

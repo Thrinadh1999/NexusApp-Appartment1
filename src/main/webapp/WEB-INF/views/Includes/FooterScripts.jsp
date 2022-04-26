@@ -1,6 +1,6 @@
 <!-- jQuery -->
 <script src="resources/vendors/jquery/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 <!-- Bootstrap -->
 <script src="resources/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme Scripts -->

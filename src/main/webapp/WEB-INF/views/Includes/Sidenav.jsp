@@ -38,7 +38,7 @@
                      
                     </ul>
                   </li>
-                  <li><a herf="projects"><i class="fa fa-desktop"></i> Projects </a>
+                  <li><a href="projects"><i class="fa fa-desktop"></i> Projects </a>
                     <ul class="nav child_menu">
                       
                     </ul>
