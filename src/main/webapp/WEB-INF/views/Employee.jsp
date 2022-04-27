@@ -37,24 +37,10 @@
 				<th>Join_Date</th>
 				<th>DepartmentID</th>
 				<th>Role</th>
-				
+
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</tbody>
+		
 	</table>
 	<!-- Trigger the modal with a button -->
 
@@ -96,8 +82,12 @@
 								for="FirstName">Role <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="Role" path="role"
-									required="required" class="form-control "></form:input>
+								<form:select id="Department" class="form-control "
+									path="role">
+									<c:forEach items='${roleList}' var="list">
+										<form:option value="${list.id }"> ${list.dispName }</form:option>
+									</c:forEach>
+								</form:select>
 							</div>
 						</div>
 						<div class="item form-group">
@@ -126,7 +116,7 @@
 									type="number" path="mobile" required="required"></form:input>
 							</div>
 						</div>
-						
+
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="email">Email <span class="required">*</span>
@@ -136,7 +126,9 @@
 									required="required" class="form-control"></form:input>
 							</div>
 						</div>
-						
+
+
+
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="last-name">Address <span class="required">*</span>
@@ -268,5 +260,3 @@
 		$('#myModal').modal('hide');
 	});
 </script>
-</body>
-</html>

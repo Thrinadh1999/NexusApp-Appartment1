@@ -24,17 +24,14 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String updateUserPicture = "UPDATE user_profile SET imageFilePath=?, imageFileType=? WHERE username=?";
 	
 	public static final String updatePassword = "UPDATE users SET password=? WHERE username=?";
-
 	public static final String usernameExists = "SELECT COUNT(*) FROM users WHERE username=?";
+    public static final String usernameCount = "SELECT COUNT(*) AS count FROM users WHERE username=?";
+    public static final String createUser = "INSERT INTO users (username, password, status) VALUES (?, ?, ?)";
+	public static final String checkUsernameExists = "SELECT username FROM users WHERE username=?";
 
-	public static final String usernameCount = "SELECT COUNT(*) AS count FROM users WHERE username=?";
-
-	public static final String createUser = "INSERT INTO users (username, password, status) VALUES (?, ?, ?)";
-
-	public static final String createUserRole = "INSERT INTO user_roles (username, user_role, created_time) VALUES (?, ?, ?)";
+	
 
 	public static final String addUserActivity = "INSERT INTO user_activity (username, timestamp, activity) VALUES (?, ?, ?)";
-
 	public static final String getUserActivityList = "SELECT * FROM user_activity WHERE username=? ORDER BY id DESC";
 	
 	public static final String getStateList = "SELECT * FROM state_lkp";
@@ -44,12 +41,17 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getCountryCount = "SELECT COUNT(*) as CountryCount FROM country_lkp ";
 	
 	public static final String getUserRolesList = "SELECT * FROM user_roles_lkp WHERE user_role NOT IN ('ROLE_SUPERADMIN', 'ROLE_ADMIN')";
+	public static final String getUserRoles = "SELECT id, user_role as userRole,display_name as dispName FROM `user_roles_lkp` where id != 1; ";
+	public static final String createUserRole = "INSERT INTO user_roles (username, user_role, created_time) VALUES (?, ?, ?)";
 	
-	public static final String checkUsernameExists = "SELECT username FROM users WHERE username=?";
 	public static final String getDepartments = "SELECT * FROM department";
 	public static final String addDepartment = "INSERT INTO department (name,description,code) VALUES(?,?,?)";
 	public static final String getEmployeeCount = "SELECT COUNT(*) as empCount FROM employee";
+	public static final String addEmployee = "INSERT INTO employee (firstName,lastName,address,moblie,joinDate,role) VALUES(?,?,?,?,?,?,?)";
 	public static final String getEmployeeList = "SELECT * FROM employee";
+	
+
+	
 
 	
 }

@@ -100,7 +100,7 @@ public class MainController {
 				 empList =
 			 (List<Employee>)objectDAO.multipleResultSelect(SQL_QUERIES.getEmployeeList,
 			null, Employee.class); }
-			
+			List<Map<String,Object>> roleList = objectDAO.multipleResultSelect(SQL_QUERIES.getUserRoles, null);
 		 
 		ModelAndView page = new ModelAndView();
 		page.setViewName("Employee");
@@ -108,6 +108,7 @@ public class MainController {
 		page.addObject("depList", departmentList);
 		page.addObject("stateList", stateList);
 		page.addObject("countryList" , countryList);
+		page.addObject("roleList" , roleList);
 		page.addObject("users" , users);
 		
 		
@@ -120,7 +121,7 @@ public class MainController {
 			HttpSession session) {
 		// objectDAO.addOrUpdate(SQL_QUERIES.addDepartment, new String[]
 		// {newEmployee.getName(),newEmployee.getDescription(),newEmployee.getCode()});
-		return new ModelAndView("redirect:/Departments");
+		return new ModelAndView("redirect:/employees");
 	}
 
 	// Tasks Page
