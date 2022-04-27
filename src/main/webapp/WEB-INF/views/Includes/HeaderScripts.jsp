@@ -14,19 +14,22 @@
 <link href="resources/css/fileinput.min.css" rel="stylesheet">
 <link href="resources/vendors/summernote/summernote.css" rel="stylesheet">
 <link href="resources/vendors/inputmask/css/inputmask.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="resources/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
 
-    <!-- Font Awesome -->
-    <link href="resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="resources/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="resources/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="resources/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="resources/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="resources/build/css/custom.min.css" rel="stylesheet">
+<!-- bootstrap-progressbar -->
+<link href="resources/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+<!-- JQVMap -->
+<link href="resources/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+<!-- bootstrap-daterangepicker -->
+<link href="resources/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+<!-- Custom Theme Style -->
+<link href="resources/build/css/custom.css" rel="stylesheet">
+  </head>
 <style>
 p,ul,ol{
 	text-align: justify;

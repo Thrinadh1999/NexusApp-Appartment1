@@ -3,22 +3,10 @@
 
 <%@ include file="Includes/HeaderScripts.jsp"%>
 
-<%@ include file="Includes/Sidenav.jsp" %>
-<%@ include file="Includes/Topnav.jsp" %>
+<%@ include file="Includes/Sidenav.jsp"%>
+<%@ include file="Includes/Topnav.jsp"%>
+        
 
-
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="png" href="resources/images/logo.ico.png" type="image/png" />
-
-
-
-     
-       
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -75,11 +63,7 @@
                 </div>
 
                 <div class="col-md-9 col-sm-9 ">
-                  <div id="chart_plot_01" class="demo-placeholder" style="padding: 0px; position: relative;">
-                  <canvas class="flot-base" width="696" height="350" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 557px; height: 280px;"></canvas><div class="flot-text" style="position: absolute; inset: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; inset: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 27px; text-align: center;">Jan 01</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 113px; text-align: center;">Jan 02</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 199px; text-align: center;">Jan 03</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 285px; text-align: center;">Jan 04</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 371px; text-align: center;">Jan 05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 457px; text-align: center;">Jan 06</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; inset: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 250px; left: 13px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 231px; left: 7px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 212px; left: 7px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 192px; left: 7px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 173px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 154px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 7px; text-align: right;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 115px; left: 7px; text-align: right;">70</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 96px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 77px; left: 7px; text-align: right;">90</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 58px; left: 1px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 38px; left: 1px; text-align: right;">110</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 19px; left: 1px; text-align: right;">120</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">130</div></div></div><canvas class="flot-overlay" width="696" height="350" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 557px; height: 280px;"></canvas></div>
-                  <div class="flot-text" style="position: absolute; inset: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; inset: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 27px; text-align: center;">Jan 01</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 113px; text-align: center;">Jan 02</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 199px; text-align: center;">Jan 03</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 285px; text-align: center;">Jan 04</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 371px; text-align: center;">Jan 05</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 110px; top: 263px; left: 457px; text-align: center;">Jan 06</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; inset: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 250px; left: 13px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 231px; left: 7px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 212px; left: 7px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 192px; left: 7px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 173px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 154px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 7px; text-align: right;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 115px; left: 7px; text-align: right;">70</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 96px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 77px; left: 7px; text-align: right;">90</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 58px; left: 1px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 38px; left: 1px; text-align: right;">110</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 19px; left: 1px; text-align: right;">120</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">130</div></div></div>
-                  <canvas class="flot-overlay" width="696" height="350" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 557px; height: 280px;"></canvas>
-                  
+                  <div id="chart_plot_01" class="demo-placeholder"></div>
                 </div>
                 <div class="col-md-3 col-sm-3  bg-white">
                   <div class="x_title">
@@ -631,7 +615,7 @@
                         </div>
                         <div class="col-sm-8">
                           <div class="weather-text">
-                            <h2>Texas <br><i>Partly Cloudy Day</i></h2>
+                            <h2>Hyderabad <br><i>Partly Cloudy Day</i></h2>
                           </div>
                         </div>
                       </div>
@@ -719,7 +703,7 @@
     <!-- jQuery -->
     <script src="resources/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="resources/vendors/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
     <script src="resources/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
@@ -758,4 +742,6 @@
     <script src="resources/build/js/custom.min.js"></script>
 	
   </body>
+</html>
+	</body>
 </html>
