@@ -44,4 +44,5 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String checkUsernameExists = "SELECT username FROM users WHERE username=?";
 	
+	public static final String getDepartments = "SELECT * FROM department";
 }
