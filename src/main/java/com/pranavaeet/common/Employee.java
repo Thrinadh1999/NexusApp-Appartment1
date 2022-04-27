@@ -16,7 +16,6 @@ public class Employee<departmentName> {
 	private String stateName;
 	private String countryId;
 	private String email;
-	private String gender;
 
 	public String getStateName() {
 		return stateName;
@@ -143,22 +142,15 @@ public class Employee<departmentName> {
 
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", empUnique=" + empUnique + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", address=" + address + ", mobile=" + mobile + ", city=" + city + ", zipCode=" + zipCode
-				+ ", joinDate=" + joinDate + ", relieveDate=" + relieveDate + ", departmentId=" + departmentId
-				+ ", role=" + role + ", stateName=" + stateName + ", countryId=" + countryId + ", email=" + email
-				+ ", gender=" + gender + "]";
+				+ ", address=" + address + ", mobile=" + mobile + ", joinDate=" + joinDate + ", relieveDate="
+				+ relieveDate + ", departmentId=" + departmentId + ", role=" + role + ", getId()=" + getId()
+				+ ", getEmpUnique()=" + getEmpUnique() + ", getFirstName()=" + getFirstName() + ", getLastName()="
+				+ getLastName() + ", getAddress()=" + getAddress() + ", getMobile()=" + getMobile() + ", getJoinDate()="
+				+ getJoinDate() + ", getRelieveDate()=" + getRelieveDate() + ", getDepartmentId()=" + getDepartmentId()
+				+ ", getRole()=" + getRole() + ", stateName=" + stateName + ", countryId=" + countryId + ", email=" + email + "]";
 	}
 
-	
 }

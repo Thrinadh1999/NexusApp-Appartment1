@@ -1,13 +1,13 @@
 package com.pranavaeet.common;
 
 public class Statelkp {
-
+	
 	private String id;
 	private String stateName;
 	private String countryId;
-
+	
 	public Statelkp() {
-
+		
 	}
 
 	public String getId() {
@@ -18,6 +18,8 @@ public class Statelkp {
 		this.id = id;
 	}
 
+	
+	
 	public String getStateName() {
 		return stateName;
 	}
@@ -36,7 +38,8 @@ public class Statelkp {
 
 	@Override
 	public String toString() {
-		return "Statelkp[id=" + id + ", stateName=" + stateName + ", countryId=" + countryId + "]";
+		return "Statelkp [id=" + id + ", stateName=" + stateName + ", countryId=" + countryId + "]";
 	}
 
+	
 }
