@@ -1,5 +1,6 @@
 <!-- jQuery -->
 <script src="resources/vendors/jquery/dist/jquery.min.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 <!-- Bootstrap -->
 <script src="resources/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme Scripts -->
@@ -23,7 +24,7 @@
 <script src="resources/js/firefoxDropdown.js"></script>
 <script src="resources/js/customValidation.js"></script>
 <script src="resources/js/disableAutofill.js"></script>
-<script src="resources/vendors/summernote.0.8.12/summernote.min.js"></script>
+<script src="resources/vendors/summernote/summernote.min.js"></script>
 <script>
 $(function(){
     $('.phoneMask').inputmask("999-999-9999");

@@ -11,6 +11,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String createUserProfile = "INSERT INTO user_profile (username, firstname, lastname, email, mobile, gender, status, userRole) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	public static final String getUserProfile = "SELECT * FROM user_profile WHERE username=?";
+	public static final String getusersProfileList= "SELECT * FROM user_profile";
 	
 	public static final String updateUserProfile = "UPDATE user_profile SET firstname=?, lastname=?, email=?, mobile=?, gender=?, dateOfBirth=? WHERE username=?";
 
@@ -37,12 +38,18 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getUserActivityList = "SELECT * FROM user_activity WHERE username=? ORDER BY id DESC";
 	
 	public static final String getStateList = "SELECT * FROM state_lkp";
+	public static final String getStateCount = "SELECT COUNT(*) as stateCount FROM state_lkp";
 	
 	public static final String getCountryList = "SELECT * FROM country_lkp";
+	public static final String getCountryCount = "SELECT COUNT(*) as CountryCount FROM country_lkp ";
 	
 	public static final String getUserRolesList = "SELECT * FROM user_roles_lkp WHERE user_role NOT IN ('ROLE_SUPERADMIN', 'ROLE_ADMIN')";
 	
 	public static final String checkUsernameExists = "SELECT username FROM users WHERE username=?";
-	
 	public static final String getDepartments = "SELECT * FROM department";
+	public static final String addDepartment = "INSERT INTO department (name,description,code) VALUES(?,?,?)";
+	public static final String getEmployeeCount = "SELECT COUNT(*) as empCount FROM employee";
+	public static final String getEmployeeList = "SELECT * FROM employee";
+
+	
 }

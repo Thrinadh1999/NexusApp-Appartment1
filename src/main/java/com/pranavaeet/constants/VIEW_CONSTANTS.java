@@ -18,4 +18,5 @@ public final class VIEW_CONSTANTS {
 	public static final String IFRAME_SESSION_EXPIRED = "IframeSessionExpired";
 	
 	public static final String MY_PROFILE = "MyProfile";
+	public static final String DEPARTMENTS = "Departments";
 }

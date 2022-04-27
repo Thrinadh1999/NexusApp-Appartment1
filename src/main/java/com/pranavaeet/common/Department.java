@@ -1,19 +1,21 @@
 package com.pranavaeet.common;
 
 public class Department {
-	private String id;
+	private String departmentId;
 	private String name;
 	private String description;
 	private String code;
 	
-	public Department() {
-	}
-	public String getId() {
-		return id;
+	public Department(){
+		
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(String departmentId) {
+		this.departmentId = departmentId;
 	}
 
 	public String getName() {
@@ -39,10 +41,11 @@ public class Department {
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	@Override
 	public String toString() {
-		return "Department[id=" + id + ", name=" + name + ", description=" + description + ", code=" + code + "]";
-	}		
-	
+		return "Department [departmentId=" + departmentId + ", name=" + name + ", description=" + description
+				+ ", code=" + code + "]";
+	}
 	
 }
