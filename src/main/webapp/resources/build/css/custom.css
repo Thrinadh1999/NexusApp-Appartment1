@@ -2727,9 +2727,9 @@ button,
 
 .ln_solid {
   border-top: 1px solid #e5e5e5;
-  color: #ffffff;
-  background-color: #ffffff;
-  height: 1px;
+  color: #bbb;
+  background-color: #cecece;
+  height: 2px;
   margin: 20px 0; }
 
 span.section {

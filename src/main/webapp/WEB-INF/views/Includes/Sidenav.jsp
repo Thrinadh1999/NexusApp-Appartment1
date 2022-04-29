@@ -43,7 +43,9 @@
                       
                     </ul>
                   </li>
-                  <li><a href="Tasks"><i class="fa fa-tasks"></i> Tasks </a>
+                  
+                  
+                    <li><a href="Tasks"><i class="fa fa-tasks"></i> Tasks </a>
                     <ul class="nav child_menu">
                       
                     </ul>

@@ -2,6 +2,7 @@
 <link rel="icon" href="resources/images/favicon.png" type="image/png" />
 <!-- Bootstrap -->
 <link href="resources/vendors/bootstrap/dist/css/bootstrap.css"	rel="stylesheet">
+
 <!-- Custom Theme Style -->
 <link href="resources/build/css/custom.css" rel="stylesheet">
 <!-- Font Awesome -->

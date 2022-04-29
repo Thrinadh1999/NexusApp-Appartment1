@@ -1,5 +1,7 @@
 package com.pranavaeet.common;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class Employee<departmentName> {
 	private String id;
 	private String empUnique;
@@ -12,10 +14,17 @@ public class Employee<departmentName> {
 	private String joinDate;
 	private String relieveDate;
 	private String departmentId;
+	private String departmentName;
 	private String role;
 	private String stateName;
 	private String countryId;
 	private String email;
+	private String gender;
+	private CommonsMultipartFile imageUpload;	
+	private String imageFilePath;
+	private String imageFileType;
+
+	
 
 	public String getStateName() {
 		return stateName;
@@ -108,6 +117,7 @@ public class Employee<departmentName> {
 
 	public String getJoinDate() {
 		return joinDate;
+
 	}
 
 	public void setJoinDate(String joinDate) {
@@ -141,16 +151,57 @@ public class Employee<departmentName> {
 	public Employee() {
 
 	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	
+	
+
+	public CommonsMultipartFile getImageUpload() {
+		return imageUpload;
+	}
+
+	public void setImageUpload(CommonsMultipartFile imageUpload) {
+		this.imageUpload = imageUpload;
+	}
+
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
+	}
+
+	public String getImageFileType() {
+		return imageFileType;
+	}
+
+	public void setImageFileType(String imageFileType) {
+		this.imageFileType = imageFileType;
+	}
 
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", empUnique=" + empUnique + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", address=" + address + ", mobile=" + mobile + ", joinDate=" + joinDate + ", relieveDate="
-				+ relieveDate + ", departmentId=" + departmentId + ", role=" + role + ", getId()=" + getId()
-				+ ", getEmpUnique()=" + getEmpUnique() + ", getFirstName()=" + getFirstName() + ", getLastName()="
-				+ getLastName() + ", getAddress()=" + getAddress() + ", getMobile()=" + getMobile() + ", getJoinDate()="
-				+ getJoinDate() + ", getRelieveDate()=" + getRelieveDate() + ", getDepartmentId()=" + getDepartmentId()
-				+ ", getRole()=" + getRole() + ", stateName=" + stateName + ", countryId=" + countryId + ", email=" + email + "]";
-	}
-
+				+ ", address=" + address + ", mobile=" + mobile + ", city=" + city + ", zipCode=" + zipCode
+				+ ", joinDate=" + joinDate + ", relieveDate=" + relieveDate + ", departmentId=" + departmentId
+				+ ", departmentName=" + departmentName + ", role=" + role + ", stateName=" + stateName + ", countryId="
+				+ countryId + ", email=" + email + ", gender=" + gender + ", imageUpload=" + imageUpload
+				+ ", imageFilePath=" + imageFilePath + ", imageFileType=" + imageFileType + "]";
+	}	
 }

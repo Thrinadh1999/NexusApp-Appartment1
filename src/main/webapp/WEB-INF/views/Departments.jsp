@@ -12,6 +12,8 @@
 <div class="container row">
 <div class="col-md-9">
 <h4>Departments</h4>
+
+<icon type="icon" class="icon-block" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i> Create Department</icon>
 </div>
 <div class="col-md-3">
 <button type="button" class="btn btn-info btn-md page-action-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create Department</button>
@@ -38,7 +40,9 @@
 	<td>${list.departmentId }</td>
 	<td>${list.name }</td>
 	<td>${list.description }</td>
-	<td>${list.code }</td>
+	<td>${list.code }
+	<i class="fa fa-pencil" id="edit" aria-hidden="true"></i>
+    </td>
 	</tr>
 	</c:forEach>
 	
