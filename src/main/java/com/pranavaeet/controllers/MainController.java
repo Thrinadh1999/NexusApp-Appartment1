@@ -64,7 +64,7 @@ public class MainController {
 			HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addDepartment,
 				new String[] { newDepartment.getName(), newDepartment.getDescription(), newDepartment.getCode() });
-		return new ModelAndView("redirect:/Departments");
+		return new ModelAndView("redirect:/departments");
 	}
 	
 	// request mapping method to get edit form
@@ -80,8 +80,14 @@ public class MainController {
 		}
 		
 		// request mapping method to submit edited details
-		@PostMapping(path = "/edit")
-		public void submitEditForm(String  depId) {
+		@PostMapping(path = "/editDepartmentPage")
+		public ModelAndView updateEditDepartment(@ModelAttribute Department editdepartment, HttpServletRequest request,
+				HttpSession session) {
+			objectDAO.addOrUpdate(SQL_QUERIES.updateDep,
+					new String[] { editdepartment.getName(), editdepartment.getDescription(), editdepartment.getCode(), editdepartment.getDepartmentId() });
+					
+			return new ModelAndView("redirect:/departments");
+			
 			
 			
 			

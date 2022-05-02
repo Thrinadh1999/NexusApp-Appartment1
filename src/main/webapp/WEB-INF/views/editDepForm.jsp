@@ -18,7 +18,7 @@
 	
 
 	</div>
-	<form:form modelAttribute="editDepartment" action="addDepartment"
+	<form:form modelAttribute="editDepartment" action="editDepartmentPage"
 						id="demo-form2" class="form-horizontal form-label-left"
 						method="POST">
 						<form:input id="middle-name" maxlength="2" class="form-control"
@@ -71,6 +71,15 @@ $(document).ready(function(){
 	$('#desc').val('${department.description}');
 });
 
+</script>
+<script>
+$('#submit-button').on(
+		'click',
+		function() {
+			alert('department Name is: ' + $('#department.name').val()
+					+ " and description is: " + $('#department.description').val()
+					+ " abd description Code is: " + $('#department.code'));
+			$('#demo-form2').Update();
 </script>
 
 
