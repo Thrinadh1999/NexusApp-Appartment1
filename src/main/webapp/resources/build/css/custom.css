@@ -4976,3 +4976,8 @@ ul.notifications {
   .page-action-btn{
   float:right;
   }
+  .loader{
+  position:absolute;
+  width: 100%;
+  display: none!important;
+}

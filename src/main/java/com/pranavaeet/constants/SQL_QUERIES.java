@@ -48,9 +48,9 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addEmployee = "INSERT INTO employee (firstName,lastName,address,mobile,joinDate,departmentId,role) VALUES(?,?,?,?,?,?,?)";
 	public static final String getEmployeeList = "SELECT e.*,up.email FROM employee e RIGHT JOIN user_profile up ON e.mobile=up.mobile WHERE e.id IS NOT NULL";
 	public static final String getDepartmentById = "SELECT * from department d WHERE d.departmentId =?";
-	
+	public static final String editDep = "SELECT * from department WHERE departmentId = ?";
+	public static final String insertdep = "Insert INTO department (departmentId, name, description,code) VALUES(?,?,?,?) WHERE departmentId=?";
 
-	
 
 	
 }

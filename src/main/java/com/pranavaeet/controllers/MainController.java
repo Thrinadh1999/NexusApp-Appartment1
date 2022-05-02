@@ -29,6 +29,7 @@ import com.pranavaeet.common.ObjectDAO;
 import com.pranavaeet.constants.SQL_QUERIES;
 import com.pranavaeet.constants.URL_CONSTANTS;
 import com.pranavaeet.common.Statelkp;
+
 import com.google.common.io.Files;
 import com.pranavaeet.common.Countrylkp;
 
@@ -65,6 +66,26 @@ public class MainController {
 				new String[] { newDepartment.getName(), newDepartment.getDescription(), newDepartment.getCode() });
 		return new ModelAndView("redirect:/Departments");
 	}
+	
+	// request mapping method to get edit form
+		@GetMapping(path = "/editDepartment")
+		public ModelAndView getEditForm(HttpServletRequest request, HttpSession session,String  id) {
+			Department selectedDep=(Department)objectDAO.singleResultSelect(SQL_QUERIES.editDep,new String[] {id},Department.class);
+			ModelAndView model = new ModelAndView();
+			model.setViewName("editDepForm");
+			model.addObject("department",selectedDep);
+			model.addObject("editDepartment",new Department());
+			return model;
+			
+		}
+		
+		// request mapping method to submit edited details
+		@PostMapping(path = "/edit")
+		public void submitEditForm(String  depId) {
+			
+			
+			
+		}
 
 	// Projects Page
 	@GetMapping(value = "/projects")
