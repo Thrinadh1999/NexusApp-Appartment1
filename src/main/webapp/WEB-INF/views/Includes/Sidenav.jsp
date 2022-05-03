@@ -50,7 +50,7 @@
                       
                     </ul>
                   </li>
-                  <li><a href="accounts"><i class="fa fa-building"></i> Administration </a>
+                  <li><a href="administration"><i class="fa fa-building"></i> Administration </a>
                     <ul class="nav child_menu">
                       
                     </ul>

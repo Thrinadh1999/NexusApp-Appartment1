@@ -46,7 +46,7 @@
 					<td>${list.name }</td>
 					<td>${list.description }</td>
 					<td>${list.code }</td>
-					<td><a href="editDepartment?id=${list.departmentId }">Edit</a></td>
+					<td><a class="editDepartmentButton" data-departmentid="${list.departmentId }" data-name="${list.name }" data-desc="${list.description }" data-code="${list.code }">Edit</a></td>
 				</tr>
 			</c:forEach>
 
@@ -105,9 +105,9 @@
 									class="btn btn-success">Submit</form:button>
 								<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
 							</div>
-							
+
 						</div>
-						
+
 
 					</form:form>
 
@@ -118,82 +118,103 @@
 
 		</div>
 	</div>
-	<div>
-	<div id="myModal2" class="modal fade" role="dialog">
+	<div id="editDepartmentModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
-		
-		<!-- Modal content-->
+
+			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Edit</h4>
-					<div class="modal-body">
-					
+					<h4 class="modal-title">Add Department</h4>
 				</div>
-	                       <h1>Edit Form</h1>
-							<form th:action="/edit" th:object="${Departments}" method="POST">
-								<table>
-									<tr>
-										<td>Department Name</td>
-										<td><input type="text" th:field="*{Department Name}"
-											name="Department Name" /></td>
-									</tr>
-									<tr>
-										<td>Description</td>
-										<td><input type="text" th:field="*{Description}"
-											name="Description" /></td>
-									</tr>
-									<tr>
-										<td>Code</td>
-										<td><input type="text" th:field="*{Code}"
-											name="Code" /></td>
-									</tr>
+				<div class="modal-body">
+					<form:form modelAttribute="newDepartment" action="editDepartmentPage"
+						id="editDepartment" class="form-horizontal form-label-left"
+						method="POST">
+						<form:input id="middle-name" maxlength="2" class="form-control"
+							type="hidden" path="departmentId" ></form:input>.
+										<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="first-name">Department Name <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="first-name" path="name"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="last-name">Description <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:textarea type="text" id="desc" path="description"
+									required="required" class="form-control"></form:textarea>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label for="middle-name"
+								class="col-form-label col-md-4 col-sm-4 label-align">Code</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input id="middle-name" maxlength="2" class="form-control"
+									type="text" path="code" required="required"></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
+								<form:button id="submit-button" type="submit"
+									class="btn btn-success">Update</form:button>
+							</div>
+					</form:form>
 
-								</table>
-								<input type="submit" value="Update" />
-							</form>
+
+
+				</div>
+			</div>
+
+		</div>
 	</div>
+	<div></div></div>
 
 
+	<!-- /page content -->
 
+	<%@ include file="Includes/Footer.jsp"%>
 
-</div>
-
-
-<!-- /page content -->
-
-<%@ include file="Includes/Footer.jsp"%>
-
-<%@ include file="Includes/FooterScripts.jsp"%>
-<!-- Datatables -->
-<script
-	src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script
-	src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script
-	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-<script>
+	<%@ include file="Includes/FooterScripts.jsp"%>
+	<!-- Datatables -->
+	<script
+		src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script
+		src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+	<script
+		src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+	<script>
 	$('#datatable').DataTable();
 	$('#cancel-button').on("click", function() {
 		$('#myModal').modal('hide');
-	})
+	});
+	$(".editDepartmentButton").on('click',function(){
+		$('#editDepartment input[name=departmentId]').val($(this).data('departmentid'));
+		$('#editDepartment input[name=name]').val($(this).data('name'));
+		$('#editDepartment textarea[name=description]').val($(this).data('desc'));
+		$('#editDepartment input[name=code]').val($(this).data('code'));
+		$('#editDepartmentModal').modal('show');
+	});
 </script>
-</body>
-</html>

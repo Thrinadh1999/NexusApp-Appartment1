@@ -87,33 +87,52 @@ public class MainController {
 					new String[] { editdepartment.getName(), editdepartment.getDescription(), editdepartment.getCode(), editdepartment.getDepartmentId() });
 					
 			return new ModelAndView("redirect:/departments");
-			
-			
-			
-			
 		}
 
 	// Projects Page
 	@GetMapping(value = "/projects")
 	public ModelAndView projectsPage(HttpServletRequest request, HttpSession session) {
 		List<Projects> projectsList = new ArrayList<Projects>();
-
+		if (null != request.getRemoteUser()) {
+			projectsList = (List<Projects>) objectDAO.multipleResultSelect(SQL_QUERIES.getProjects, null, Projects.class);
+		}
+		
 		ModelAndView page = new ModelAndView();
 		page.setViewName("Projects");
-		page.addObject("projectsList", projectsList);
+		page.addObject("proList", projectsList);
 		page.addObject("newProjects", new Projects());
 		return page;
-	}
-
-	@PostMapping(value = "/addProjects")
-	public ModelAndView addProjects(@ModelAttribute Projects newProjects, HttpServletRequest request,
+		}
+	
+	@PostMapping(value = "/addprojects")
+	public ModelAndView addNewProject(@ModelAttribute Projects newProjects, HttpServletRequest request,
 			HttpSession session) {
-		// objectDAO.addOrUpdate(SQL_QUERIES.addProjects, new String[]
-		// {newProjects.projectID(),newProjects.DetprojectName(),newProjects.getDescription(),newProjects.getBeginDate(),newProjects.getendDate()});
-		return new ModelAndView("redirect:/Products");
+		objectDAO.addOrUpdate(SQL_QUERIES.addProjects,
+				new String[] {newProjects.getProjectName(), newProjects.getDescription(), newProjects.getStartDate(), newProjects.getDueDate(), newProjects.getClient(), newProjects.getClientDetails()});
+		return new ModelAndView("redirect:/projects");
 
 	}
+	
+	// request mapping method to get edit form
+	@GetMapping(path = "/editProjects")
+	public ModelAndView getEditProjects(HttpServletRequest request, HttpSession session,String  ID) {
+		Projects selectedProjects=(Projects)objectDAO.singleResultSelect(SQL_QUERIES.editProjects,new String[] {ID},Projects.class);
+		ModelAndView model = new ModelAndView();
+		model.setViewName("editprojectsForm");
+		model.addObject("Projects",selectedProjects);
+		model.addObject("editProjects",new Projects());
+		return model;
+	}
+	// request mapping method to submit edited details
+	@PostMapping(path = "/editProjectsPage")
+	public ModelAndView updateEditProjects(@ModelAttribute Projects editProjects, HttpServletRequest request, HttpSession session) {
+				objectDAO.addOrUpdate(SQL_QUERIES.updateProjects,new String[] {editProjects.getProjectID(), editProjects.getProjectName(), editProjects.getDescription(), editProjects.getStartDate(), editProjects.getDueDate(), editProjects.getClient(), editProjects.getClientDetails()});
+							
+					return new ModelAndView("redirect:/projects");
+	}				
 
+	
+	
 	// Employees Page
 	@SuppressWarnings("unchecked")
 	@GetMapping(value = "/employees")

@@ -50,6 +50,9 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getDepartmentById = "SELECT * from department d WHERE d.departmentId =?";
 	public static final String editDep = "SELECT * from department WHERE departmentId = ?";
 	public static final String updateDep = "UPDATE department d SET d.name = ?, d.description = ?, d.code = ? WHERE d.departmentId = ?";
-
-	
+	public static final String getProjects = "SELECT * FROM projects";
+	public static final String addProjects = "INSERT INTO projects (projectName, description, startDate, dueDate, client, clientDetails) VALUES(?, ?, ?, ?, ?, ?)";
+    public static final String updateProjects = "UPDATE projects SET projects.projectName=?, projects.description=?, projects.startDate=?, projects.dueDate=?, projects.client=?, projects.clientDetails=? Where projects.projectID = ?";
+	public static final String getProjectCount = "SELECT COUNT(*) as proList FROM projects";
+	public static final String editProjects = "SELECT * FROM projects WHERE projectID = ?";
 }
