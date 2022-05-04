@@ -67,7 +67,7 @@ public class MainController {
 		return new ModelAndView("redirect:/departments");
 	}
 	
-	// request mapping method to get edit form
+	// request mapping method to get edit form for Departments Page
 		@GetMapping(path = "/editDepartment")
 		public ModelAndView getEditForm(HttpServletRequest request, HttpSession session,String  id) {
 			Department selectedDep=(Department)objectDAO.singleResultSelect(SQL_QUERIES.editDep,new String[] {id},Department.class);
@@ -79,7 +79,7 @@ public class MainController {
 			
 		}
 		
-		// request mapping method to submit edited details
+		// request mapping method to submit edited details for Departments Page
 		@PostMapping(path = "/editDepartmentPage")
 		public ModelAndView updateEditDepartment(@ModelAttribute Department editdepartment, HttpServletRequest request,
 				HttpSession session) {
@@ -113,20 +113,20 @@ public class MainController {
 
 	}
 	
-	// request mapping method to get edit form
-	@GetMapping(path = "/editProjects")
+	// request mapping method to get edit form for Projects Page
+	@GetMapping(path = "/editProjectForm")
 	public ModelAndView getEditProjects(HttpServletRequest request, HttpSession session,String  ID) {
 		Projects selectedProjects=(Projects)objectDAO.singleResultSelect(SQL_QUERIES.editProjects,new String[] {ID},Projects.class);
 		ModelAndView model = new ModelAndView();
-		model.setViewName("editprojectsForm");
+		model.setViewName("editProjects");
 		model.addObject("Projects",selectedProjects);
 		model.addObject("editProjects",new Projects());
 		return model;
 	}
-	// request mapping method to submit edited details
+	// request mapping method to submit edited details for Projects Page
 	@PostMapping(path = "/editProjectsPage")
 	public ModelAndView updateEditProjects(@ModelAttribute Projects editProjects, HttpServletRequest request, HttpSession session) {
-				objectDAO.addOrUpdate(SQL_QUERIES.updateProjects,new String[] {editProjects.getProjectID(), editProjects.getProjectName(), editProjects.getDescription(), editProjects.getStartDate(), editProjects.getDueDate(), editProjects.getClient(), editProjects.getClientDetails()});
+				objectDAO.addOrUpdate(SQL_QUERIES.updateProjects,new String[] { editProjects.getProjectName(), editProjects.getDescription(), editProjects.getStartDate(), editProjects.getDueDate(), editProjects.getClient(), editProjects.getClientDetails(),editProjects.getProjectID()});
 							
 					return new ModelAndView("redirect:/projects");
 	}				
@@ -206,7 +206,7 @@ public class MainController {
 			try {
 				Files.write( newEmployee.getImageUpload().getBytes(),dir);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// TODO Auto-generated catch block for Employees Page
 				e.printStackTrace();
 			}
 		
@@ -228,18 +228,33 @@ public class MainController {
 	@GetMapping(value = "/Tasks")
 	public ModelAndView tasksPage(HttpServletRequest request, HttpSession session) {
 		List<Tasks> tasksList = new ArrayList<Tasks>();
-
+		List<Employee> employeeList = (List<Employee>)
+				objectDAO.multipleResultSelect(SQL_QUERIES.getEmployee, null, Employee.class);
+		List<Projects> projectsList = (List<Projects>) 
+				objectDAO.multipleResultSelect(SQL_QUERIES.getProjects, null,
+						Projects.class);
 		ModelAndView page = new ModelAndView();
+		
 		page.setViewName("Tasks");
+		page.addObject("projectsList", projectsList);
+		page.addObject("employeeList", employeeList);
 		page.addObject("tasksList", tasksList);
+		
+	    
+	    
 		page.addObject("newTask", new Tasks());
 		return page;
 	}
+		
+		
+						 
+					
+	
 
 	@PostMapping(value = "/addTask")
 	public ModelAndView addTask(@ModelAttribute Tasks newTask, HttpServletRequest request, HttpSession session) {
-		// objectDAO.addOrUpdate(SQL_QUERIES.addProjects, new String[]
-		// {newTask.gettaskId(),newTask.gettaskDescription(),newTask.getisComplete(),newTask.getemployeeId()});
+		objectDAO.insertAndGetResult(SQL_QUERIES.addTasks,"id",  new String[]
+				{newTask.getTaskName(), newTask.getTaskDescription(), newTask.getStatus(), newTask.getPoints(), newTask.getCreatedTime(), newTask.getPriority()});
 		return new ModelAndView("redirect:/Tasks");
 	}
 }

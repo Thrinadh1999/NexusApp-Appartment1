@@ -1,16 +1,22 @@
 package com.pranavaeet.common;
 
+
 public class Tasks {
 	private String taskId;
 	private String taskName;
 	private String taskDescription;
-	private String isComplete;
-	private String employeeId;
+	private String status;
+	private String points;
+	private String createdTime;
+	private String priority;
+	private String id;
+	private String projectID;
+	
 
 	public Tasks() {
 		
 	}
-
+	
 	public String getTaskId() {
 		return taskId;
 	}
@@ -35,26 +41,60 @@ public class Tasks {
 		this.taskDescription = taskDescription;
 	}
 
-	public String getIsComplete() {
-		return isComplete;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setIsComplete(String isComplete) {
-		this.isComplete = isComplete;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getEmployeeId() {
-		return employeeId;
+	public String getPoints() {
+		return points;
 	}
 
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
+	public void setPoints(String points) {
+		this.points = points;
 	}
-	
+
+	public String getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(String createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(String projectID) {
+		this.projectID = projectID;
+	}
+
 	@Override
 	public String toString() {
-		return "Tasks [taskId=" + taskId + ", taskName=" + taskName + ", taskDescription=" + taskDescription + ", isComplete=" + isComplete + ","
-				+ " employeeId=" + employeeId + "]";
-		}
+		return "Tasks [taskId=" + taskId + ", taskName=" + taskName + ", taskDescription=" + taskDescription
+				+ ", status=" + status + ", points=" + points + ", createdTime=" + createdTime + ", priority="
+				+ priority + ", id=" + id + ", projectID=" + projectID + "]";
+	}
+
 
 }

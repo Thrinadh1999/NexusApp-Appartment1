@@ -162,6 +162,7 @@
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
 								<form:button id="submit-button" type="submit"
 									class="btn btn-success">Update</form:button>
+									<button id="cancel-button2" type="button" class="btn btn-danger">Cancel</button>
 							</div>
 					</form:form>
 
@@ -210,6 +211,9 @@
 	$('#cancel-button').on("click", function() {
 		$('#myModal').modal('hide');
 	});
+	$('#cancel-button2').on("click",function(){
+		$('#editDepartmentModal').modal('hide');
+	})
 	$(".editDepartmentButton").on('click',function(){
 		$('#editDepartment input[name=departmentId]').val($(this).data('departmentid'));
 		$('#editDepartment input[name=name]').val($(this).data('name'));

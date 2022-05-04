@@ -44,15 +44,28 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getDepartments = "SELECT * FROM department";
 	public static final String addDepartment = "INSERT INTO department (name,description,code) VALUES(?,?,?)";
-	public static final String getEmployeeCount = "SELECT COUNT(*) as empCount FROM employee";
-	public static final String addEmployee = "INSERT INTO employee (firstName,lastName,address,mobile,joinDate,departmentId,role) VALUES(?,?,?,?,?,?,?)";
-	public static final String getEmployeeList = "SELECT e.*,up.email FROM employee e RIGHT JOIN user_profile up ON e.mobile=up.mobile WHERE e.id IS NOT NULL";
 	public static final String getDepartmentById = "SELECT * from department d WHERE d.departmentId =?";
 	public static final String editDep = "SELECT * from department WHERE departmentId = ?";
 	public static final String updateDep = "UPDATE department d SET d.name = ?, d.description = ?, d.code = ? WHERE d.departmentId = ?";
+	
+	public static final String getEmployeeCount = "SELECT COUNT(*) as empCount FROM employee";
+	public static final String getEmployee= "SELECT* FROM employee";
+	public static final String addEmployee = "INSERT INTO employee (firstName,lastName,address,mobile,joinDate,departmentId,role) VALUES(?,?,?,?,?,?,?)";
+	public static final String getEmployeeList = "SELECT e.*,up.email FROM employee e RIGHT JOIN user_profile up ON e.mobile=up.mobile WHERE e.id IS NOT NULL";
+	
 	public static final String getProjects = "SELECT * FROM projects";
 	public static final String addProjects = "INSERT INTO projects (projectName, description, startDate, dueDate, client, clientDetails) VALUES(?, ?, ?, ?, ?, ?)";
     public static final String updateProjects = "UPDATE projects SET projects.projectName=?, projects.description=?, projects.startDate=?, projects.dueDate=?, projects.client=?, projects.clientDetails=? Where projects.projectID = ?";
 	public static final String getProjectCount = "SELECT COUNT(*) as proList FROM projects";
 	public static final String editProjects = "SELECT * FROM projects WHERE projectID = ?";
+	
+	
+	public static final String getTasks = "SELECT * FROM tasks";
+	public static final String addTasks = "INSERT INTO tasks (taskName, taskDescription, status, points, createdTime, priority) VALUES(?, ?, ?, ?, NOW(), ?)";
+	public static final String updateTasks = "UPDATE tasks SET tasks.taskName = ?, tasks.taskDescription = ?, tasks.status = ?, tasks.points = ?, tasks.createdTime = ?, tasks.priority = ? WHERE taskId=?";
+	public static final String getTasksCount = "SELECT COUNT(*) as taskCount FROM tasks";
+	public static final String editTasks = "SELECT * FROM tasks WHERE taskId = ?";
+			
+			
+			
 }

@@ -169,7 +169,7 @@
 					<h4 class="modal-title">Add Project</h4>
 				</div>
 				<div class="modal-body">
-					<form:form modelAttribute="newProjects" action="addprojects"
+					<form:form modelAttribute="newProjects" action="editProjectsPage"
 						id="editProjectForm" class="form-horizontal form-label-left"
 						method="POST">
 						<form:input id="projectID" maxlength="2" class="form-control"
@@ -231,7 +231,7 @@
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
 								<form:button id="submit-button" type="submit"
-									class="btn btn-success">Submit</form:button>
+									class="btn btn-success">Update</form:button>
 
 								<button id="cancel-button2" type="button" class="btn btn-danger">Cancel</button>
 							</div>

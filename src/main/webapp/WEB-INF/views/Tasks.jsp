@@ -14,7 +14,7 @@
 <h4>Tasks</h4>
 </div>
 <div class="col-md-3">
-<button type="button" class="btn btn-info btn-md page-action-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create User</button>
+<button type="button" class="btn btn-info btn-md page-action-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Create Task</button>
 
 </div>
 
@@ -25,24 +25,36 @@
 	<table id="datatable" class="table">
 	<thead>
 	<tr>
-	<th>taskId</th>
-	<th>taskName</th>
-	<th>taskDescription</th>
-	<th>isComplete</th>
-	<th>employeeId</th>
+	<th>Task Id</th>
+	<th>Employee Id</th>
+	<th>Task Name</th>
+	<th>Task Description</th>
+	<th>Status</th>
+	<th>Points</th>
+	<th>Created Time</th>
+	<th>Priority</th>
+	<th>Project Id</th>
 	</tr>
 	</thead>
 	<tbody>
 	
 	
 	<tr>
+	
+		<c:forEach items='${tasksList}' var="list">
 	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>${list.taskId}
+	<td>${list.id}</td>
+	<td>${list.taskName}</td>
+	<td>${list.taskDescription}</td>
+	<td>${list.status}</td>
+	<td>${list.points}</td>
+	<td>${list.createdTime}</td>
+	<td>${list.priority}</td>
+	<td>${list.projectID}</td>
 	
 	</tr>
+	</c:forEach>
 	
 	</tbody>
 	</table>
@@ -59,39 +71,82 @@
       </div>
       <div class="modal-body">
         <form:form modelAttribute="newTask" action="addTask" id="demo-form2" class="form-horizontal form-label-left" method="POST">
-										<form:input id="middle-name" maxlength="2" class="form-control" type="hidden" path="taskId"></form:input>.
+										<form:input id="taskId" maxlength="2" class="form-control" type="hidden" path="taskId"></form:input>.
 										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="firstName">Task Name <span class="required">*</span>
+									<label class="col-form-label col-md-4 col-sm-4 label-align"
+										for="employee">Employee Id <span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<form:select id="employee" class="form-control " path="id">
+											<c:forEach items='${employeeList}' var="list">
+												<form:option value="${list.id}">${list.firstName }${list.lastName }</form:option>
+											</c:forEach>
+										</form:select>
+									</div>
+								</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="taskName">Task Name <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<form:input type="text" id="taskName" path="taskName" required="required" class="form-control "></form:input>
 											</div>
 										</div>
 										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="FirstName">Task Description <span class="required">*</span>
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="taskDescription">Task Description <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="taskDescription" path="taskDescription" required="required" class="form-control "></form:input>
+												<form:textarea type="text" id="taskDescription" path="taskDescription" required="required" class="form-control "></form:textarea>
 											</div>
 										</div>
 										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="last-name">Is Complete <span class="required">*</span>
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="status">Status<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<form:textarea type="text" id="isComplete" path="isComplete" required="required" class="form-control"></form:textarea>
+												<form:input type="text" id="status" path="status" required="required" class="form-control"></form:input>
 											</div>
 										</div>
-                                        <form:input id="middle-name" maxlength="2" class="form-control" type="hidden" path="employeeId"></form:input>.
-										
-										
-										
-										<div class="ln_solid"></div>
 										<div class="item form-group">
-											<div class="col-md-6 col-sm-6 offset-md-3 text-center">
-												<form:button id="submit-button" type="submit" class="btn btn-success">Submit</form:button>
-												<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="points">Points<span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<form:input type="int" id="points" path="points" required="required" class="form-control"></form:input>
 											</div>
 										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="createdTime">Created Time <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<form:input type="datetime-local" id="createdTime" path="createdTime" required="required" class="form-control"></form:input>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="priority">Priority <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<form:input type="text" id="priority" path="priority" required="required" class="form-control"></form:input>
+											</div>
+										</div>
+										<div class="item form-group">
+									<label class="col-form-label col-md-4 col-sm-4 label-align"
+										for="FirstName">Project Id <span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<form:select id="Projects" class="form-control " path="projectID">
+											<c:forEach items='${projectsList}' var="list">
+												<form:option value="${list.projectID}"> ${list.projectName}</form:option>
+											</c:forEach>
+							
+										</form:select>
+									</div>
+								</div>
+														<div class="ln_solid"></div>
+					                       <div class="item form-group">
+						                   <div class="col-md-6 col-sm-6 offset-md-3 text-center">
+							               <form:button id="submit-button" type="button"
+								                        class="btn btn-success">Submit</form:button>
+							                <button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+						</div>
+					</div>
 
 									</form:form>
 
@@ -128,11 +183,12 @@
     <script src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <script>
-$('#datatable').DataTable();
+//$('#datatable').DataTable();
+
 $('#cancel-button').on("click",function(){
 	$('#myModal').modal('hide');
-})
+});
+
+
 </script>
-</body>
-</html>	  
 	
