@@ -29,29 +29,40 @@
 	<th>Employee Id</th>
 	<th>Task Name</th>
 	<th>Task Description</th>
-	<th>Status</th>
 	<th>Points</th>
 	<th>Created Time</th>
 	<th>Priority</th>
 	<th>Project Id</th>
+	<th>Status</th>
+	<th>Update Status</th>
 	</tr>
 	</thead>
 	<tbody>
 	
 	
-	<tr>
+	
 	
 		<c:forEach items='${tasksList}' var="list">
-	<td></td>
+		<tr>
 	<td>${list.taskId}
-	<td>${list.id}</td>
+	<td>${list.employeeId}</td>
 	<td>${list.taskName}</td>
 	<td>${list.taskDescription}</td>
-	<td>${list.status}</td>
 	<td>${list.points}</td>
 	<td>${list.createdTime}</td>
 	<td>${list.priority}</td>
-	<td>${list.projectID}</td>
+	<td>${list.projectId}</td>
+	<td>${list.status}</td>
+	<td>
+	<select name="status" id="status">
+  <option value="Pending">Pending</option>
+  <option value="Testing">Testing</option>
+  <option value="Completed">Completed</option>
+</select>
+<a class="updateTask" data-id="${list.taskId}">Update</a>
+	</td>
+						
+						
 	
 	</tr>
 	</c:forEach>
@@ -70,16 +81,16 @@
         <h4 class="modal-title">Add Task</h4>
       </div>
       <div class="modal-body">
-        <form:form modelAttribute="newTask" action="addTask" id="demo-form2" class="form-horizontal form-label-left" method="POST">
+        <form:form modelAttribute="newTask" action="addTask" id="tasks" class="form-horizontal form-label-left" method="POST">
 										<form:input id="taskId" maxlength="2" class="form-control" type="hidden" path="taskId"></form:input>.
 										<div class="item form-group">
 									<label class="col-form-label col-md-4 col-sm-4 label-align"
 										for="employee">Employee Id <span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<form:select id="employee" class="form-control " path="id">
+										<form:select id="employee" class="form-control " path="employeeId">
 											<c:forEach items='${employeeList}' var="list">
-												<form:option value="${list.id}">${list.firstName }${list.lastName }</form:option>
+												<form:option value="${list.id}">${list.firstName } ${list.lastName }</form:option>
 											</c:forEach>
 										</form:select>
 									</div>
@@ -98,25 +109,19 @@
 												<form:textarea type="text" id="taskDescription" path="taskDescription" required="required" class="form-control "></form:textarea>
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-4 col-sm-4 label-align" for="status">Status<span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<form:input type="text" id="status" path="status" required="required" class="form-control"></form:input>
-											</div>
-										</div>
+										
 										<div class="item form-group">
 											<label class="col-form-label col-md-4 col-sm-4 label-align" for="points">Points<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<form:input type="int" id="points" path="points" required="required" class="form-control"></form:input>
+												<form:input type="number" id="points" path="points" required="required" class="form-control"></form:input>
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-4 col-sm-4 label-align" for="createdTime">Created Time <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<form:input type="datetime-local" id="createdTime" path="createdTime" required="required" class="form-control"></form:input>
+												<form:input type="text" id="createdTime" path="createdTime" required="required" class="form-control"></form:input>
 											</div>
 										</div>
 										<div class="item form-group">
@@ -131,7 +136,7 @@
 										for="FirstName">Project Id <span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<form:select id="Projects" class="form-control " path="projectID">
+										<form:select id="Projects" class="form-control " path="projectId">
 											<c:forEach items='${projectsList}' var="list">
 												<form:option value="${list.projectID}"> ${list.projectName}</form:option>
 											</c:forEach>
@@ -139,6 +144,13 @@
 										</form:select>
 									</div>
 								</div>
+								<div class="item form-group">
+											<label class="col-form-label col-md-4 col-sm-4 label-align" for="status">Status<span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<form:input type="text" id="status" path="status" required="required" class="form-control"></form:input>
+											</div>
+										</div>
 														<div class="ln_solid"></div>
 					                       <div class="item form-group">
 						                   <div class="col-md-6 col-sm-6 offset-md-3 text-center">
@@ -157,12 +169,8 @@
 
   </div>
 </div>
-	
-	
-	
-	
 
-
+	
 </div>
 <!-- /page content -->
 
@@ -182,13 +190,39 @@
     <script src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+   
 <script>
-//$('#datatable').DataTable();
+	$('#datatable').DataTable();
 
-$('#cancel-button').on("click",function(){
-	$('#myModal').modal('hide');
-});
-
-
+	$('#createdTime').daterangepicker({
+		singleDatePicker : true,
+		showDropdowns : true,
+	});	
+	$('#cancel-button').on('click', function() {
+		$('#myModal').modal('hide');
+	});
+	$('#submit-button').on(
+			'click',
+			function() {
+				alert('created date time is: ' + $('#createdTime').val());
+				$('#demo-form2').submit();
+			});
+	
+	$(".updateTask").click(function(){
+			 var stat = $("#status").val();
+			 var id= $(this).data('id');
+		 $.ajax({
+		        type: "POST",
+		        url: "updateTaskStatus/?${_csrf.parameterName}=${_csrf.token}",
+		        data: { id: id, status: stat },
+		 		success: function(data)
+		        {
+		          
+		        }
+		    });
+		    
+		});
 </script>
+
+
 	

@@ -227,13 +227,14 @@ public class MainController {
 	// Tasks Page
 	@GetMapping(value = "/Tasks")
 	public ModelAndView tasksPage(HttpServletRequest request, HttpSession session) {
-		List<Tasks> tasksList = new ArrayList<Tasks>();
+		List<Tasks> tasksList = (List<Tasks>) objectDAO.multipleResultSelect(SQL_QUERIES.getTasks,null,Tasks.class);
 		List<Employee> employeeList = (List<Employee>)
 				objectDAO.multipleResultSelect(SQL_QUERIES.getEmployee, null, Employee.class);
 		List<Projects> projectsList = (List<Projects>) 
-				objectDAO.multipleResultSelect(SQL_QUERIES.getProjects, null,
-						Projects.class);
+				objectDAO.multipleResultSelect(SQL_QUERIES.getProjects, null, Projects.class);
 		ModelAndView page = new ModelAndView();
+		
+		
 		
 		page.setViewName("Tasks");
 		page.addObject("projectsList", projectsList);
@@ -245,16 +246,25 @@ public class MainController {
 		page.addObject("newTask", new Tasks());
 		return page;
 	}
-		
-		
-						 
-					
-	
 
 	@PostMapping(value = "/addTask")
 	public ModelAndView addTask(@ModelAttribute Tasks newTask, HttpServletRequest request, HttpSession session) {
-		objectDAO.insertAndGetResult(SQL_QUERIES.addTasks,"id",  new String[]
-				{newTask.getTaskName(), newTask.getTaskDescription(), newTask.getStatus(), newTask.getPoints(), newTask.getCreatedTime(), newTask.getPriority()});
+		objectDAO.addOrUpdate(SQL_QUERIES.addTasks, new String[]
+				{newTask.getStatus(), newTask.getTaskId()});
 		return new ModelAndView("redirect:/Tasks");
 	}
+	
+	   
+	// request mapping method to submit edit tasks Status
+		@PostMapping(path = "/updateTaskStatus")
+		public ModelAndView updateEditTasks(String id, String status, HttpServletRequest request, HttpSession session) {
+			
+					objectDAO.addOrUpdate(SQL_QUERIES.updateTasks,new String[] {status, id});
+					return new ModelAndView("redirect:/Tasks");
+		   
+	   }
+	
+	
+	
+	
 }
