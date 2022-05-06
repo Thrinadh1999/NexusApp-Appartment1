@@ -16,7 +16,7 @@
 		<div class="col-md-3">
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus"></i>New Project
+				<i class="fa fa-plus"></i>Create New Project
 			</button>
 
 		</div>

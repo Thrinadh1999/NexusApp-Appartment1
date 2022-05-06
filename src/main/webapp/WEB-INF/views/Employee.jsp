@@ -229,10 +229,17 @@
 									for="image">Upload Image</label>
 								<div class="col-md-6 col-sm-6 ">
 									<img id="blah" src="#" alt="your image" />
-									<form:input type="file" id="image" width="320" path="imageUpload" accept="image/*"></form:input>
+									<form:input type="file" id="image" width="400" height="200"
+                                                                       
+                                                                         
+									 path="imageUpload" accept="image/*"></form:input>
 								</div>
 
 							</div>
+							  <style type="text/css"> #image{  width: 300px;
+            }
+              
+        </style>
 					</div>
 
 					<div class="ln_solid"></div>

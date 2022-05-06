@@ -62,7 +62,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	
 	public static final String getTasks = "SELECT * FROM tasks";
-	public static final String addTasks = "INSERT INTO tasks (taskName, taskDescription, status, points, createdTime, priority) VALUES(?, ?, ?, ?, NOW(), ?)";
+	public static final String addTasks = "INSERT INTO tasks (taskName, taskDescription,  points, createdTime, priority,status) VALUES(?, ?, ?, NOW(), ?, 'Pending')";
 	public static final String updateTasks = "UPDATE tasks SET  tasks.status = ? WHERE taskId=?";
 	public static final String getTasksCount = "SELECT COUNT(*) as taskCount FROM tasks";
 	public static final String editTasks = "SELECT tasks.status FROM tasks WHERE taskId = ?";

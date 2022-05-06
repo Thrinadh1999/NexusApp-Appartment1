@@ -250,7 +250,7 @@ public class MainController {
 	@PostMapping(value = "/addTask")
 	public ModelAndView addTask(@ModelAttribute Tasks newTask, HttpServletRequest request, HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addTasks, new String[]
-				{newTask.getStatus(), newTask.getTaskId()});
+				{newTask.getTaskName(),newTask.getTaskDescription(), newTask.getPoints(),  newTask.getPriority()});
 		return new ModelAndView("redirect:/Tasks");
 	}
 	
