@@ -30,17 +30,17 @@
 
 					<ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
 						<li class="nav-item"><a class="nav-link active" id="home-tab"
-							data-toggle="tab" href="#home" role="tab" aria-controls="home"
+							data-toggle="tab" href="#pending" role="tab" aria-controls="home"
 							aria-selected="true">Pending</a></li>
 						<li class="nav-item"><a class="nav-link" id="profile-tab"
-							data-toggle="tab" href="#profile" role="tab"
+							data-toggle="tab" href="#testing" role="tab"
 							aria-controls="profile" aria-selected="false">Testing</a></li>
 						<li class="nav-item"><a class="nav-link" id="contact-tab"
-							data-toggle="tab" href="#contact" role="tab"
+							data-toggle="tab" href="#completed" role="tab"
 							aria-controls="contact" aria-selected="false">Completed</a></li>
 					</ul>
 					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="home" role="tabpanel"
+						<div class="tab-pane fade show active" id="pending" role="tabpanel"
 							aria-labelledby="home-tab">
 							<table id="datatable1" class="table">
 								<thead>
@@ -60,11 +60,6 @@
 								<tbody>
 									<c:forEach items='${tasksList}' var="list">
 									<c:if test="${list.status  eq 'Pending'}">
-                                    <c:out value="${tasksList}"/>
-                                    </c:if>
-                                     
-
-									
 										<tr>
 											<td>${list.taskId}
 											<td>${list.employeeId}</td>
@@ -75,18 +70,18 @@
 											<td>${list.priority}</td>
 											<td>${list.projectId}</td>
 											<td>${list.status}</td>
-											<td><select name="status" id="status">
+											<td class="lastTd"><select name="status" id="status">
 													<option value="Pending">Pending</option>
 													<option value="Testing">Testing</option>
 													<option value="Completed">Completed</option>
-											</select> <a class="updateTask" data-id="${list.taskId}">Update</a></td>
+											</select> <a class="updateTask" type="button" data-id="${list.taskId}">Update</a></td>
 										</tr>
+										 </c:if>
 									</c:forEach>
-
 								</tbody>
 							</table>
 						</div>
-						<div class="tab-pane fade" id="profile" role="tabpanel"
+						<div class="tab-pane fade" id="testing" role="tabpanel"
 							aria-labelledby="profile-tab">
 							<table id="datatable2" class="table">
 								<thead>
@@ -106,8 +101,6 @@
 								<tbody>
 									<c:forEach items='${tasksList}' var="list">
 									<c:if test="${list.status  eq 'Testing'}">
-                                    <c:out value="${tasksList}"/>
-                                    </c:if>
 										<tr>
 											<td>${list.taskId}
 											<td>${list.employeeId}</td>
@@ -122,14 +115,14 @@
 													<option value="Pending">Pending</option>
 													<option value="Testing">Testing</option>
 													<option value="Completed">Completed</option>
-											</select> <a class="updateTask" data-id="${list.taskId}">Update</a></td>
+											</select> <a class="updateTask" type="button" data-id="${list.taskId}">Update</a></td>
 										</tr>
+										</c:if>
 									</c:forEach>
-
 								</tbody>
 							</table>
 						</div>
-						<div class="tab-pane fade" id="contact" role="tabpanel"
+						<div class="tab-pane fade" id="completed" role="tabpanel"
 							aria-labelledby="contact-tab">
 							<table id="datatable3" class="table">
 								<thead>
@@ -149,8 +142,6 @@
 								<tbody>
 									<c:forEach items='${tasksList}' var="list">
 									<c:if test="${list.status  eq 'Completed'}">
-                                    <c:out value="${tasksList}"/>
-                                    </c:if>
 										<tr>
 											<td>${list.taskId}
 											<td>${list.employeeId}</td>
@@ -165,13 +156,10 @@
 													<option value="Pending">Pending</option>
 													<option value="Testing">Testing</option>
 													<option value="Completed">Completed</option>
-											</select> <a class="updateTask" data-id="${list.taskId}">Update</a></td>
-
-
-
+											</select> <a class="updateTask" type="button" data-id="${list.taskId}">Update</a></td>
 										</tr>
+										</c:if>
 									</c:forEach>
-
 								</tbody>
 							</table>
 						</div>
@@ -345,7 +333,7 @@
 		$('#myModal').modal('hide');
 	});
 	$('#submit-button').on('click', function() {
-		alert('created date time is: ' + $('#createdTime').val());
+		alert('created date time is: ' + $('#createdTime').val() + " and employeeId is: " + $('#employee').val() + " and projectId is: " + $('#Projects').val());
 		$('#tasks').submit();
 	});
 
@@ -360,7 +348,7 @@
 				status : stat
 			},
 			success : function(data) {
-
+				location.reload();
 			}
 		});
 

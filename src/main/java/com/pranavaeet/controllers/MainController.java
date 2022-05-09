@@ -24,6 +24,7 @@ import com.pranavaeet.common.Department;
 
 import com.pranavaeet.common.Projects;
 import com.pranavaeet.common.Tasks;
+import com.pranavaeet.common.Transactions;
 import com.pranavaeet.common.Employee;
 import com.pranavaeet.common.ObjectDAO;
 import com.pranavaeet.constants.SQL_QUERIES;
@@ -31,6 +32,7 @@ import com.pranavaeet.constants.URL_CONSTANTS;
 import com.pranavaeet.common.Statelkp;
 
 import com.google.common.io.Files;
+import com.pranavaeet.common.Categories;
 import com.pranavaeet.common.Countrylkp;
 
 
@@ -220,8 +222,53 @@ public class MainController {
 		return new ModelAndView("redirect:/employees");
 	}
 	
+	//Accounts Menu
+	//Categories Page
+	@GetMapping(value="/Categories")
+	public ModelAndView accountsPage(HttpServletRequest request, HttpSession session) {
 	
-
+		List<Categories> categoriesList = (List<Categories>) objectDAO.multipleResultSelect(SQL_QUERIES.getCategories, null, Categories.class);
+		
+		ModelAndView page = new ModelAndView();
+		
+		page.setViewName("Categories");
+		page.addObject("catList", categoriesList);
+		
+		page.addObject("newCategory", new Categories());
+		return page;
+	}
+	@PostMapping(value = "/addcategories")
+	public ModelAndView addNewCategories(@ModelAttribute Categories newCategories, HttpServletRequest request,
+			HttpSession session) {
+		
+		objectDAO.addOrUpdate(SQL_QUERIES.addCategories,
+				new String[] {newCategories.getCategoryName(), newCategories.getDescription(), newCategories.getType(), newCategories.getCreatedTime()});
+		return new ModelAndView("redirect:/Categories");
+	}
+	
+	//Accounts Menu
+		//Transactions Page
+	
+	@GetMapping(value="/Transactions")
+	public ModelAndView transactionsPage(HttpServletRequest request, HttpSession session) {
+	
+		List<Transactions> transactionsList = (List<Transactions>) objectDAO.multipleResultSelect(SQL_QUERIES.getTransactions, null, Transactions.class);
+		
+		ModelAndView page = new ModelAndView();
+		
+		page.setViewName("Transactions");
+		page.addObject("transList", transactionsList);
+		
+		page.addObject("newTransactions", new Transactions());
+		return page;
+	}
+	@PostMapping(value = "/addtransactions")
+	public ModelAndView addNewTransactions(@ModelAttribute Transactions newTransactions, HttpServletRequest request,HttpSession session) {
+		objectDAO.addOrUpdate(SQL_QUERIES.addTransactions,
+				new String[] {newTransactions.getTransactionBy(), newTransactions.getTransactionDateTime(), newTransactions.getTransDescription(), newTransactions.getTransactionCategories(), newTransactions.getTransactionType(), newTransactions.getAmount()});
+		return new ModelAndView("redirect:/Transactions");
+	}
+	
 	
 	
 	// Tasks Page
@@ -250,11 +297,10 @@ public class MainController {
 	@PostMapping(value = "/addTask")
 	public ModelAndView addTask(@ModelAttribute Tasks newTask, HttpServletRequest request, HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addTasks, new String[]
-				{newTask.getTaskName(),newTask.getTaskDescription(), newTask.getPoints(),  newTask.getPriority()});
+				{newTask.getTaskName(),newTask.getTaskDescription(), newTask.getPoints(),  newTask.getPriority(), newTask.getEmployeeId(), newTask.getProjectId()});
 		return new ModelAndView("redirect:/Tasks");
 	}
 	
-	   
 	// request mapping method to submit edit tasks Status
 		@PostMapping(path = "/updateTaskStatus")
 		public ModelAndView updateEditTasks(String id, String status, HttpServletRequest request, HttpSession session) {

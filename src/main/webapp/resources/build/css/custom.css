@@ -4980,4 +4980,23 @@ ul.notifications {
   position:absolute;
   width: 100%;
   display: none!important;
+  }
+  #blah{
+  width: inherit;
+}
+.updateTask{
+	padding:5px;
+	font-size:12px;
+	color:#ddd!important;
+	background-color:#555;
+	border-radius: 4px;
+}
+a.updateTask:hover{
+	color:#444!important;
+	background-color:#aaa;
+	transition: background-color ease-in .5s,color ease-in .5s;
+}
+.lastTd{
+	display:inline-block;
+	width:210px;
 }

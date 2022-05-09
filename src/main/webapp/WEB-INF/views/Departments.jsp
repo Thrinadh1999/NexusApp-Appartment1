@@ -124,7 +124,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Department</h4>
+					<h4 class="modal-title">Edit Department</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newDepartment" action="editDepartmentPage"

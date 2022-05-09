@@ -4,7 +4,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>S&M Employee Manager</span></a>
+              <a class="site_title"><i class="fa fa-home"></i> <span>S&M Employee Manager</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -50,11 +50,23 @@
                       
                     </ul>
                   </li>
-                  <li><a href="administration"><i class="fa fa-building"></i> Administration </a>
+                
+                  
+                  
+              <li><a><i class="fa fa-credit-card-alt"></i> Accounts <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      
+                      <li><a href="Categories">Categories</a></li>
+                      <li><a href="Transactions">Transactions</a></li>
+                      <li><a href="">Balance Sheet</a></li>
+                      <li><a href="">Invoices</a></li>
+                      <li><a href="">Categories</a></li>
                     </ul>
-                  </li>
+                  </li>     
+                  
+                  
+                  
+                  
+                  
                   
               </div>
               <div class="menu_section">

@@ -226,10 +226,11 @@
 							<div class="col-md-5">
 
 								<label class="col-form-label col-md-12 col-sm-12"
-									for="image">Upload Image</label>
+									for="image">Employee Profile Image<span class="required">*</span>
+									</label>
 								<div class="col-md-6 col-sm-6 ">
 									<img id="blah" src="#" alt="your image" />
-									<form:input type="file" id="image" width="400" height="200"
+									<form:input type="file" id="image" width="inherit"
                                                                        
                                                                          
 									 path="imageUpload" accept="image/*"></form:input>
