@@ -47,13 +47,12 @@
                   
                     <li><a href="Tasks"><i class="fa fa-tasks"></i> Tasks </a>
                     <ul class="nav child_menu">
-                      
                     </ul>
                   </li>
                 
                   
                   
-              <li><a><i class="fa fa-credit-card-alt"></i> Accounts <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-credit-card-alt"></i> Accounts<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="Categories">Categories</a></li>
                       <li><a href="Transactions">Transactions</a></li>
@@ -62,12 +61,6 @@
                       <li><a href="">Categories</a></li>
                     </ul>
                   </li>     
-                  
-                  
-                  
-                  
-                  
-                  
               </div>
               <div class="menu_section">
                 

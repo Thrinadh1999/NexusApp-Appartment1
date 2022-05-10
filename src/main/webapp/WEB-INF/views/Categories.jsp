@@ -30,21 +30,22 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>categoryId</th>
-				<th>categoryName</th>
-				<th>description</th>
-				<th>type</th>
-				<th>createdTime</th>
+				<th>Category Id</th>
+				<th>Category Name</th>
+				<th>Description</th>
+				<th>Type</th>
+				<th>Created Time</th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<c:forEach items='${catList}' var="list">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${list.categoryId }</td>
+					<td>${list.categoryName }</td>
+					<td>${list.description }</td>
+					<td>${list.type }</td>
+					<td>${list.createdTime }</td>
 				</tr>
 			</c:forEach>
 
@@ -60,7 +61,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Department</h4>
+					<h4 class="modal-title">Add Category</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newCategory" action="addcategories"
@@ -70,7 +71,7 @@
 							type="hidden" path="categoryId"></form:input>.
 										<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="first-name">categoryName <span class="required">*</span>
+								for="categoryName">Category Name <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="first-name" path="categoryName"
@@ -79,7 +80,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="description">description <span class="required">*</span>
+								for="description">Description <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:textarea type="text" id="description" path="description"
@@ -87,16 +88,19 @@
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="type"
-								class="col-form-label col-md-4 col-sm-4 label-align">type</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input id="type"  class="form-control"
-									type="text" path="type" required="required"></form:input>
-							</div>
-						</div>
+									<label class="col-form-label col-md-4 col-sm-4 label-align"
+										for="type">Type <span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<c:forEach items='${typeList}' var="list">
+											<form:radiobutton path="type" value="${list.type}"
+												label="${list.type }" />
+										</c:forEach>
+									</div>
+								</div>
 						<div class="item form-group">
 							<label for="createdTime"
-								class="col-form-label col-md-4 col-sm-4 label-align">createdTime</label>
+								class="col-form-label col-md-4 col-sm-4 label-align">Created Time</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input id="createdTime"  class="form-control"
 									type="text" path="createdTime" required="required"></form:input>
@@ -164,6 +168,7 @@ $('#createdTime').daterangepicker({
 	singleDatePicker : true,
 	showDropdowns : true,
 });
+
 $('#cancel-button').on('click', function() {
 	$('#myModal').modal('hide');
 });

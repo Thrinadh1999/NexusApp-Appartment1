@@ -40,14 +40,18 @@
 			</tr>
 		</thead>
 		<tbody>
-
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+      <c:forEach items='${transList}' var="list">
+      <tr>
+			<td>${list.transactionId}</td>
+			<td>${list.transactionBy}</td>
+			<td>${list.transactionDateTime}</td>
+			<td>${list.transDescription}</td>
+			<td>${list.transactionCategories}</td>
+			<td>${list.transactionType}</td>
+			<td>${list.amount}</td>
+			</tr>
+			</c:forEach>
+			
 
 		</tbody>
 	</table>
@@ -74,8 +78,12 @@
 								for="transactionBy">Transaction By<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="transactionBy" path="transactionBy"
-									required="required" class="form-control "></form:input>
+								<form:select id="transactionBy" class="form-control "
+									path="transactionBy">
+									<c:forEach items='${emplist}' var="list">
+										<form:option value="${list.firstName } ${list.lastName }">${list.firstName } ${list.lastName }</form:option>
+									</c:forEach>
+								</form:select>
 							</div>
 						</div>
 						<div class="item form-group">
@@ -88,19 +96,25 @@
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="transDescription"
-								class="col-form-label col-md-4 col-sm-4 label-align">Transaction Description</label>
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="transDescription">Description <span class="required">*</span>
+							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:textarea id="transDescription"  class="form-control"
-									type="text" path="transDescription" required="required"></form:textarea>
+								<form:textarea type="text" id="transDescription" path="transDescription"
+									required="required" class="form-control"></form:textarea>
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="transactionCategories"
-								class="col-form-label col-md-4 col-sm-4 label-align">Transaction Categories</label>
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="transactionBy">Categories<span class="required">*</span>
+							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input id="transactionCategories"  class="form-control"
-									type="text" path="transactionCategories" required="required"></form:input>
+								<form:select id="transactionCategories" class="form-control "
+									path="transactionCategories">
+									<c:forEach items='${catList}' var="list">
+										<form:option value="${list.categoryName }:${list.type }" >${list.categoryName }</form:option>
+									</c:forEach>
+								</form:select>
 							</div>
 						</div>
 						<div class="item form-group">
@@ -183,6 +197,11 @@
 	$('#cancel-button').on('click', function() {
 		$('#myModal').modal('hide');
 	});
+	$('select#transactionCategories').change(function(){
+		var type= $(this).val().split(":")[1];
+		$('input#transactionType').val(type);
+	});
+
 	</script>
 
 	

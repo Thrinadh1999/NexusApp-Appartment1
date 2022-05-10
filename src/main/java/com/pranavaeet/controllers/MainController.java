@@ -1,7 +1,6 @@
 package com.pranavaeet.controllers;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,11 +28,8 @@ import com.pranavaeet.common.Employee;
 import com.pranavaeet.common.ObjectDAO;
 import com.pranavaeet.constants.SQL_QUERIES;
 import com.pranavaeet.constants.URL_CONSTANTS;
-import com.pranavaeet.common.Statelkp;
 
-import com.google.common.io.Files;
 import com.pranavaeet.common.Categories;
-import com.pranavaeet.common.Countrylkp;
 
 
 
@@ -135,95 +131,10 @@ public class MainController {
 
 	
 	
-	// Employees Page
-	@SuppressWarnings("unchecked")
-	@GetMapping(value = "/employees")
-	public ModelAndView employeePage(HttpServletRequest request, HttpSession session) {
-		List<Employee> empList = new ArrayList<Employee>();
-		List<Department> departmentList = (List<Department>) objectDAO.multipleResultSelect(SQL_QUERIES.getDepartments, null,
-				Department.class);
-		List<Statelkp> stateList = (List<Statelkp>) objectDAO.multipleResultSelect(SQL_QUERIES.getStateList, null, Statelkp.class);
-		List<Countrylkp> countryList = (List<Countrylkp>) objectDAO.multipleResultSelect(SQL_QUERIES.getCountryList, null, Countrylkp.class);
-		 Map<String,Object> countMap = 
-		 objectDAO.singleResultSelect(SQL_QUERIES.getEmployeeCount, null);
-		 Long countlng = (Long) countMap.get("empCount");
-		 Integer count = countlng.intValue();			
-			 if(count!=0) { 
-				 empList =
-			 (List<Employee>)objectDAO.multipleResultSelect(SQL_QUERIES.getEmployeeList,
-			null, Employee.class);
-				 
-				
-				 
-				 for (Employee emp:empList) {
-						Department depName = (Department) objectDAO.singleResultSelect(SQL_QUERIES.getDepartmentById, new String[] {emp.getDepartmentId()} , Department.class);
-						emp.setDepartmentName(depName.getName());
-					}
-				 }
-			List<Map<String,Object>> roleList = objectDAO.multipleResultSelect(SQL_QUERIES.getUserRoles, null);
-			
-		 
-		ModelAndView page = new ModelAndView();
-		List<Map<String,Object>> genderList = new ArrayList<Map<String,Object>>();
-		
-		for(int i = 0;i<2;i++) {
-			Map<String,Object> map = new HashMap<String,Object>();
-			if(i==0) {
-				map.put("gender", "Male");
-			}else  {
-				map.put("gender", "Female");
-			}
-			genderList.add(map);
-		}
-		
-		
-		
-		page.setViewName("Employee");
-		page.addObject("employeeList", empList);
-		page.addObject("depList", departmentList);
-		page.addObject("stateList", stateList);
-		page.addObject("countryList" , countryList);
-		page.addObject("roleList" , roleList);
-		page.addObject("genList",genderList);
-		
-		
-		page.addObject("newEmployee", new Employee());
-		return page;
-	}
-
-	@PostMapping(value = "/addEmployee")
-	public ModelAndView addNewEmployee(@ModelAttribute Employee newEmployee, HttpServletRequest request,
-			HttpSession session) {
-		
-		
-		
-		logger.info("join date: "+newEmployee.getJoinDate()+"  and departmentId :"+newEmployee.getDepartmentId());
-		Integer eId = objectDAO.insertAndGetResult(SQL_QUERIES.addEmployee,"id", new String[]
-		{newEmployee.getFirstName(),newEmployee.getLastName(),newEmployee.getAddress()+newEmployee.getCity()+newEmployee.getStateName()+newEmployee.getCountryId()+newEmployee.getZipCode(),newEmployee.getMobile(),newEmployee.getJoinDate(),newEmployee.getDepartmentId(),newEmployee.getRole()});
-		newEmployee.setId(String.valueOf(eId));
-		newEmployee.setImageFilePath("/home/smssols/Desktop/EmployeePics/"+newEmployee.getId()+".jpeg");
-		File dir = new File ("/home/smssols/Desktop/EmployeePics/"+newEmployee.getId()+".jpeg");
-		
-		
-			try {
-				Files.write( newEmployee.getImageUpload().getBytes(),dir);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block for Employees Page
-				e.printStackTrace();
-			}
-		
-		objectDAO.addOrUpdate(SQL_QUERIES.createUser, new String[]
-				{newEmployee.getEmail(),newEmployee.getMobile()});
-		objectDAO.addOrUpdate(SQL_QUERIES.createUserProfile, new String[]
-				{newEmployee.getEmail(),newEmployee.getFirstName(),newEmployee.getLastName(),newEmployee.getEmail(),newEmployee.getMobile(),newEmployee.getAddress(),newEmployee.getCity(),newEmployee.getStateName(),newEmployee.getCountryId(),newEmployee.getZipCode(),newEmployee.getGender(),newEmployee.getRole(), newEmployee.getImageFilePath(), newEmployee.getImageFileType()});
-		objectDAO.addOrUpdate(SQL_QUERIES.createUserRole, new String[]
-				{newEmployee.getEmail(),newEmployee.getRole()});
-			
-		return new ModelAndView("redirect:/employees");
-	}
+	
 	
 	//Accounts Menu
-	//Categories Page
+	     //Categories Page
 	@GetMapping(value="/Categories")
 	public ModelAndView accountsPage(HttpServletRequest request, HttpSession session) {
 	
@@ -231,8 +142,22 @@ public class MainController {
 		
 		ModelAndView page = new ModelAndView();
 		
+		//To get payment Types
+				List<Map<String,Object>> typeList = new ArrayList<Map<String,Object>>();
+				
+				for(int i = 0;i<2;i++) {
+					Map<String,Object> map = new HashMap<String,Object>();
+					if(i==0) {
+						map.put("type", "Payment");
+					}else  {
+						map.put("type", "Receipt");
+					}
+					typeList.add(map);
+				}
+		
 		page.setViewName("Categories");
 		page.addObject("catList", categoriesList);
+		page.addObject("typeList",typeList);
 		
 		page.addObject("newCategory", new Categories());
 		return page;
@@ -242,7 +167,7 @@ public class MainController {
 			HttpSession session) {
 		
 		objectDAO.addOrUpdate(SQL_QUERIES.addCategories,
-				new String[] {newCategories.getCategoryName(), newCategories.getDescription(), newCategories.getType(), newCategories.getCreatedTime()});
+				new String[] {newCategories.getCategoryName(), newCategories.getDescription(), newCategories.getType()});
 		return new ModelAndView("redirect:/Categories");
 	}
 	
@@ -253,19 +178,27 @@ public class MainController {
 	public ModelAndView transactionsPage(HttpServletRequest request, HttpSession session) {
 	
 		List<Transactions> transactionsList = (List<Transactions>) objectDAO.multipleResultSelect(SQL_QUERIES.getTransactions, null, Transactions.class);
-		
+		List<Employee> employeeList = (List<Employee>) objectDAO.multipleResultSelect(SQL_QUERIES.getEmpBYDepId, null, Employee.class);
+		List<Categories> categoriesList = (List<Categories>) objectDAO.multipleResultSelect(SQL_QUERIES.getCategories, null, Categories.class);
 		ModelAndView page = new ModelAndView();
+		
+		
+		
 		
 		page.setViewName("Transactions");
 		page.addObject("transList", transactionsList);
+		page.addObject("emplist", employeeList);
+		page.addObject("catList", categoriesList);
+	
 		
 		page.addObject("newTransactions", new Transactions());
 		return page;
 	}
 	@PostMapping(value = "/addtransactions")
 	public ModelAndView addNewTransactions(@ModelAttribute Transactions newTransactions, HttpServletRequest request,HttpSession session) {
+		
 		objectDAO.addOrUpdate(SQL_QUERIES.addTransactions,
-				new String[] {newTransactions.getTransactionBy(), newTransactions.getTransactionDateTime(), newTransactions.getTransDescription(), newTransactions.getTransactionCategories(), newTransactions.getTransactionType(), newTransactions.getAmount()});
+				new String[] {newTransactions.getTransactionBy(), newTransactions.getTransDescription(), newTransactions.getTransactionCategories().split(":")[0],newTransactions.getTransactionType(), newTransactions.getAmount()});
 		return new ModelAndView("redirect:/Transactions");
 	}
 	

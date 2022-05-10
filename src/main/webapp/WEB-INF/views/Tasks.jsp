@@ -350,7 +350,7 @@
 			success : function(data) {
 				location.reload();
 			}
-		});
+		})
 
 	});
 </script>

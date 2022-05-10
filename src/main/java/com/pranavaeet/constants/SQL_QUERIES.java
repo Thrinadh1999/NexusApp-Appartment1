@@ -52,6 +52,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getEmployee= "SELECT* FROM employee";
 	public static final String addEmployee = "INSERT INTO employee (firstName,lastName,address,mobile,joinDate,departmentId,role) VALUES(?,?,?,?,?,?,?)";
 	public static final String getEmployeeList = "SELECT e.*,up.email FROM employee e RIGHT JOIN user_profile up ON e.mobile=up.mobile WHERE e.id IS NOT NULL";
+	public static final String getEmpBYDepId = "SELECT * FROM employee WHERE departmentId=2";
 	
 	public static final String getProjects = "SELECT * FROM projects";
 	public static final String addProjects = "INSERT INTO projects (projectName, description, startDate, dueDate, client, clientDetails) VALUES(?, ?, ?, ?, ?, ?)";
@@ -60,21 +61,18 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String editProjects = "SELECT * FROM projects WHERE projectID = ?";
 	public static final String getProjectsById = "SELECT * FROM projects WHERE projects.projectID =?";
 	
-	
 	public static final String getTasks = "SELECT * FROM tasks";
 	public static final String addTasks = "INSERT INTO tasks (taskName, taskDescription,  points, createdTime, priority,status, employeeId, projectId ) VALUES(?, ?, ?, NOW(), ?, 'Pending',?, ?)";
 	public static final String updateTasks = "UPDATE tasks SET  tasks.status = ? WHERE taskId=?";
 	public static final String getTasksCount = "SELECT COUNT(*) as taskCount FROM tasks";
 	public static final String editTasks = "SELECT tasks.status FROM tasks WHERE taskId = ?";
 	
-	
 	public static final String getCategories = "SELECT * FROM categories";
-	public static final String addCategories = "INSERT INTO categories (categoryName, description, type, createdTime) VALUES(?, ?, ?, NOW())";
+	public static final String addCategories = "INSERT INTO categories (categoryName, description,type, createdTime) VALUES(?, ?, ?, NOW())";
 	public static final String editCategories = "SELECT categories.categoryName, categories.description, categories.type, categories.createdTime FROM categories WHERE categoryId =?";
 	
-	
 	public static final String getTransactions = "SELECT * FROM transactions";
-	public static final String addTransactions ="INSERT INTO transactions (transactionBy, transactionDateTime, description, transactionCategories, transactionType, amount) VALUES(?,NOW(),?,?,?,?)";
-			
+	public static final String addTransactions ="INSERT INTO transactions (transactionBy, transactionDateTime, transDescription, transactionCategories, transactionType, amount) VALUES(?,NOW(),?,?,?,?)";
+		
 			
 }

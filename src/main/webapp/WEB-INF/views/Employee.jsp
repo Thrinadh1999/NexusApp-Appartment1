@@ -266,7 +266,7 @@
 
 
 
-
+</div>
 </div>
 <!-- /page content -->
 
@@ -330,8 +330,21 @@
 	$('#submit-button').on(
 			'click',
 			function() {
-				alert('join date is: ' + $('#Join_Date').val()
-						+ " and departmentId is: " + $('#Department').val());
-				$('#demo-form2').submit();
+			var	mobile = $("input[name=mobile]").val();
+			$.ajax({
+				type : "POST",
+				url : "checkMobile/?${_csrf.parameterName}=${_csrf.token}",
+				data : {
+					mnumber : mobile,
+				},
+				success : function(data) {
+					if(data=="false")
+						alert("Mobile number already exists ! Please use another number or contact admin");
+					else
+						$("#demo-form2").submit();
+				}
+			})
 			});
 </script>
+
+
