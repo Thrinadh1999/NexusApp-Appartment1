@@ -73,6 +73,19 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getTransactions = "SELECT * FROM transactions";
 	public static final String addTransactions ="INSERT INTO transactions (transactionBy, transactionDateTime, transDescription, transactionCategories, transactionType, amount) VALUES(?,NOW(),?,?,?,?)";
-		
-			
+	public static final String sumOfTransactionsRec = "SELECT sum(transactions.amount) AS totalRcp FROM transactions WHERE transactionType ='Receipt'"; 	
+	public static final String countOfTarnsRec = "SELECT COUNT(transactions.amount) AS noOfRec FROM transactions WHERE transactionType ='Receipt'";
+	public static final String sumOfTransPaym = "SELECT SUM(transactions.amount) AS totalExp FROM transactions WHERE transactionType ='Payment'";
+	public static final String countOfTransPaym = "SELECT COUNT(transactions.amount) AS noOfPaym FROM transactions WHERE transactionType ='Payment'";
+	
+	public static final String getOpeningBalance = "SELECT balances.openingBalance AS bal from balances";
+	
+	public static final String intrestSum = "SELECT SUM(transactions.amount) AS totalInterest FROM transactions WHERE transactions.transactionCategories ='Interest'";
+	public static final String expSum = "SELECT SUM(transactions.amount) AS totalExpenses FROM transactions WHERE transactions.transactionCategories ='Expences'";
+	public static final String salSum = "SELECT SUM(transactions.amount) AS totalSal FROM transactions WHERE transactions.transactionCategories ='Salaries'";
+	public static final String projSum = "SELECT SUM(transactions.amount) AS totalProjAmt FROM transactions WHERE transactions.transactionCategories ='Projects'";
+
 }
+
+
+

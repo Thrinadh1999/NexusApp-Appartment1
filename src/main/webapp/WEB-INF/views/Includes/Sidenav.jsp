@@ -56,17 +56,13 @@
                     <ul class="nav child_menu">
                       <li><a href="Categories">Categories</a></li>
                       <li><a href="Transactions">Transactions</a></li>
-                      <li><a href="">Balance Sheet</a></li>
+                      <li><a href="BalanceSheet">Balance Sheet</a></li>
                       <li><a href="">Invoices</a></li>
                       <li><a href="">Categories</a></li>
                     </ul>
-                  </li>     
+                  </li> 
+                     </ul> 
               </div>
-              <div class="menu_section">
-                
-
-              </div>
-
             </div>
             <!-- /sidebar menu -->
 

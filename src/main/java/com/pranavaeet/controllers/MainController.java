@@ -242,6 +242,37 @@ public class MainController {
 					return new ModelAndView("redirect:/Tasks");
 		   
 	   }
+		
+		//Balance Sheet Page
+		
+	@GetMapping(value="/BalanceSheet")
+	public ModelAndView balanceSheetPage(HttpServletRequest request, HttpSession session) {
+		ModelAndView page = new ModelAndView();
+		Map<String,Object> expences = objectDAO.singleResultSelect(SQL_QUERIES.expSum, null);
+		Map<String,Object> salaries = objectDAO.singleResultSelect(SQL_QUERIES.salSum, null);
+		Map<String,Object> projSum = objectDAO.singleResultSelect(SQL_QUERIES.projSum, null);
+		Map<String,Object> intrestSum = objectDAO.singleResultSelect(SQL_QUERIES.intrestSum, null);
+		Map<String,Object> openingBalance = objectDAO.singleResultSelect(SQL_QUERIES.getOpeningBalance, null);
+		Double totalexp = (Double) expences.get("totalExpenses");
+		Double totalsal = (Double) salaries.get("totalSal");
+		Double totalProjVal = (Double) projSum.get("totalProjAmt");
+		Double totalIntrest = (Double) intrestSum.get("totalInterest");
+		String openingBal = (String) openingBalance.get("bal");
+		String totalExpences = String.valueOf(totalexp);
+		String totalSalaries = String.valueOf(totalsal);
+		String totalProj = String.valueOf(totalProjVal);
+		String totalIntr = String.valueOf(totalIntrest);
+		String balance = String.valueOf(openingBal);
+		page.setViewName("BalanceSheet");
+		page.addObject("expences", totalExpences);
+		page.addObject("salaries", totalSalaries);
+		page.addObject("projectsIncome", totalProj);
+		page.addObject("interest", totalIntr);
+		page.addObject("openingBalance", balance);
+		
+		return page;
+		
+	}
 	
 	
 	
