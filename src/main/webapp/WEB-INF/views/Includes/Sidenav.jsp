@@ -33,7 +33,7 @@
                       
                     </ul>
                   </li>
-                  <li><a href="employees"><i class="fa fa-user"></i> Employee </a>
+                  <li><a href="employees"><i class="fa fa-user"></i> Employees </a>
                     <ul class="nav child_menu">
                      
                     </ul>
@@ -58,7 +58,7 @@
                       <li><a href="Transactions">Transactions</a></li>
                       <li><a href="BalanceSheet">Balance Sheet</a></li>
                       <li><a href="">Invoices</a></li>
-                      <li><a href="">Categories</a></li>
+                      <li><a href="">Pay Slips</a></li>
                     </ul>
                   </li> 
                      </ul> 

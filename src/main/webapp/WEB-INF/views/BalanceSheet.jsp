@@ -7,24 +7,101 @@
 <%@ include file="Includes/Sidenav.jsp"%>
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
-<div class="right_col" role="main">
-		<div class="col-sm-6 col-sm-6" >
-			<h3>Opening Balance: ${openingBalance}</h3>
-			<h3>Payments</h3>
-			<h5>Expences: ${expences}</h5>
-			<h5>Salaries: ${salaries}</h5>
-			<br>
-			<h3>Receipts</h3>
-			<h5>Interest: ${interest}</h5>
-			<h5>Projects: ${projectsIncome}</h5>
-			<h3>Closing Balance: <span id="balance"></span></h3>
-		</div>
-		
-	
-	</div>
-	
+  <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                  <div class="input-group">
+                    <label for="time"
+								class="col-form-label col-md-4 col-sm-4 label-align">From Date</label>
+							
+                  </div>
+                   <div class="input-group">
+                    <label for="time"
+								class="col-form-label col-md-4 col-sm-4 label-align">To Date</label>
+							
+                  </div>
+                </div>
+              </div>
+            </div>
 
-	<!-- /page content -->
+            <div class="clearfix"></div>
+
+            <div class="row" style="display: block;">
+              <div class="col-md-6 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <c:forEach items="${paymentsList }" var="pay">
+                       <tr>
+                       	<td>${pay.tranCatg }</td>
+                       	<td>${pay.tAmntPay }</td>
+                       </tr>
+                       </c:forEach>
+                        <tr>
+                          <th><h3><small>Closing Balance</small></h3></th>
+                          <td><h3><small><span id="closingBalance"></span></small></h3></td>
+                        </tr>
+                         <tr>
+                          <th><h3><small>Tally</small></h1></th>
+                          <td><h3><small><span id="tallyPayments"></span></small></h3></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-6 col-sm-6  ">
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <c:forEach items="${ReceiptsList }" var="pay">
+                        <tr>
+                        <td>${pay.tranCat }</td>
+                       	<td>${pay.tAmntR }</td>
+                        </tr>
+                         </c:forEach>
+                         <tr>
+                        <th><h3><small>Opening Balance</small></th>
+                        <td><h3><small>${openingBalance}</small></h3></td>
+                        </tr>
+                        <tr>
+                        <th><h3><small>Tally</small></h3></th>
+                        <td><h3><small><span id="tallyReceipts"></span></small></h3></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    </table>
+                    
+
+                  </div>
+                </div>
+              </div>
+
+              
+
+
+              
+
+             
+
+              
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
 
 	<%@ include file="Includes/Footer.jsp"%>
 
@@ -56,9 +133,21 @@
 		src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 		
 	<script>
-	let a = ${openingBalance}-${expences}-${salaries}+${interest}+${projectsIncome};
-	document.getElementById("balance").innerHTML = a;
+	var paymentTotal =0;
+	var receiptTotal=0;
+	<c:forEach items="${paymentsList }" var="pay">
+    	paymentTotal = paymentTotal+ parseInt(${pay.tAmntPay});
+	</c:forEach>
+	<c:forEach items="${ReceiptsList }" var="rec">
+	receiptTotal = receiptTotal+ parseInt(${rec.tAmntR});
+</c:forEach>
+
+	var closingBalance= parseInt(${openingBalance})-paymentTotal+receiptTotal;
+	$('#closingBalance').html(closingBalance);
+	var TallyPayments =closingBalance + paymentTotal;
+    $("#tallyPayments").html(TallyPayments);	
+	var TallyReceipts = receiptTotal+parseInt(${openingBalance});
+	$("#tallyReceipts").html(TallyReceipts) ;
 	</script>
-
-
+	
 

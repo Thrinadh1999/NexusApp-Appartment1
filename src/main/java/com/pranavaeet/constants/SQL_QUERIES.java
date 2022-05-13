@@ -84,7 +84,17 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String expSum = "SELECT SUM(transactions.amount) AS totalExpenses FROM transactions WHERE transactions.transactionCategories ='Expences'";
 	public static final String salSum = "SELECT SUM(transactions.amount) AS totalSal FROM transactions WHERE transactions.transactionCategories ='Salaries'";
 	public static final String projSum = "SELECT SUM(transactions.amount) AS totalProjAmt FROM transactions WHERE transactions.transactionCategories ='Projects'";
-
+	public static final String FurnSum = "SELECT SUM(transactions.amount) AS totalFurAmt FROM transactions WHERE transactions.transactionCategories ='Furniture'";
+	public static final String MedicalSum = "SELECT SUM(transactions.amount) AS totalMedicalAmt FROM transactions WHERE transactions.transactionCategories ='Medical Expences'";
+	public static final String RentSum = "SELECT SUM(transactions.amount) AS totalRentAmt FROM transactions WHERE transactions.transactionCategories ='Rent'";
+	public static final String MaintenanceSum = "SELECT SUM(transactions.amount) AS totalMaintenanceAmt FROM transactions WHERE transactions.transactionCategories ='Maintenance'";
+	public static final String ElectricSum = "SELECT SUM(transactions.amount) AS totalElectricBillAmt FROM transactions WHERE transactions.transactionCategories ='Electric Bill'";
+	public static final String SystemAccessoriesSum = "SELECT SUM(transactions.amount) AS systemAccessoriesAmt FROM transactions WHERE transactions.transactionCategories ='New Equipments Or Accessories'";
+	public static final String SharesSum = "SELECT SUM(transactions.amount) AS sharesAmt FROM transactions WHERE transactions.transactionCategories ='Shares'";
+	public static final String Bonus = "SELECT SUM(transactions.amount) AS bonusAmt FROM transactions WHERE transactions.transactionCategories ='Bonus'";
+	
+	public static final String getTransCatgPay = "SELECT transactions.transactionCategories AS tranCatg, SUM(transactions.amount) AS tAmntPay FROM transactions WHERE transactions.transactionType = 'Payment' GROUP BY transactions.transactionCategories";
+	public static final String getTransCatgRec = "SELECT transactions.transactionCategories AS tranCat, SUM(transactions.amount) AS tAmntR FROM transactions WHERE transactions.transactionType = 'Receipt' GROUP BY transactions.transactionCategories";
 }
 
 
