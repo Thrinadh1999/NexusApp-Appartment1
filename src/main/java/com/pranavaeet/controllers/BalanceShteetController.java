@@ -15,6 +15,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -57,5 +59,36 @@ public class BalanceShteetController {
 		return page;
 		
 	}
+	@GetMapping(path = "/getTransByDate")
+	@ResponseBody
+	public ModelAndView updateBalanceSheet(String getTransfromDate , String getTranstoDate, HttpServletRequest request, HttpSession session) {
+		ModelAndView page = new ModelAndView();
+		Double ob;
+		
+		List<Map<String,Object>> transPayment =
+				objectDAO.multipleResultSelect(SQL_QUERIES.getPaymByDate, new String [] {getTransfromDate,getTranstoDate});
+		List<Map<String,Object>> transReceipt =
+				objectDAO.multipleResultSelect(SQL_QUERIES.getRecByDate, new String [] {getTransfromDate,getTranstoDate});
+		Map<String,Object> openingBalance = objectDAO.singleResultSelect(SQL_QUERIES.getOpeningBalance, null);
+		Map<String,Object> pbd = objectDAO.singleResultSelect(SQL_QUERIES.getTranPayBeforeDt, new String[] {getTransfromDate});
+		Map<String,Object> rbd = objectDAO.singleResultSelect(SQL_QUERIES.getTranRecBeforeDt, new String[] {getTransfromDate});
+
+		String openingBal = (String) openingBalance.get("bal");
+		Double pbd2 = (Double) pbd.get("tP");
+		Double rbd2 = (Double) rbd.get("tR");
+		if(pbd2!= null && rbd2!=null) {
+			 ob = Double.parseDouble(openingBal)+rbd2-pbd2;
+
+		}else {
+			ob = Double.parseDouble(openingBal);
+		}
+		String balance = String.valueOf(ob);
+		page.addObject("paymentsList",transPayment);
+       page.addObject("ReceiptsList",transReceipt);
+       page.addObject("openingBalance", balance);
+		page.setViewName("BalanceSheetTable");	
+		return page;
+	}
+	
 	
 }	

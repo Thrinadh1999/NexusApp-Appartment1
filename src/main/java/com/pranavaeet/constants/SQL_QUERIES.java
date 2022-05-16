@@ -95,6 +95,10 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getTransCatgPay = "SELECT transactions.transactionCategories AS tranCatg, SUM(transactions.amount) AS tAmntPay FROM transactions WHERE transactions.transactionType = 'Payment' GROUP BY transactions.transactionCategories";
 	public static final String getTransCatgRec = "SELECT transactions.transactionCategories AS tranCat, SUM(transactions.amount) AS tAmntR FROM transactions WHERE transactions.transactionType = 'Receipt' GROUP BY transactions.transactionCategories";
+	public static final String getPaymByDate = "SELECT t.transactionCategories as cat,sum(t.amount) AS totalPaymt FROM transactions t WHERE t.transactionDateTime BETWEEN ? AND ? AND t.transactionType ='Payment' GROUP By t.transactionCategories"; 
+	public static final String getRecByDate = "SELECT t.transactionCategories as cat,sum(t.amount) AS totalRecp FROM transactions t WHERE t.transactionDateTime BETWEEN ? AND ? AND t.transactionType ='Receipt' GROUP By t.transactionCategories";
+	public static final String getTranPayBeforeDt = "SELECT SUM(t.amount) AS tP FROM transactions t WHERE t.transactionDateTime<=? AND t.transactionType = 'Payment'";
+	public static final String getTranRecBeforeDt = "SELECT SUM(t.amount) AS tR FROM transactions t WHERE t.transactionDAteTime<=? AND t.transactionType = 'Receipt'";
 }
 
 
