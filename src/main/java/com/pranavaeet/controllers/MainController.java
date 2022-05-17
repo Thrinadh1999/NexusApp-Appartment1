@@ -189,8 +189,6 @@ public class MainController {
 		page.addObject("transList", transactionsList);
 		page.addObject("emplist", employeeList);
 		page.addObject("catList", categoriesList);
-	
-		
 		page.addObject("newTransactions", new Transactions());
 		return page;
 	}

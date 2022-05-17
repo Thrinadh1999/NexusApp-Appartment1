@@ -5000,3 +5000,30 @@ a.updateTask:hover{
 	display:inline-block;
 	width:210px;
 }
+.flex{
+	display:flex;
+}
+.model{
+	padding-left: 250px;
+	padding-bottom : 50px;
+}
+.invoiceTotal{
+	padding-left: 370px;
+	padding-top: 50px;
+}
+.details{
+	padding-top:30px;
+}
+.total{
+	text-align: right;
+	padding-right: 300px;
+	padding-top: 150px;
+}
+.invTeam{
+	padding-bottom: 50px!important;
+}
+.due{
+	text-align: right;
+	padding-left: 790px!important;
+	
+}

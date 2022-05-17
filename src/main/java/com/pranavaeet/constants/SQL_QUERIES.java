@@ -99,6 +99,13 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getRecByDate = "SELECT t.transactionCategories as cat,sum(t.amount) AS totalRecp FROM transactions t WHERE t.transactionDateTime BETWEEN ? AND ? AND t.transactionType ='Receipt' GROUP By t.transactionCategories";
 	public static final String getTranPayBeforeDt = "SELECT SUM(t.amount) AS tP FROM transactions t WHERE t.transactionDateTime<=? AND t.transactionType = 'Payment'";
 	public static final String getTranRecBeforeDt = "SELECT SUM(t.amount) AS tR FROM transactions t WHERE t.transactionDAteTime<=? AND t.transactionType = 'Receipt'";
+	
+	
+	public static final String getInvoices = "SELECT * FROM invoices";
+	public static final String getInvoicesItems = "SELECT *FROM invoiceItems";
+	public static final String getInvoicesList = "SELECT * FROM invoices i RIGHT JOIN invoiceItems ON i.invoiceId = invoiceItems.invoiceID";
+	public static final String addInvoices = "INSERT INTO invoices (invoiceNo,client, clientAdress, toName, issueDate, invoiceBy, createdTime) VALUES(?, ?, ?, ?, NOW(), ?, NOW())";
+	public static final String addInvoicesItems = "INSERT INTO invoiceItems (invoiceID, itemName, description, quantity, gst, totalAmount, itemPrice) VALUES(?, ?, ?, ?, ?, ?, ?)";
 }
 
 
