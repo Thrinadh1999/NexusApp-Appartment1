@@ -104,8 +104,9 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getInvoices = "SELECT * FROM invoices";
 	public static final String getInvoicesItems = "SELECT *FROM invoiceItems";
 	public static final String getInvoicesList = "SELECT * FROM invoices i RIGHT JOIN invoiceItems ON i.invoiceId = invoiceItems.invoiceID";
-	public static final String addInvoices = "INSERT INTO invoices (invoiceNo,client, clientAdress, toName, issueDate, invoiceBy, createdTime) VALUES(?, ?, ?, ?, NOW(), ?, NOW())";
-	public static final String addInvoicesItems = "INSERT INTO invoiceItems (invoiceID, itemName, description, quantity, gst, totalAmount, itemPrice) VALUES(?, ?, ?, ?, ?, ?, ?)";
+	public static final String addInvoices = "INSERT INTO invoices (invoiceNo,client, clientAdress, toName, issueDate, invoiceBy, createdTime,gst,amountInvo) VALUES(?, ?, ?, ?, NOW(), ?, NOW(),?,?)";
+	public static final String addInvoicesItems = "INSERT INTO invoiceItems (invoiceID, itemName, description, quantity,itemPrice, amount ) VALUES(?, ?, ?, ?, ?, ?)";
+	public static final String getInvoiceById = "SELECT * from invoices where invoices.invoiceId=?";
 }
 
 

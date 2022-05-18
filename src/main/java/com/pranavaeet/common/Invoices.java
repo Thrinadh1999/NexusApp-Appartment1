@@ -12,7 +12,7 @@ public class Invoices {
 	private String invoiceBy ;
 	private String createdTime;
 	private String gst;
-	private String amount;
+	private String amountInvo;
 	private List<InvoiceItems> itemList;
 	 
 
@@ -92,12 +92,12 @@ public void setGst(String gst) {
 	this.gst = gst;
 }
 
-public String getAmount() {
-	return amount;
+public String getAmountInvo() {
+	return amountInvo;
 }
 
-public void setAmount(String amount) {
-	this.amount = amount;
+public void setAmountInvo(String amountInvo) {
+	this.amountInvo = amountInvo;
 }
 
 public List<InvoiceItems> getItemList() {
@@ -112,7 +112,7 @@ public void setItemList(List<InvoiceItems> itemList) {
 public String toString() {
 	return "Invoices [invoiceId=" + invoiceId + ", invoiceNo=" + invoiceNo + ", client=" + client + ", clientAdress="
 			+ clientAdress + ", toName=" + toName + ", issueDate=" + issueDate + ", invoiceBy=" + invoiceBy
-			+ ", createdTime=" + createdTime + ", gst=" + gst + ", amount=" + amount + ", itemList=" + itemList + "]";
+			+ ", createdTime=" + createdTime + ", gst=" + gst + ", amountInvo=" + amountInvo + ", itemList=" + itemList + "]";
 }
 
 

@@ -1171,7 +1171,7 @@ body {
 
 .page-title {
   width: 100%;
-  height: 65px;
+  height: 160px;
   padding: 10px 0; }
 
 .page-title .title_left {
@@ -5012,7 +5012,8 @@ a.updateTask:hover{
 	padding-top: 50px;
 }
 .details{
-	padding-top:30px;
+	padding-left: 20px;
+	text-align: right;
 }
 .total{
 	text-align: right;
@@ -5026,4 +5027,37 @@ a.updateTask:hover{
 	text-align: right;
 	padding-left: 790px!important;
 	
+}
+.titleflex{
+display: inline-flex;
+}
+.adressC{
+	padding-left: 30px;
+	text-align: right;
+}
+.tableDown{
+	display:flex
+}
+.pageWidth{
+	width: 992px;
+	margin-left: 26rem;
+	margin-right: -26rem;
+}
+.invoiceDetails{
+	padding-left: 100px;
+	
+}
+.invoiceTotaloAmt{
+	margin-left: 14rem;
+    text-align: right;
+}
+.billingDetails{
+	padding-left:10px;
+}
+.invoiceteam{
+	width:200px;
+	
+}
+.amountDetails{
+	padding-left: 28rem;
 }

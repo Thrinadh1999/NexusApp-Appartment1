@@ -6,73 +6,102 @@
 <%@ include file="Includes/Sidenav.jsp"%>
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
+<div class="pageWidth">
 <div class="right_col" role="main">
 <span class="Transactions"></span>
 	<div class="container row">
 		<div class="col-md-9">
-		<div>
-			<h1><large>Invoice</large></h1>
-			<hr>
-			</div>
-			
-			<icon type="icon" class="icon-block" data-toggle="modal"
+		<div class="page-title">
+            <div class="titleflex">
+            <div class="headingInvoice">
+            <h1>Invoice</h1>
+            </div>
+            <div class="details">
+            <h6> +91-9961800932</h6>
+            <h6>91-9989160036</h6>
+            <h6> contact@goscholarly.com </h6>
+            
+            </div>
+            <div class="adressC">
+            <h6>11-6-539/403, Red Hills</h6>
+            <h6>Hyderabad Telangana</h6>
+            <h6>500001</h6>
+            </div>
+            </div>
+            
+            </div>
+		<icon type="icon" class="icon-block" data-toggle="modal"
 				data-target="#myModal">
 		</div>
 		<div class="col-md-3">
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus"></i> Generate Invoice
+				<i class="fa fa-plus"></i> Add InvoiceItems
 			</button>
-
 		</div>
-
-	</div>
-
-
-
-	<table id="datatable" class="table">
+		</div>
+		<div class="container row">
+		<div class="billingDetails">
+		<h5>Billed To</h5>
+		<h6>${invoiceDetails.client }</h6>
+		<h6>${invoiceDetails.toName }</h6>
+		<h2>${invoiceDetails.clientAdress }</h6>
+		</div>
+		<div class="invoiceDetails">
+		<h5>Invoice Number</h5>
+		<h6>${invoiceDetails.invoiceNo }</h6>
+		<br>
+		<h5>Date Of Issue</h5>
+		<h6>${invoiceDetails.issueDate }</h6>
+		</div>
+		<div class="invoiceTotaloAmt">
+		<h5>Invoice Total</h5>
+		<h3><i class="fa fa-inr" aria-hidden="true"></i>${invoiceDetails.amountInvo }</h3>
+		</div>
+		</div>
+		<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>InvoiceId</th>
-				<th>Invoice Number</th>
-				<th>Client Name</th>
-				<th>Client Address</th>
-				<th>To Name</th>
-				<th>Issue Date</th>
-				<th>Invoice By</th>
-				<th>Created Time</th>
-				<th>GST</th>
+				<th>ID</th>
+				<th>Item Name</th>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Item Price</th>
 				<th>Amount</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items='${invoLst}' var="list">
-		
-      <tr>
-      
-			<td><a href="invo?id=${list.invoiceId }">${list.invoiceId }</a></td>
-			<td>${list.invoiceNo }</td>
-			<td>${list.client }</td>
-			<td>${list.clientAdress }</td>
-			<td>${list.toName }</td>
-			<td>${list.issueDate }</td>
-			<td>${list.invoiceBy }</td>
-			<td>${list.createdTime }</td>
-			<td>${list.gst } </td>
-			<td>${list.amountInvo }</td>
+      <tr> 
+      		<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>      		
 			
-	 </tr>
-	 
-			</c:forEach>
+			</tr>
+			
 
 		</tbody>
 	</table>
-	
+	<div class="invoiceBottom">
+	<div class = "invoiceteam">
+	<h6>Invoice Team</h6>
+	<h5>////////////</h5>
+	</div>
+	<div class="amountDetails">
+	<h5>Subtotal</h5>
+	<h5>Tax</h5>
+	<h5>Total</h5>
+	<br>
+	<h5>Amount Due</h5>
+	</div>
+	</div>
+	</div>
+		
 	
 	<!-- Trigger the modal with a button -->
-
-
-
+	
 	<div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -82,93 +111,68 @@
 					<h4 class="modal-title">Create Invoice</h4>
 				</div>
 				<div class="modal-body">
-					<form:form modelAttribute="newInvoice" action="addinvoice"
+					<form:form modelAttribute="newInvoiceItems" action="addinvoiceItems"
 						id="demo-form2" class="form-horizontal form-label-left"
 						method="POST">
-						<form:input id="invoiceId" maxlength="2" class="form-control"
-							type="hidden" path="invoiceId"></form:input>.
+						<form:input id="id" maxlength="2" class="form-control"
+							type="hidden" path="id"></form:input>.
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="invoiceNo">Invoice No<span class="required">*</span>
+								for="invoiceID">Invoice Id<span class="required">*</span>
+					</label>
+						<div class="col-md-6 col-sm-6 ">
+							<form:input type="text" id="invoiceID" path="invoiceID"
+									required="required" class="form-control"></form:input>
+						</div>
+				</div>
+				<div class="item form-group">
+					<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="itemName">Item Name<span class="required">*</span>
 					</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="invoiceNo" path="invoiceNo"
-									required="required" class="form-control"></form:input>
+								<form:input type="text" id="itemName" path="itemName"
+									required="invoiceNo" class="form-control"></form:input>
 							</div>
 				</div>
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="client">Client<span class="required">*</span>
+								for="description">Description <span class="required">*</span>
 					</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="client" path="client"
-									required="required" class="form-control"></form:input>
+								<form:textarea type="text" id="description" path="description"
+									required="required" class="form-control"></form:textarea>
+							</div>
+				</div>	
+				<div class="item form-group">
+					<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="quantity">Quantity <span class="required">*</span>
+					</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="quantity" path="quantity"
+									required="quantity" class="form-control"></form:input>
+							</div>
+				</div>
+				
+				<div class="item form-group">
+					<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="itemPrice">Item Price<span class="required">*</span>
+					</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="itemPrice" path="itemPrice"
+									required="itemPrice" class="form-control"></form:input>
 							</div>
 				</div>
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="clientAdress">Client Address<span class="required">*</span>
+								for="amount">Amount<span class="required">*</span>
 					</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="clientAdress" path="clientAdress"
-									required="required" class="form-control"></form:input>
+								<form:input type="text" id="amount" path="amount"
+									required="amount" class="form-control"></form:input>
 							</div>
 				</div>
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="toName">To Name<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="toName" path="toName"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="issueDate">Issue Date<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="issueDate" path="issueDate"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="invoiceBy">Invoice By<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="invoiceBy" path="invoiceBy"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="createdTime">Created Time<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="createdTime" path="createdTime"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="gst">GST<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="gst" path="gst"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="gst">Amount<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="amountInvo" path="amountInvo"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-							
+				
+						
 							
 							
 							
@@ -188,9 +192,13 @@
 
 
 				</div>
+					
 			</div>
+		
 
 		</div>
+	</div>
+	
 	</div>
 	</div>
 
@@ -231,10 +239,6 @@ $('#createdTime').daterangepicker({
 	singleDatePicker : true,
 	showDropdowns : true,
 });
-$('#issueDate').daterangepicker({
-	singleDatePicker : true,
-	showDropdowns : true,
-});
 $('#cancel-button').on('click', function() {
 	$('#myModal').modal('hide');
 });
@@ -242,8 +246,3 @@ $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
 </script>
-	
-	
-	
-	
-	
