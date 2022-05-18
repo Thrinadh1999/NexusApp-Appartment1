@@ -59,7 +59,7 @@
 		<h3><i class="fa fa-inr" aria-hidden="true"></i>${invoiceDetails.amountInvo }</h3>
 		</div>
 		</div>
-		<table id="datatable" class="table">
+		<table class="table">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -84,18 +84,12 @@
 
 		</tbody>
 	</table>
-	<div class="invoiceBottom">
-	<div class = "invoiceteam">
-	<h6>Invoice Team</h6>
-	<h5>////////////</h5>
-	</div>
 	<div class="amountDetails">
 	<h5>Subtotal</h5>
 	<h5>Tax</h5>
 	<h5>Total</h5>
 	<br>
 	<h5>Amount Due</h5>
-	</div>
 	</div>
 	</div>
 		
@@ -121,8 +115,8 @@
 								for="invoiceID">Invoice Id<span class="required">*</span>
 					</label>
 						<div class="col-md-6 col-sm-6 ">
-							<form:input type="text" id="invoiceID" path="invoiceID"
-									required="required" class="form-control"></form:input>
+							<form:input type="hidden" id="invoiceID" path="invoiceID"
+									required="required" class="form-control" value="${invoiceDetails.invoiceId }"></form:input>
 						</div>
 				</div>
 				<div class="item form-group">
