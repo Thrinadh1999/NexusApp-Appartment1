@@ -14,82 +14,84 @@
 		<div class="page-title">
             <div class="titleflex">
             <div class="headingInvoice">
-            <h1>Invoice</h1>
+            <h1><small>Invoice</small></h1>
             </div>
             <div class="details">
-            <h6> +91-9961800932</h6>
-            <h6>91-9989160036</h6>
-            <h6> contact@goscholarly.com </h6>
+            <h6> <small>+91-9961800932</small></h6>
+            <h6><small>91-9989160036</small></h6>
+            <h6><small> contact@goscholarly.com</small> </h6>
             
             </div>
             <div class="adressC">
-            <h6>11-6-539/403, Red Hills</h6>
-            <h6>Hyderabad Telangana</h6>
-            <h6>500001</h6>
+            <h6><small>11-6-539/403, Red Hills</small></h6>
+            <h6><small>Hyderabad Telangana</small></h6>
+            <h6><small>500001</small></h6>
             </div>
             </div>
             
             </div>
-		<icon type="icon" class="icon-block" data-toggle="modal"
-				data-target="#myModal">
 		</div>
-		<div class="col-md-3">
+		
+		</div>
+		<hr>
+		<div class="container row">
+		<div class="billingDetails">
+		<h5>Billed To</h5>
+		<h6><small>${invoiceDetails.client }</small></h6>
+		<h6><small>${invoiceDetails.toName }</small></h6>
+		<h2><small>${invoiceDetails.clientAdress }</small></h6>
+		</div>
+		<div class="invoiceDetails">
+		<h5><small>Invoice Number</small></h5>
+		<h6><small>${invoiceDetails.invoiceNo }</small></h6>
+		<br>
+		<h5><small>Date Of Issue</small></h5>
+		<h6><small>${invoiceDetails.issueDate }</small></h6>
+		</div>
+		<div class="invoiceTotaloAmt">
+		<h5>Invoice Total </h5>
+		<h3><i class="fa fa-inr" aria-hidden="true">${invAmt}</i></h3>
+		</div>
+		</div>
+		<hr>
+		<div class="col-md-12">
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#myModal">
 				<i class="fa fa-plus"></i> Add InvoiceItems
 			</button>
 		</div>
-		</div>
-		<div class="container row">
-		<div class="billingDetails">
-		<h5>Billed To</h5>
-		<h6>${invoiceDetails.client }</h6>
-		<h6>${invoiceDetails.toName }</h6>
-		<h2>${invoiceDetails.clientAdress }</h6>
-		</div>
-		<div class="invoiceDetails">
-		<h5>Invoice Number</h5>
-		<h6>${invoiceDetails.invoiceNo }</h6>
-		<br>
-		<h5>Date Of Issue</h5>
-		<h6>${invoiceDetails.issueDate }</h6>
-		</div>
-		<div class="invoiceTotaloAmt">
-		<h5>Invoice Total</h5>
-		<h3><i class="fa fa-inr" aria-hidden="true"></i>${invoiceDetails.amountInvo }</h3>
-		</div>
-		</div>
+		
 		<table class="table">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>Id</th>
+				<th>Invoice ID</th>
 				<th>Item Name</th>
 				<th>Description</th>
 				<th>Quantity</th>
 				<th>Item Price</th>
-				<th>Amount</th>
 			</tr>
 		</thead>
 		<tbody>
+		<c:forEach items='${invoItems}' var="ivl">
       <tr> 
-      		<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>      		
-			
+      		<td>${ivl.id}</td>
+			<td>${ivl.invoiceID}</td>
+			<td>${ivl.itemName}</td>
+			<td>${ivl.description}</td>
+			<td>${ivl.quantity}</td>
+			<td>${ivl.itemPrice}</td>   		
 			</tr>
-			
+			</c:forEach>
 
 		</tbody>
 	</table>
 	<div class="amountDetails">
-	<h5>Subtotal</h5>
-	<h5>Tax</h5>
-	<h5>Total</h5>
-	<br>
-	<h5>Amount Due</h5>
+	<h5><small>Subtotal: ${subTotal }</small></h5>
+	<h5><small>Tax: ${tax }</small></h5>
+	<h5><small>Total: ${invAmt}</small></h5>
+		<br>
+	<h5><small>Amount Due</small></h5>
 	</div>
 	</div>
 		
@@ -102,23 +104,16 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Create Invoice</h4>
+					<h4 class="modal-title">Add Invoice Items</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newInvoiceItems" action="addinvoiceItems"
 						id="demo-form2" class="form-horizontal form-label-left"
 						method="POST">
-						<form:input id="id" maxlength="2" class="form-control"
+						<form:input id="id" class="form-control"
 							type="hidden" path="id"></form:input>.
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="invoiceID">Invoice Id<span class="required">*</span>
-					</label>
-						<div class="col-md-6 col-sm-6 ">
-							<form:input type="hidden" id="invoiceID" path="invoiceID"
-									required="required" class="form-control" value="${invoiceDetails.invoiceId }"></form:input>
-						</div>
-				</div>
+						<form:input type="hidden" id="invoiceID" path="invoiceID"
+							required="required" class="form-control" value="${invoiceDetails.invoiceId}"></form:input>
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="itemName">Item Name<span class="required">*</span>
@@ -156,20 +151,6 @@
 									required="itemPrice" class="form-control"></form:input>
 							</div>
 				</div>
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="amount">Amount<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="amount" path="amount"
-									required="amount" class="form-control"></form:input>
-							</div>
-				</div>
-				
-						
-							
-							
-							
 	<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
@@ -228,7 +209,7 @@
 		src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-//$('#datatable').DataTable();
+$('#datatable').DataTable();
 $('#createdTime').daterangepicker({
 	singleDatePicker : true,
 	showDropdowns : true,
@@ -239,4 +220,9 @@ $('#cancel-button').on('click', function() {
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
+
+//function (){
+//var Tax =${invAmt} + ${subTotal}
+//$("#tax").html(Tax);
+//}
 </script>

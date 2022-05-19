@@ -5012,7 +5012,8 @@ a.updateTask:hover{
 	padding-top: 50px;
 }
 .details{
-	padding-left: 20px;
+	padding-left: 255px;
+	padding-top: 20px;
 	text-align: right;
 }
 .total{
@@ -5032,7 +5033,9 @@ a.updateTask:hover{
 display: inline-flex;
 }
 .adressC{
-	padding-left: 30px;
+	padding-left: 40px;
+	padding-top: 20px;
+	
 	text-align: right;
 }
 .tableDown{
@@ -5050,6 +5053,7 @@ display: inline-flex;
 .invoiceTotaloAmt{
 	margin-left: 14rem;
     text-align: right;
+    padding-top: 30px;
 }
 .billingDetails{
 	padding-left:10px;
@@ -5060,4 +5064,7 @@ display: inline-flex;
 }
 .amountDetails{
 	padding-left: 28rem;
+}
+.headingInvoice{
+	padding-top: 35px;
 }

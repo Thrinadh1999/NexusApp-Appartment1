@@ -41,8 +41,6 @@
 				<th>Issue Date</th>
 				<th>Invoice By</th>
 				<th>Created Time</th>
-				<th>GST</th>
-				<th>Amount</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -58,8 +56,6 @@
 			<td>${list.issueDate }</td>
 			<td>${list.invoiceBy }</td>
 			<td>${list.createdTime }</td>
-			<td>${list.gst } </td>
-			<td>${list.amountInvo }</td>
 			
 	 </tr>
 	 
@@ -133,14 +129,18 @@
 							</div>
 				</div>	
 				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="invoiceBy">Invoice By<span class="required">*</span>
-					</label>
+							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="invoiceBy" path="invoiceBy"
-									required="required" class="form-control"></form:input>
+								<form:select id="invoiceBy" class="form-control "
+									path="invoiceBy">
+									<c:forEach items='${emplist}' var="list">
+										<form:option value="${list.firstName } ${list.lastName }">${list.firstName } ${list.lastName }</form:option>
+									</c:forEach>
+								</form:select>
 							</div>
-				</div>
+						</div>
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="createdTime">Created Time<span class="required">*</span>
@@ -151,27 +151,8 @@
 							</div>
 				</div>	
 				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="gst">GST<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="gst" path="gst"
-									required="required" class="form-control"></form:input>
-							</div>
+					<h6> 18% of tax is Applied on Total Amount</h6>
 				</div>	
-				<div class="item form-group">
-					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="gst">Amount<span class="required">*</span>
-					</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="amountInvo" path="amountInvo"
-									required="required" class="form-control"></form:input>
-							</div>
-				</div>	
-							
-							
-							
-							
 	<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
@@ -226,7 +207,7 @@
 		src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-//$('#datatable').DataTable();
+$('#datatable').DataTable();
 $('#createdTime').daterangepicker({
 	singleDatePicker : true,
 	showDropdowns : true,
@@ -241,6 +222,17 @@ $('#cancel-button').on('click', function() {
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
+
+//function Compute() {
+  //  var Total = document.getElementById("myTotal").value;
+   // var Tax = document.getElementById("tax").value;
+    //var NewTotal = document.getElementById("tax");
+   // var TaxAmount = document.getElementById("taxAmount");
+   // Total = parseFloat(Total);
+    //Tax = parseFloat(Tax);
+    //TaxAmount.value = Math.max((Total * Tax) / 100).toFixed(2) + ""
+    //NewTotal.value = Math.max(Total + (Total * Tax) / 100).toFixed(2) + "";
+//}
 </script>
 	
 	
