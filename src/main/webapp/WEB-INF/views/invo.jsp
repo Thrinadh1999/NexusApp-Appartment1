@@ -10,7 +10,7 @@
 <div class="right_col" role="main">
 <span class="Transactions"></span>
 	<div class="container row">
-		<div class="col-md-9">
+		<div class="col-sm-3" id="invoinvo">
 		<div class="page-title">
             <div class="titleflex">
             <div class="headingInvoice">
@@ -23,7 +23,7 @@
             
             </div>
             <div class="adressC">
-            <h6><small>11-6-539/403, Red Hills</small></h6>
+            <h6><small>11-6-539/403,Red Hills</small></h6>
             <h6><small>Hyderabad Telangana</small></h6>
             <h6><small>500001</small></h6>
             </div>
@@ -70,28 +70,31 @@
 				<th>Description</th>
 				<th>Quantity</th>
 				<th>Item Price</th>
+				<th>Total Value</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items='${invoItems}' var="ivl">
+		<c:forEach items='${invoItems}' var="ivl" varStatus="loop">
       <tr> 
       		<td>${ivl.id}</td>
 			<td>${ivl.invoiceID}</td>
 			<td>${ivl.itemName}</td>
 			<td>${ivl.description}</td>
 			<td>${ivl.quantity}</td>
-			<td>${ivl.itemPrice}</td>   		
-			</tr>
+			<td>${ivl.itemPrice}</td>
+			<td>${itemPrice[loop.index].TotalPrice }</td>
 			</c:forEach>
+			
+			</tr>
 
 		</tbody>
 	</table>
 	<div class="amountDetails">
-	<h5><small>Subtotal: ${subTotal }</small></h5>
-	<h5><small>Tax: ${tax }</small></h5>
-	<h5><small>Total: ${invAmt}</small></h5>
+	<h5><small>Subtotal: <i class="fa fa-inr" aria-hidden="true">&ensp;${subTotal}</i></small></h5>
+	<h5><small>Tax: <i class="fa fa-inr" aria-hidden="true">&ensp;${tax}</i></small></h5>
+	<h5><small>Total: <i class="fa fa-inr" aria-hidden="true">&ensp;${invAmt}</i></small></h5>
 		<br>
-	<h5><small>Amount Due</small></h5>
+	<h5><small>Amount Due:<i class="fa fa-inr" aria-hidden="true">&ensp;${invAmt}</i></small></h5>
 	</div>
 	</div>
 		
@@ -144,7 +147,7 @@
 				
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="itemPrice">Item Price<span class="required">*</span>
+								for="itemPrice">Item Price(Each)<span class="required">*</span>
 					</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="itemPrice" path="itemPrice"

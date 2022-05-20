@@ -58,7 +58,7 @@
                       <li><a href="Transactions">Transactions</a></li>
                       <li><a href="BalanceSheet">Balance Sheet</a></li>
                       <li><a href="Invoice">Invoices</a></li>
-                      <li><a href="">Pay Slips</a></li>
+                      <li><a href="PaySlips">Pay Slips</a></li>
                     </ul>
                   </li> 
                      </ul> 

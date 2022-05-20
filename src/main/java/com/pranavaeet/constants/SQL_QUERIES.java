@@ -107,12 +107,12 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addInvoices = "INSERT INTO invoices (invoiceNo,client, clientAdress, toName, issueDate, invoiceBy, createdTime) VALUES(?, ?, ?, ?, NOW(), ?, NOW())";
 	public static final String addInvoicesItems = "INSERT INTO invoiceItems (invoiceID, itemName, description, quantity,itemPrice) VALUES(?, ?, ?, ?, ?)";
 	public static final String getInvoiceById = "SELECT * from invoices where invoices.invoiceId=?";
-	public static final String sumItemPriceById = "SELECT SUM(((18/100)*(invoiceItems.itemPrice))+invoiceItems.itemPrice)AS invoiceAmt FROM invoiceItems WHERE invoiceItems.invoiceID=?"; 
-	public static final String sumInvSubTotal="SELECT SUM(invoiceItems.itemPrice) AS InvSubTotal FROM invoiceItems WHERE invoiceItems.invoiceID=?";
-	public static final String taxAnmt = "SELECT SUM((18/100)*(invoiceItems.itemPrice)) AS taxAmount FROM invoiceItems WHERE invoiceItems.invoiceID=?";
-	
-	
-	
+	public static final String sumItemPriceById = "SELECT SUM(((18/100)*(invoiceItems.quantity * invoiceItems.itemPrice))+(invoiceItems.quantity * invoiceItems.itemPrice))AS invoiceAmt FROM invoiceItems WHERE invoiceItems.invoiceID=?"; 
+	public static final String sumInvSubTotal="SELECT SUM(invoiceItems.quantity * invoiceItems.itemPrice) AS InvSubTotal  FROM invoiceItems WHERE invoiceItems.invoiceID=?";
+	public static final String taxAnmt = "SELECT SUM((18/100)*(invoiceItems.quantity * invoiceItems.itemPrice)) AS taxAmount FROM invoiceItems WHERE invoiceItems.invoiceID=?";
+	public static final String totalItemPrice = "SELECT (invoiceItems.quantity * invoiceItems.itemPrice) AS TotalPrice FROM invoiceItems WHERE invoiceItems.invoiceID=? GROUP BY invoiceItems.id";
+	public static final String getPaySlip = "SELECT * FROM payslips";
+	public static final String addPayslips = "INSERT INTO payslips (employeeName, month, pay) VALUES(?, ?, ?)";
 	
 }
 

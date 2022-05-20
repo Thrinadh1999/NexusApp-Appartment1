@@ -11,21 +11,8 @@
 
 	<div class="container row">
 		<div class="col-md-12 col-sm-12  ">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>
-						<i class="fa fa-bars"></i> Tasks <small>employees</small>
-					</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li>
-							<button type="button" class="btn btn-info btn-md page-action-btn"
-								data-toggle="modal" data-target="#myModal">
-								<i class="fa fa-plus"></i> Create Task
-							</button>
-						</li>
-					</ul>
+					
 					<div class="clearfix"></div>
-				</div>
 				<div class="x_content">
 
 					<ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
@@ -39,6 +26,16 @@
 							data-toggle="tab" href="#completed" role="tab"
 							aria-controls="contact" aria-selected="false">Completed</a></li>
 					</ul>
+					<div class = "button_create_task">
+					<ul class="nav navbar-right panel_toolbox">
+						<li>
+							<button type="button" class="btn btn-info btn-md page-action-btn"
+								data-toggle="modal" data-target="#myModal">
+								<i class="fa fa-plus"></i> Create Task
+							</button>
+						</li>
+					</ul>
+					</div>
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="pending" role="tabpanel"
 							aria-labelledby="home-tab">
@@ -165,7 +162,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 
 	</div>
