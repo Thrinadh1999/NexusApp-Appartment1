@@ -113,6 +113,8 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String totalItemPrice = "SELECT (invoiceItems.quantity * invoiceItems.itemPrice) AS TotalPrice FROM invoiceItems WHERE invoiceItems.invoiceID=? GROUP BY invoiceItems.id";
 	public static final String getPaySlip = "SELECT * FROM payslips";
 	public static final String addPayslips = "INSERT INTO payslips (employeeName, month, pay) VALUES(?, ?, ?)";
+	public static final String validateUser = "SELECT DISTINCT IF(users.username = '?' ,'VALID USER NAME', 'USER NAME NOT EXISTS')AS 'STATUS' FROM users WHERE password= '?'";
+	public static final String validatePassword = "SELECT DISTINCT IF(users.password = '?' ,'VALID PASSWORD', 'INCORRECTPASSWORD')AS 'STATUS' FROM users WHERE username  = '?'";
 	
 }
 
