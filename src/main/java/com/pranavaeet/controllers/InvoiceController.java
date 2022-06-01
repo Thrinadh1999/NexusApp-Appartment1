@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.pranavaeet.common.ObjectDAO;
-import com.pranavaeet.common.Payslips;
+//import com.pranavaeet.common.Payslips;
 import com.pranavaeet.constants.SQL_QUERIES;
 import com.pranavaeet.common.Employee;
 import com.pranavaeet.common.InvoiceItems;
@@ -111,30 +111,7 @@ public class InvoiceController {
 		}
 		
 		
-		@GetMapping(value="/PaySlips")
-		public ModelAndView payslipsPage(HttpServletRequest request, HttpSession session) {
-			List<Payslips> payslipList = (List<Payslips>) objectDAO.multipleResultSelect(SQL_QUERIES.getPaySlip, null, Payslips.class);
-			List<Map<String,Object>> employeeList = objectDAO.multipleResultSelect(SQL_QUERIES.getEmployee, null);
-			
-			ModelAndView page = new ModelAndView();
-			
-			page.setViewName("PaySlips");
-			
-			page.addObject("paySlip", payslipList);
-			page.addObject("emplist", employeeList);
-			
-			page.addObject("newPay", new Payslips());
-			
-			return page;
-		
-}
-		@PostMapping(value = "/addpaySlip")
-		public ModelAndView addNewPay(@ModelAttribute Payslips newPay, HttpServletRequest request,HttpSession session) {
-			objectDAO.addOrUpdate(SQL_QUERIES.addPayslips, new String [] {newPay.getEmployeeName(), newPay.getMonth(), newPay.getPay()});
-			
-			
-			return new ModelAndView("redirect:/PaySlips");
-}	
+	
 	
 }	
 		

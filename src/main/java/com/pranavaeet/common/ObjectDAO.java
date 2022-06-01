@@ -73,4 +73,5 @@ public interface ObjectDAO {
 	 */
 	public int insertAndGetResult(String query, String resultColumn, String[] inputParams);
 
+
 }

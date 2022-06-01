@@ -42,7 +42,7 @@
 		<tbody>
 		<c:forEach items='${paySlip}' var="pay">
       <tr>
-      <td>${pay.employeeName }</td>
+      <td><a href="EmployeePayslip?employeeName=${pay.employeeName }">${pay.employeeName }</a></td>
       <td>${pay.month }</td>
       <td>${pay.pay }</td>
 			

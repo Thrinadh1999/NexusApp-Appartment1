@@ -3,6 +3,7 @@ package com.pranavaeet.constants;
 public class SQL_QUERIES {
 
 	private SQL_QUERIES() {}
+	//webApplication queries
 	
 public static final String addUserLoginTime = "INSERT INTO user_login_activity (username, loginTime, ipAddress, location, browser) VALUES (?, ?, ?, ?, ?)";
 	
@@ -113,9 +114,26 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String totalItemPrice = "SELECT (invoiceItems.quantity * invoiceItems.itemPrice) AS TotalPrice FROM invoiceItems WHERE invoiceItems.invoiceID=? GROUP BY invoiceItems.id";
 	public static final String getPaySlip = "SELECT * FROM payslips";
 	public static final String addPayslips = "INSERT INTO payslips (employeeName, month, pay) VALUES(?, ?, ?)";
-	public static final String validateUser = "SELECT DISTINCT IF(users.username = '?' ,'VALID USER NAME', 'USER NAME NOT EXISTS')AS 'STATUS' FROM users WHERE password= '?'";
-	public static final String validatePassword = "SELECT DISTINCT IF(users.password = '?' ,'VALID PASSWORD', 'INCORRECTPASSWORD')AS 'STATUS' FROM users WHERE username  = '?'";
+	public static final String getEmpPaySlipsByName = "SELECT * FROM payslips WHERE employeeName=?"; 
 	
+	
+	//nexus_app queries
+	
+	public static final String addNexususers = "INSERT INTO nexus_users (username,fullname, phonenumber, email) VALUES (?, ?, ?, ?)";
+	public static final String getNexususersList= "SELECT * FROM nexus_users";
+	public static final String validateLogin="SELECT DISTINCT IF(u.phonenumber = ? ,'VALID', 'INVALID')AS 'STATUS' FROM nexus_users u WHERE u.username  = ?";
+	
+	public static final String addNexusapartments = "INSERT INTO nexus_apartments (name, mobilenumber, relationship, floor, flatno) VALUES (?, ?, ?, ?, ?)";
+	public static final String getNexusapartmentsList= "SELECT * FROM nexus_apartments";
+	
+	public static final String addNexususerprofiles = "INSERT INTO nexus_user_profiles (firstname,lastname,role,mobilenumber,email,image,venturename,block,flatno,gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String getNexususerprofileList= "SELECT * FROM nexus_user_profiles";
+	
+	public static final String addNexusnotices = "INSERT INTO nexus_notices (title,description,startdate,enddate,createdby) VALUES (?, ?, ?, ?, ?)";
+	public static final String getNexusnoticesList= "SELECT * FROM nexus_notices";
+	
+	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), now(), ?, ?, ?)";
+	public static final String getNexusvisitorsList= "SELECT * FROM nexus_visitors";
 }
 
 
