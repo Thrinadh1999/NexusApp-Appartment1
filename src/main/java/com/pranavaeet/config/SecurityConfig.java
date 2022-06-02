@@ -60,6 +60,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.exceptionHandling().accessDeniedPage(URL_CONSTANTS.ERROR_403)
 			.and()
 				.csrf() ;  
+		http.authorizeRequests()
+		.antMatchers("/app/**").permitAll()
+		.and().csrf().disable();
 		
 		http
 		.sessionManagement()
@@ -73,5 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		   .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN));
 		
 	}
+	
+	
 
 }

@@ -8,24 +8,17 @@
 <!-- page content -->
 <div class="pageWidth">
 <div class="right_col" role="main">
-<span class="Transactions"></span>
+<span class="EmployeePaySlips"></span>
 	<div class="container row">
-		<div class="col-sm-3" id="empPayslip">
+		<div class="col-sm-12" id="empPaylip">
 		<div class="page-title">
             <div class="titleflex">
-            <div class="headingPayslip">
-            <h1><small>Employee PaySlip</small></h1>
-            </div>
-            <div class="details">
-            <h6> <small>+91-9961800932</small></h6>
-            <h6><small>91-9989160036</small></h6>
-            <h6><small> contact@goscholarly.com</small> </h6>
-            
-            </div>
-            <div class="adressC">
-            <h6><small>11-6-539/403,Red Hills</small></h6>
-            <h6><small>Hyderabad Telangana</small></h6>
-            <h6><small>500001</small></h6>
+            <div class="headingEmployeePayslip">
+            <h3>S&M Scholary Solutions</h3>
+            <h3 id="titl" ><small>Employee PaySlip</small></h3>
+            <p id="dno">11-6-539/403,Red Hills</p>
+            <p id="addr">Hyderabad Telangana</p>
+            <p id="pin">500001</p>
             </div>
             </div>
             
@@ -93,6 +86,7 @@
 	
 	</div>
 	</div>
+	<
 
 	<!-- /page content -->
 

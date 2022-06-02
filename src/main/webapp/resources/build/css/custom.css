@@ -5074,3 +5074,29 @@ display: inline-flex;
 #invoinvo{
 	margin-bottom: -60px;
 }
+
+#empPaylip{
+	text-align:center;
+	margin-top: -15px;
+	margin-bottom: -10px;
+}
+#dno{
+	text-align:center;
+	margin-bottom: 0px;
+}
+#addr{
+	text-align:center;
+	margin-bottom: 0px;
+	
+}
+
+#pin{
+	text-align:center;
+	margin-bottom: 0px;
+}
+#titl{
+	margin-top: -13px;
+	
+}
+
+
