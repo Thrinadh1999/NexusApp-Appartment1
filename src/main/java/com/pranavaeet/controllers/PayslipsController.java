@@ -54,14 +54,19 @@ public class PayslipsController {
 		}
 	//EmployeePayslip Page	
 	//to display the payslips for the selected employee
-		@GetMapping(value="/EmployeePayslip")
-		public ModelAndView employeePayslipPage(String employeeName,HttpServletRequest request, HttpSession session) {
-			logger.info(employeeName);
-			List<Payslips> payList = (List<Payslips>) objectDAO.multipleResultSelect(SQL_QUERIES.getEmpPaySlipsByName, new String[] {employeeName}, Payslips.class);
+		@GetMapping(value="/EmployeePayslips")
+		public ModelAndView employeePayslipPage(String id,HttpServletRequest request, HttpSession session) {
+			logger.info(id);
+			
+			Map<String,Object> depName= objectDAO.singleResultSelect(SQL_QUERIES.getDepNameForSelectedEmp, new String[] {id});
+			logger.info(depName);
+			
+			List<Payslips> payList = (List<Payslips>) objectDAO.multipleResultSelect(SQL_QUERIES.getEmployeePayslipById, new String[] {id}, Payslips.class);
 			ModelAndView page = new ModelAndView();
 			
-			page.addObject("totalPayments", payList);
 			page.setViewName("EmployeePayslip");
+			page.addObject("depName", depName);
+			page.addObject("totalPayments", payList);
 			page.addObject("EmployeePayslip", new Payslips());
 			return page;
 			

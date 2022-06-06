@@ -1,6 +1,5 @@
 package com.pranavaeet.common;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class NexusVisitors {
 	
@@ -15,7 +14,6 @@ public class NexusVisitors {
 	private String outtime;
 	private String outdate;
 	private String elapsedtime;
-	private CommonsMultipartFile imageNexusUpload;
 	private String image;
 
 
@@ -132,18 +130,6 @@ public class NexusVisitors {
 		this.elapsedtime = elapsedtime;
 	}
 	
-
-
-	public CommonsMultipartFile getImageNexusUpload() {
-		return imageNexusUpload;
-	}
-
-
-	public void setImageNexusUpload(CommonsMultipartFile imageNexusUpload) {
-		this.imageNexusUpload = imageNexusUpload;
-	}
-
-
 	public String getImage() {
 		return image;
 	}
@@ -159,7 +145,7 @@ public class NexusVisitors {
 		return "NexusVisitors [id=" + id + ", fullname=" + fullname + ", contactnumber=" + contactnumber
 				+ ", typeofvisitor=" + typeofvisitor + ", flatno=" + flatno + ", expectedtime=" + expectedtime
 				+ ", intime=" + intime + ", indate=" + indate + ", outtime=" + outtime + ", outdate=" + outdate
-				+ ", elapsedtime=" + elapsedtime + ", imageNexusUpload=" + imageNexusUpload + ", image=" + image + "]";
+				+ ", elapsedtime=" + elapsedtime + ", image=" + image + "]";
 	}
 
 

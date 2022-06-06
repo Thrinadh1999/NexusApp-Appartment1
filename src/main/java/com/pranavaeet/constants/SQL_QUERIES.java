@@ -115,7 +115,8 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getPaySlip = "SELECT * FROM payslips";
 	public static final String addPayslips = "INSERT INTO payslips (employeeName, month, pay) VALUES(?, ?, ?)";
 	public static final String getEmpPaySlipsByName = "SELECT * FROM payslips WHERE employeeName=?"; 
-	
+	public static final String getEmployeePayslipById = "SELECT * FROM payslips where payslips.id=?";
+	public static final String getDepNameForSelectedEmp ="SELECT DISTINCT(department.name) FROM department RIGHT JOIN employee ON department.departmentId = employee.departmentId WHERE employee.departmentId=?";	
 	
 	//nexus_app queries
 	

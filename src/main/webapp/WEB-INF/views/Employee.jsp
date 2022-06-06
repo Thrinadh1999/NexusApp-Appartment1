@@ -23,6 +23,9 @@
 		<div class="col-md-3">
 
 	</div>
+	<div>
+	<img style="width:200px" src="data:image/jpg;base64,${imageStr }">
+	</div>
 
 
 
@@ -57,6 +60,7 @@
 		</tbody>
 
 	</table>
+	
 	<!-- Trigger the modal with a button -->
 
 

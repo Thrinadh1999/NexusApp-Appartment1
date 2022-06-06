@@ -15,7 +15,7 @@
             <div class="titleflex">
             <div class="headingEmployeePayslip">
             <h3>S&M Scholary Solutions</h3>
-            <h3 id="titl" ><small>Employee PaySlip</small></h3>
+            <h3 id="titl" >Employee PaySlip</h3>
             <p id="dno">11-6-539/403,Red Hills</p>
             <p id="addr">Hyderabad Telangana</p>
             <p id="pin">500001</p>
@@ -28,22 +28,19 @@
 		</div>
 		<hr>
 		<div class="container row">
-		<div class="billingDetails">
-		<h5>Billed To</h5>
-		<h6><small></small></h6>
-		<h6><small></small></h6>
-		<h2><small></small></h6>
+		<div class="empDeta">
+		<h6>Date of Joining: </h6>
+		<h6>Pay Period: </h6>
+		<h6>Worked Days: </h6>
 		</div>
-		<div class="invoiceDetails">
-		<h5><small>Invoice Number</small></h5>
-		<h6><small></small></h6>
+		<div class="empPay">
+		<c:forEach items='${totalPayments}' var="payslip">
+		<h6>Employee Name: ${payslip.employeeName}</h6>
+		</c:forEach>
+		<c:forEach items = '${depName }' var="list">
+		<h6>Department:${depName.name}</h6>
+		</c:forEach>
 		<br>
-		<h5><small>Date Of Issue</small></h5>
-		<h6><small></small></h6>
-		</div>
-		<div class="invoiceTotaloAmt">
-		<h5>Invoice Total </h5>
-		<h3><i class="fa fa-inr" aria-hidden="true"></i></h3>
 		</div>
 		</div>
 		<hr>
@@ -51,6 +48,7 @@
 		<table class="table">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Employee Name</th>
 				<th>Month</th>
 				<th>Amount</th>
@@ -61,6 +59,7 @@
 		<c:forEach items='${totalPayments}' var="payslip">
       <tr> 
       		
+			<td>${payslip.id }
 			<td>${payslip.employeeName}</td>
 			<td>${payslip.month }</td>
 			<td>${payslip.pay }</td>
@@ -71,13 +70,21 @@
 
 		</tbody>
 	</table>
+	<hr>
 	<div class="amountDetails">
-	<h5><small>Subtotal: <i class="fa fa-inr" aria-hidden="true">&ensp;</i></small></h5>
-	<h5><small>Tax: <i class="fa fa-inr" aria-hidden="true">&ensp;</i></small></h5>
-	<h5><small>Total: <i class="fa fa-inr" aria-hidden="true">&ensp;</i></small></h5>
-		<br>
-	<h5><small>Amount Due:<i class="fa fa-inr" aria-hidden="true">&ensp;</i></small></h5>
+	<h5>Total Earnings: <i class="fa fa-inr" aria-hidden="true">&ensp;</i></h5>
+	<h5>Amount in Words: <i class="fa fa-inr" aria-hidden="true">&ensp;</i></h5>
 	</div>
+	<hr>
+	<div class="container row">
+		<div class="emprSig">
+		<h5>Employer Signature</h5>
+		</div>
+		<div class="empSig">
+		<h5>Employee Signature</h5>
+		</div>
+		</div>
+	<p id="bottomLine"><large> This is a System Generated Payslip</large></p>
 	</div>
 		
 	

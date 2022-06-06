@@ -1,12 +1,16 @@
 package com.pranavaeet.controllers;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -75,8 +79,20 @@ public class EmployeeController {
 				genderList.add(map);
 			}
 			
-			
-			
+			BufferedImage image;
+			try {
+				image = ImageIO.read(new File("/home/smssols/Desktop/Nexus/NexusPics/rakesh.jpg"));
+				ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+				ImageIO.write(image, "jpg", byteArrayOutputStream);
+				String imageString = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+				byteArrayOutputStream.flush();
+				byteArrayOutputStream.close();
+				page.addObject("imageStr",imageString);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
 			page.setViewName("Employee");
 			page.addObject("employeeList", empList);
 			page.addObject("depList", departmentList);

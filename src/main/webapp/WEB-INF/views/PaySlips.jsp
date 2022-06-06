@@ -34,6 +34,7 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Employee Name</th>
 				<th>Date</th>
 				<th>Pay</th>
@@ -42,7 +43,8 @@
 		<tbody>
 		<c:forEach items='${paySlip}' var="pay">
       <tr>
-      <td><a href="EmployeePayslip?employeeName=${pay.employeeName }">${pay.employeeName }</a></td>
+      <td><a href="EmployeePayslips?id=${pay.id}">${pay.id}</a></td>
+      <td>${pay.employeeName }</td>
       <td>${pay.month }</td>
       <td>${pay.pay }</td>
 			
