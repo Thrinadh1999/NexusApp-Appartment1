@@ -1,5 +1,5 @@
 <body class="nav-md">
-    <div class="container body">
+    <div class="container body"id="container_body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
@@ -26,7 +26,6 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="departments"><i class="fas fa-sitemap"></i> Departments </a>
                     <ul class="nav child_menu">
@@ -61,7 +60,17 @@
                       <li><a href="PaySlips">Pay Slips</a></li>
                     </ul>
                   </li> 
-                     </ul> 
+                  
+                  <li><a><i class="fa fa-credit-card-alt"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
+                  	<ul class="nav child_menu">
+                  	 <li><a href="flatDetails">Flat Details</a></li>
+                      <li><a href="noticeDetails">Notices</a></li>
+                      <li><a href="userDetailsNexus">users</a></li>
+                      <li><a href="userProfileDetails">User Profiles</a></li>
+                      <li><a href="visitorsDetailsNexus">Visitors</a></li>
+                  	</ul>
+                  	</li>
+                      
               </div>
             </div>
             <!-- /sidebar menu -->

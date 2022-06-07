@@ -6,7 +6,7 @@
 <%@ include file="Includes/Sidenav.jsp"%>
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
-<div class="pageWidth">
+<div class="pageWidth"id="empPaycolour">
 <div class="right_col" role="main">
 <span class="EmployeePaySlips"></span>
 	<div class="container row">
@@ -37,9 +37,7 @@
 		<c:forEach items='${totalPayments}' var="payslip">
 		<h6>Employee Name: ${payslip.employeeName}</h6>
 		</c:forEach>
-		<c:forEach items = '${depName }' var="list">
 		<h6>Department:${depName.name}</h6>
-		</c:forEach>
 		<br>
 		</div>
 		</div>
@@ -84,6 +82,7 @@
 		<h5>Employee Signature</h5>
 		</div>
 		</div>
+		<hr>
 	<p id="bottomLine"><large> This is a System Generated Payslip</large></p>
 	</div>
 		

@@ -1026,6 +1026,7 @@ body .container.body .right_col {
 
 .main_container{
 	height:94vh;
+	color:#1A1A1D;
 }
 .nav-md .container.body .right_col {
   padding: 10px 20px 0;
@@ -5115,5 +5116,10 @@ display: inline-flex;
 .empSig{
 	padding-left:100px;
 }
-
+.empPaycolour{
+	colour:1A1A1D !important;
+}
+#container_body{
+	background-color:floralwhite;
+}
 

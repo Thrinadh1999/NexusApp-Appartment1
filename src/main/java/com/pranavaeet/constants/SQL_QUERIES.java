@@ -116,7 +116,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addPayslips = "INSERT INTO payslips (employeeName, month, pay) VALUES(?, ?, ?)";
 	public static final String getEmpPaySlipsByName = "SELECT * FROM payslips WHERE employeeName=?"; 
 	public static final String getEmployeePayslipById = "SELECT * FROM payslips where payslips.id=?";
-	public static final String getDepNameForSelectedEmp ="SELECT DISTINCT(department.name) FROM department RIGHT JOIN employee ON department.departmentId = employee.departmentId WHERE employee.departmentId=?";	
+	public static final String getDepNameForSelectedEmp ="SELECT * FROM department RIGHT JOIN employee ON department.departmentId = employee.departmentId WHERE employee.id=? GROUP BY employee.firstName+ +employee.lastName";	
 	
 	//nexus_app queries
 	
@@ -133,7 +133,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addNexusnotices = "INSERT INTO nexus_notices (title,description,startdate,enddate,createdby) VALUES (?, ?, ?, ?, ?)";
 	public static final String getNexusnoticesList= "SELECT * FROM nexus_notices";
 	
-	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), now(), ?, ?, ?)";
+	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), CURDATE(), ?, ?, ?)";
 	public static final String getNexusvisitorsList= "SELECT * FROM nexus_visitors";
 }
 
