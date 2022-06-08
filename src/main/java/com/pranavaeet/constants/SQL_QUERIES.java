@@ -119,22 +119,24 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getDepNameForSelectedEmp ="SELECT * FROM department RIGHT JOIN employee ON department.departmentId = employee.departmentId WHERE employee.id=? GROUP BY employee.firstName+ +employee.lastName";	
 	
 	//nexus_app queries
-	
+	//nexusUsers
 	public static final String addNexususers = "INSERT INTO nexus_users (username,fullname, phonenumber, email) VALUES (?, ?, ?, ?)";
 	public static final String getNexususersList= "SELECT * FROM nexus_users";
 	public static final String validateLogin="SELECT DISTINCT IF(u.phonenumber = ? ,'VALID', 'INVALID')AS 'STATUS' FROM nexus_users u WHERE u.username  = ?";
-	
+	//nexusAppartments
 	public static final String addNexusapartments = "INSERT INTO nexus_apartments (name, mobilenumber, relationship, floor, flatno) VALUES (?, ?, ?, ?, ?)";
 	public static final String getNexusapartmentsList= "SELECT * FROM nexus_apartments";
-	
+	//nexus User Profiles
 	public static final String addNexususerprofiles = "INSERT INTO nexus_user_profiles (firstname,lastname,role,mobilenumber,email,image,venturename,block,flatno,gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String getNexususerprofileList= "SELECT * FROM nexus_user_profiles";
-	
+	//nexus Notices
 	public static final String addNexusnotices = "INSERT INTO nexus_notices (title,description,startdate,enddate,createdby) VALUES (?, ?, ?, ?, ?)";
 	public static final String getNexusnoticesList= "SELECT * FROM nexus_notices";
-	
+	//nexus Visitors
 	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), CURDATE(), ?, ?, ?)";
 	public static final String getNexusvisitorsList= "SELECT * FROM nexus_visitors";
+	public static final String updateVisListbyId = "UPDATE nexus_visitors SET outtime=?,outdate=? WHERE nexus_visitors.id=?"
+			+ "";
 }
 
 

@@ -61,7 +61,7 @@
                     </ul>
                   </li> 
                   
-                  <li><a><i class="fa fa-credit-card-alt"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-server"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                   	 <li><a href="flatDetails">Flat Details</a></li>
                       <li><a href="noticeDetails">Notices</a></li>
