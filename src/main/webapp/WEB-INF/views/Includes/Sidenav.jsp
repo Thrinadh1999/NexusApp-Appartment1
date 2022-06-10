@@ -70,6 +70,18 @@
                       <li><a href="visitorsDetailsNexus">Visitors</a></li>
                   	</ul>
                   	</li>
+                  	
+                  	<li><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
+                  	<ul class="nav child_menu">
+                  	 <li><a href="nexusapartmentdetails">Apartment</a></li>
+                      <li><a href="">Block</a></li>
+                      <li><a href="">Customers</a></li>
+                      <li><a href="">Floor</a></li>
+                      <li><a href="">Monthly Maintenance</a></li>
+                      <li><a href="">Users</a></li>
+                      <li><a href="">Venture</a></li>
+                  	</ul>
+                  	</li>
                       
               </div>
             </div>

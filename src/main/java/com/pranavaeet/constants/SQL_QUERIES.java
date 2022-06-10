@@ -135,8 +135,33 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	//nexus Visitors
 	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), CURDATE(), ?, ?, ?)";
 	public static final String getNexusvisitorsList= "SELECT * FROM nexus_visitors";
-	public static final String updateVisListbyId = "UPDATE nexus_visitors SET outtime=?,outdate=? WHERE nexus_visitors.id=?"
-			+ "";
+	public static final String updateVisListbyId = "UPDATE nexus_visitors SET outtime=?,outdate=? WHERE nexus_visitors.id=?";
+	//end of nexusapp queries
+	
+	
+	
+	//Nexus Application Admin
+	
+	public static final String getAppartmentDetails="SELECT * FROM appartment";
+	public static final String addAppartmentDetails="INSERT INTO appartment (appartmentName, appartmentOwner, appartmenStatus, description, blockId, floorId, paymentId, balance) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	
+	public static final String getBlockDetails="SELECT * FROM block";
+	public static final String addBlockDetails="INSERT INTO block (blockName, ventureId) VALUES(?, ?)";
+	
+	public static final String getCustomerDetails="SELECT * FROM customers";
+	public static final String addCustomerDetails="INSERT INTO customers (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureid, ventureName) VALUES(?, ?, ?, ?, ?, ?, ?)";
+	
+	public static final String getFloorDetails="SELECT * FROM customers";
+	public static final String addFloorDetails="INSERT INTO customers (floorNumber, blockId) VALUES(?, ?)";
+	
+	public static final String getMonthlyMaintainanceDetails="SELECT * FROM monthly_maintainance";
+	public static final String addMonthlyMaintainanceDetails="INSERT INTO monthly_maintainance (createdBy, amount, createdDate, status, description) VALUES(?, ?, ?, ?, ?)";
+	
+	public static final String getNexusUsersDetails="SELECT * FROM users";
+	public static final String addNexusUsersDetails="INSERT INTO users (userName, userFullName, userRole, userMobile, userEmail, userAddress, city, state, country, zipcode, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	
+	public static final String getVentureDetails="SELECT * FROM venture";
+	public static final String addVentureDetails="INSERT INTO venture (ventureName, ventureAddress, description, customer, customerId) VALUES(?, ?, ?, ?, ?)";
 }
 
 
