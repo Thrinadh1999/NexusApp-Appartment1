@@ -136,13 +136,13 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addNexusvisitors = "INSERT INTO nexus_visitors (fullname,contactnumber,typeofvisitor,flatno,expectedtime,image,intime,indate,outtime,outdate,elapsedtime) VALUES (?, ?, ?, ?, ?, ?, now(), CURDATE(), ?, ?, ?)";
 	public static final String getNexusvisitorsList= "SELECT * FROM nexus_visitors";
 	public static final String updateVisListbyId = "UPDATE nexus_visitors SET outtime=?,outdate=? WHERE nexus_visitors.id=?";
-	//end of nexusapp queries
+	//end of nexus app queries
 	
 	
 	
 	//Nexus Application Admin
 	
-	public static final String getAppartmentDetails="SELECT * FROM appartment";
+	public static final String getAppartmentDetails="SELECT * FROM appartment_nexusapp";
 	public static final String addAppartmentDetails="INSERT INTO appartment (appartmentName, appartmentOwner, appartmenStatus, description, blockId, floorId, paymentId, balance) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	public static final String getBlockDetails="SELECT * FROM block";
