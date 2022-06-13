@@ -82,7 +82,7 @@
 						id="demo-form2" class="form-horizontal form-label-left"
 						method="POST">
 						<form:input id="invoiceId" maxlength="2" class="form-control"
-							type="hidden" path="invoiceId"></form:input>.
+							type="hidden" path="invoiceId"></form:input>
 				<div class="item form-group">
 					<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="invoiceNo">Invoice No<span class="required">*</span>

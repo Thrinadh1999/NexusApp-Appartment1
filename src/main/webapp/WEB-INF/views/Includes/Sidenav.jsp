@@ -78,7 +78,7 @@
                       <li><a href="">Customers</a></li>
                       <li><a href="">Floor</a></li>
                       <li><a href="">Monthly Maintenance</a></li>
-                      <li><a href="">Users</a></li>
+                      <li><a href="nexususerdetails">Users</a></li>
                       <li><a href="">Venture</a></li>
                   	</ul>
                   	</li>

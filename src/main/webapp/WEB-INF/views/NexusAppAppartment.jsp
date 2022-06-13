@@ -22,7 +22,7 @@
 		<div class="col-md-12">
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus"></i> Add InvoiceItems
+				<i class="fa fa-plus"></i> Add Appartment's
 			</button>
 		</div>
 
