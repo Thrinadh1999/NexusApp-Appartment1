@@ -166,6 +166,8 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getStateAppList="SELECT * FROM state_lokp";
 	public static final String getCountryAppList="SELECT * FROM country_lokp";
 	public static final String getRoleList="SELECT * FROM user_role_Lookup_nexusapp";
+	public static final String addOtpToMobileNo="INSERT INTO otp_nexusapp (number, otp) VALUES(?, ?)";
+	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = 52068 ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
 	
 }
 
