@@ -7,14 +7,16 @@
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
 <div class="right_col" role="main">
-<span class="FlatDetails"></span>
+	<span class="users"></span>
 	<div class="container row">
 		<div class="col-md-9">
-		<div>
-			<h1><large>Users</large></h1>
-			<hr>
+			<div>
+				<h1>
+					<large>Users</large>
+				</h1>
+				<hr>
 			</div>
-			
+
 			<icon type="icon" class="icon-block" data-toggle="modal"
 				data-target="#myModal">
 		</div>
@@ -47,27 +49,27 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items='${ud}' var="userdetails">
-      <tr>
-      <td>${userdetails.userId}</td>
-      <td>${userdetails.userName}</td>
-      <td>${userdetails.userFullName}</td>
-      <td>${userdetails.userRole}</td>
-      <td>${userdetails.userMobile}</td>
-      <td>${userdetails.userEmail}</td>
-      <td>${userdetails.userAddress}</td>
-      <td>${userdetails.city}</td>
-      <td>${userdetails.state}</td>
-      <td>${userdetails.country}</td>
-      <td>${userdetails.zipcode}</td>
-      <td>${userdetails.status}</td>
-			
-	 </tr>
-	 </c:forEach>
+			<c:forEach items='${ud}' var="userdetails">
+				<tr>
+					<td>${userdetails.userId}</td>
+					<td>${userdetails.userName}</td>
+					<td>${userdetails.userFullName}</td>
+					<td>${userdetails.userRole}</td>
+					<td>${userdetails.userMobile}</td>
+					<td>${userdetails.userEmail}</td>
+					<td>${userdetails.userAddress}</td>
+					<td>${userdetails.city}</td>
+					<td>${userdetails.state}</td>
+					<td>${userdetails.country}</td>
+					<td>${userdetails.zipcode}</td>
+					<td>${userdetails.status}</td>
+
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
-	
-	
+
+
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -79,12 +81,12 @@
 					<h4 class="modal-title">Add User</h4>
 				</div>
 				<div class="modal-body">
-					<form:form modelAttribute="newNexusappUsers" action="addnexusappusers"
-						id="demo-form2" class="form-horizontal form-label-left"
-						method="POST">
+					<form:form modelAttribute="newNexusappUsers"
+						action="addnexusappusers" id="demo-form2"
+						class="form-horizontal form-label-left" method="POST">
 						<form:input id="userId" maxlength="2" class="form-control"
 							type="hidden" path="userId"></form:input>
-							<div class="item form-group">
+						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="userName">User Name <span class="required">*</span>
 							</label>
@@ -107,8 +109,7 @@
 								for="userRole">userRole<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="userRole" class="form-control "
-									path="userRole">
+								<form:select id="userRole" class="form-control " path="userRole">
 									<c:forEach items='${rl}' var="rl">
 										<form:option value="${rl.dispName}"> ${rl.role}</form:option>
 									</c:forEach>
@@ -151,13 +152,12 @@
 									required="required" class="form-control"></form:input>
 							</div>
 						</div>
-							<div class="item form-group">
+						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="state">state<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="state" class="form-control "
-									path="state">
+								<form:select id="state" class="form-control " path="state">
 									<c:forEach items='${asl}' var="asl">
 										<form:option value="${asl.stateName}"> ${asl.stateName}</form:option>
 									</c:forEach>
@@ -170,8 +170,7 @@
 								for="country">Country<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="country" class="form-control "
-									path="country">
+								<form:select id="country" class="form-control " path="country">
 									<c:forEach items='${acl}' var="acl">
 										<form:option value="${acl.countryName}"> ${acl.countryName}</form:option>
 									</c:forEach>
@@ -220,49 +219,48 @@
 
 
 
-	</div>
+</div>
 
-	<!-- /page content -->
+<!-- /page content -->
 
-	<%@ include file="Includes/Footer.jsp"%>
+<%@ include file="Includes/Footer.jsp"%>
 
-	<%@ include file="Includes/FooterScripts.jsp"%>
-	<!-- Datatables -->
-	<script
-		src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-	<script
-		src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-	<script
-		src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<%@ include file="Includes/FooterScripts.jsp"%>
+<!-- Datatables -->
+<script
+	src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script
+	src="resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script
+	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-$('#cancel-button').on('click', function() {
-	$('#myModal').modal('hide');
-});
-$('#submit-button').on('click', function() {
-	$('#demo-form2').submit();
-});
+	$('#cancel-button').on('click', function() {
+		$('#myModal').modal('hide');
+	});
+	$('#submit-button').on('click', function() {
+		$('#demo-form2').submit();
+	});
 </script>
-	
-	
-	
-	
-	
+
+
+
+

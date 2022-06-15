@@ -5,8 +5,6 @@ public class NexusAppVenture {
 	private String ventureName;
 	private String ventureAddress;
 	private String description;
-	private String customer;
-	private String customerId;
 
 	public NexusAppVenture() {
 
@@ -44,27 +42,13 @@ public class NexusAppVenture {
 		this.description = description;
 	}
 
-	public String getCustomer() {
-		return customer;
-	}
 
-	public void setCustomer(String customer) {
-		this.customer = customer;
-	}
-
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
 
 	@Override
 	public String toString() {
 		return "NexusAppVenture [ventureId=" + ventureId + ", ventureName=" + ventureName + ", ventureAddress="
-				+ ventureAddress + ", description=" + description + ", customer=" + customer + ", customerId="
-				+ customerId + "]";
+				+ ventureAddress + ", description=" + description + ""
+						+ "]";
 	}
 
 }

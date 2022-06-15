@@ -1,4 +1,4 @@
-package com.pranavaeet.NexusApp.controllers;
+/**package com.pranavaeet.NexusApp.controllers;
 
 import java.util.List;
 
@@ -37,11 +37,12 @@ public class AppartmentNexusController {
 		return page;
 	}
 
-	@PostMapping(value = "/addnexusappuser")
-	public ModelAndView newNexusappUsers(@ModelAttribute NexusAppUsers newNexusAppUsers, HttpServletRequest request,HttpSession session) {
-	objectDAO.addOrUpdate(SQL_QUERIES.addNexusUsersDetails, new String [] {newNexusAppUsers.getUserName(),newNexusAppUsers.getUserFullName(),newNexusAppUsers.getUserRole(),newNexusAppUsers.getUserMobile(),newNexusAppUsers.getUserEmail(),newNexusAppUsers.getUserAddress(),newNexusAppUsers.getCity(),newNexusAppUsers.getState(),newNexusAppUsers.getCountry(),newNexusAppUsers.getZipcode(),newNexusAppUsers.getState()});
+	@PostMapping(value = "/addnexusappappartment")
+	public ModelAndView newNexusappUsers(@ModelAttribute NexusAppAppartment newNexusAppAppartment, HttpServletRequest request,HttpSession session) {
+	objectDAO.addOrUpdate(SQL_QUERIES.addAppartmentDetails, new String [] {newNexusAppAppartment.getUserName(),newNexusAppAppartment.getUserFullName(),newNexusAppUsers.getUserRole(),newNexusAppUsers.getUserMobile(),newNexusAppUsers.getUserEmail(),newNexusAppUsers.getUserAddress(),newNexusAppUsers.getCity(),newNexusAppUsers.getState(),newNexusAppUsers.getCountry(),newNexusAppUsers.getZipcode(),newNexusAppUsers.getState()});
 	
-	return new ModelAndView("redirect:/nexususerdetails");
+	return new ModelAndView("redirect:/nexusapartmentdetails");
 }
 
 }
+**/

@@ -7,7 +7,6 @@ public class NexusAppCustomers {
 	private String customerAddress;
 	private String customerPincode;
 	private String customerRole;
-	private String ventureid;
 	private String ventureName;
 
 	public NexusAppCustomers() {
@@ -62,13 +61,6 @@ public class NexusAppCustomers {
 		this.customerRole = customerRole;
 	}
 
-	public String getVentureid() {
-		return ventureid;
-	}
-
-	public void setVentureid(String ventureid) {
-		this.ventureid = ventureid;
-	}
 
 	public String getVentureName() {
 		return ventureName;
@@ -82,6 +74,6 @@ public class NexusAppCustomers {
 	public String toString() {
 		return "NexusAppCustomers [customerId=" + customerId + ", customerName=" + customerName + ", customerMobile="
 				+ customerMobile + ", customerAddress=" + customerAddress + ", customerPincode=" + customerPincode
-				+ ", customerRole=" + customerRole + ", ventureid=" + ventureid + ", ventureName=" + ventureName + "]";
+				+ ", customerRole=" + customerRole + ", ventureName=" + ventureName + "]";
 	}
 }

@@ -149,7 +149,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId) VALUES(?, ?)";
 	
 	public static final String getCustomerDetails="SELECT * FROM customers_nexusapp";
-	public static final String addCustomerDetails="INSERT INTO customers_nexusapp (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureid, ventureName) VALUES(?, ?, ?, ?, ?, ?, ?)";
+	public static final String addCustomerDetails="INSERT INTO customers_nexusapp (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureName) VALUES(?, ?, ?, ?, ?, ?)";
 	
 	public static final String getFloorDetails="SELECT * FROM floor_nexusapp";
 	public static final String addFloorDetails="INSERT INTO floor_nexusapp (floorNumber, blockId) VALUES(?, ?)";
@@ -159,15 +159,18 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getNexusUsersDetails="SELECT * FROM users_nexusapp";
 	public static final String addNexusUsersDetails="INSERT INTO users_nexusapp (userName, userFullName, userRole, userMobile, userEmail, userAddress, city, state, country, zipcode, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String getNexusUsersByRole="SELECT * FROM users_nexusapp WHERE users_nexusapp.userRole='SA'";
 	
 	public static final String getVentureDetails="SELECT * FROM venture_nexusapp";
-	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description, customer, customerId) VALUES(?, ?, ?, ?, ?)";
+	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description) VALUES( ?, ?, ?)";
 	
 	public static final String getStateAppList="SELECT * FROM state_lokp";
 	public static final String getCountryAppList="SELECT * FROM country_lokp";
 	public static final String getRoleList="SELECT * FROM user_role_Lookup_nexusapp";
 	public static final String addOtpToMobileNo="INSERT INTO otp_nexusapp (number, otp) VALUES(?, ?)";
-	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = 52068 ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
+	public static final String getCountOfNumber ="SELECT COUNT(*)AS 'count' FROM otp_nexusapp WHERE number=? AND otp=?; "; 
+	public static final String updateOtp= "UPDATE otp_nexusapp SET otp=? WHERE number=?";
+	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = ? ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
 	
 }
 
