@@ -3,7 +3,7 @@ package com.pranavaeet.NexusApp.common;
 public class NexusAppFloor {
 	private String floorId;
 	private String floorNumber;
-	private String blockId;
+	private String blockName;
 
 	public NexusAppFloor() {
 
@@ -25,16 +25,17 @@ public class NexusAppFloor {
 		this.floorNumber = floorNumber;
 	}
 
-	public String getBlockId() {
-		return blockId;
+	public String getBlockName() {
+		return blockName;
 	}
 
-	public void setBlockId(String blockId) {
-		this.blockId = blockId;
+	public void setBlockName(String blockName) {
+		this.blockName = blockName;
 	}
 
 	@Override
 	public String toString() {
-		return "NexusAppFloor [floorId=" + floorId + ", floorNumber=" + floorNumber + ", blockId=" + blockId + "]";
+		return "NexusAppFloor [floorId=" + floorId + ", floorNumber=" + floorNumber + ", blockName=" + blockName + "]";
 	}
+
 }

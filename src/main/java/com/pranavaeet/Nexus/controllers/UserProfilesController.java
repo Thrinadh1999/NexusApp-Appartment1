@@ -19,7 +19,7 @@ public class UserProfilesController {
 	@Autowired
 	ObjectDAO objectDAO;
 
-	@GetMapping(value = "/userProfileDetails")
+	@GetMapping(value = "app/userProfileDetails")
 	public ModelAndView getUserProfilesDetails(HttpServletRequest request, HttpSession session) {
 		List<UserProfilesNexus> userProfileDetails = (List<UserProfilesNexus>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getNexususerprofileList, null, UserProfilesNexus.class);

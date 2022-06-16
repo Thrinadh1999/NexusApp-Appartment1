@@ -106,7 +106,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userRole">userRole<span class="required">*</span>
+								for="userRole">User Role<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="userRole" class="form-control " path="userRole">
@@ -121,7 +121,7 @@
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="userMobile">User Mobile</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="userMobile" path="userMobile"
+								<form:input type="text" maxlength="10" size="10" id="userMobile" path="userMobile"
 									class="form-control"></form:input>
 							</div>
 						</div>
@@ -183,7 +183,7 @@
 								for="zipcode">Zipcode<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="zipcode" path="zipcode"
+								<form:input type="text" maxlength="6" size="6" id="zipcode" path="zipcode"
 									required="required" class="form-control"></form:input>
 							</div>
 						</div>

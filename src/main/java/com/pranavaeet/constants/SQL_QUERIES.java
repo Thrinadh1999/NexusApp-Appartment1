@@ -152,7 +152,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String addCustomerDetails="INSERT INTO customers_nexusapp (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureName) VALUES(?, ?, ?, ?, ?, ?)";
 	
 	public static final String getFloorDetails="SELECT * FROM floor_nexusapp";
-	public static final String addFloorDetails="INSERT INTO floor_nexusapp (floorNumber, blockId) VALUES(?, ?)";
+	public static final String addFloorDetails="INSERT INTO floor_nexusapp (floorNumber, blockName) VALUES(?, ?)";
 	
 	public static final String getMonthlyMaintainanceDetails="SELECT * FROM monthly_maintainance_nexusapp";
 	public static final String addMonthlyMaintainanceDetails="INSERT INTO monthly_maintainance_nexusapp (createdBy, amount, createdDate, status, description) VALUES(?, ?, ?, ?, ?)";
@@ -160,9 +160,13 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getNexusUsersDetails="SELECT * FROM users_nexusapp";
 	public static final String addNexusUsersDetails="INSERT INTO users_nexusapp (userName, userFullName, userRole, userMobile, userEmail, userAddress, city, state, country, zipcode, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String getNexusUsersByRole="SELECT * FROM users_nexusapp WHERE users_nexusapp.userRole='SA'";
+	public static final String countNexusUsersNumber="SELECT COUNT(*) AS 'Status' FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
+	public static final String getUserListbyrole="SELECT * FROM users_nexusapp WHERE users_nexusapp.userRole='OW'";
 	
 	public static final String getVentureDetails="SELECT * FROM venture_nexusapp";
 	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description) VALUES( ?, ?, ?)";
+	
+	public static final String getPaymentsDetails="SELECT * FROM monthly_payments_nexusapp";
 	
 	public static final String getStateAppList="SELECT * FROM state_lokp";
 	public static final String getCountryAppList="SELECT * FROM country_lokp";

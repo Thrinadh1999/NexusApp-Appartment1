@@ -73,13 +73,18 @@
                   	
                   	<li><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
-                  	 <li><a href="">Apartment</a></li>
-                      <li><a href="nexusblodckdetails">Block</a></li>
-                      <li><a href="nexuscustomersdetails">Customers</a></li>
-                      <li><a href="">Floor</a></li>
-                      <li><a href="">Monthly Maintenance</a></li>
-                      <li><a href="nexususerdetails">Users</a></li>
-                      <li><a href="nexusventuredetails">Venture</a></li>
+                  	
+                  	<li><a href="nexusventuredetails">Venture</a></li>
+                    <li><a href="nexusblodckdetails">Block</a></li>
+                  	<li><a href="nexusfloordetails">Floor</a></li>
+                  	<li><a href="nexusapartmentdetails">Apartment</a></li>
+                  	<li><a href="nexususerdetails">Users</a></li>
+                    <li><a href="nexuscustomersdetails">Customers</a></li>
+                    <li><a href="">Monthly Maintenance</a></li>
+                    <li><a href="">Payments</a></li> 
+                     
+                      
+                      
                   	</ul>
                   	</li>
                       

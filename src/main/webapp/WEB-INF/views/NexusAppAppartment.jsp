@@ -11,7 +11,7 @@
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
 <div class="right_col" role="main">
-	<span class="FlatDetails"></span>
+	<span class="AppartmentDetails"></span>
 	<div class="container row">
 		<div class="col-md-9">
 			<div>
@@ -38,24 +38,32 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Mobile Number</th>
-				<th>RelationShip</th>
-				<th>Floor</th>
-				<th>Flat Number</th>
+				<th>appartmentId</th>
+				<th>appartmentName</th>
+				<th>appartmentOwner</th>
+				<th>appartmenStatus</th>
+				<th>description </th>
+				<th>blockId</th>
+				<th>floorId</th>
+				<th>paymentId</th>
+				<th>balance</th>
 			</tr>
 		</thead>
 		<tbody>
+		<c:forEach items='${ad}' var="ad">
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${ad.appartmentId}</td>
+				<td>${ad.appartmentName}</td>
+				<td>${ad.appartmentOwner}</td>
+				<td>${ad.appartmenStatus}</td>
+				<td>${ad.description}</td>
+				<td>${ad.blockId}</td>
+				<td>${ad.floorId}</td>
+				<td>${ad.paymentId}</td>
+				<td>${ad.balance}</td>
 
 			</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 
@@ -68,40 +76,31 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add User</h4>
+					<h4 class="modal-title">Add Appartment</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappAppartment"
 						action="addnexusappappartment" id="demo-form2"
 						class="form-horizontal form-label-left" method="POST">
-						<form:input id="userId" maxlength="2" class="form-control"
-							type="hidden" path="userId"></form:input>
+						<form:input id="appartmentId" maxlength="2" class="form-control"
+							type="hidden" path="appartmentId"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userName">User Name <span class="required">*</span>
+								for="appartmentName">Appartment Name <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="userName" path="userName"
+								<form:input type="text" id="appartmentName" path="appartmentName"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="description">User FullName <span class="required">*</span>
+								for="appartmentOwnerV">Appartment Owner<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="userFullName" path="userFullName"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userRole">userRole<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:select id="userRole" class="form-control " path="userRole">
-									<c:forEach items='${rl}' var="rl">
-										<form:option value="${rl.dispName}"> ${rl.role}</form:option>
+								<form:select id="appartmentOwner" class="form-control " path="appartmentOwner">
+									<c:forEach items='${ul}' var="ul">
+										<form:option value="${ul.userName}"> ${ul. userFullName}</form:option>
 									</c:forEach>
 
 								</form:select>
@@ -109,47 +108,29 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userMobile">User Mobile</label>
+								for="appartmenStatus">appartmenStatus</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="userMobile" path="userMobile"
+								<form:input type="text" id="appartmenStatus" path="appartmenStatus"
 									class="form-control"></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userEmail">User Email<span class="required">*</span>
+								for="userEmail">description<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="userEmail" path="userEmail"
-									required="required" class="form-control"></form:input>
+								<form:textarea type="text" id="description" path="description"
+									required="required" class="form-control"></form:textarea>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userAddress">User Address<span class="required">*</span>
+								for="blockId">blockId<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="userAddress" path="userAddress"
-									required="required" class="form-control"></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="city">City<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="city" path="city"
-									required="required" class="form-control"></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="state">state<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:select id="state" class="form-control " path="state">
-									<c:forEach items='${asl}' var="asl">
-										<form:option value="${asl.stateName}"> ${asl.stateName}</form:option>
+								<form:select id="blockId" class="form-control " path="blockId">
+									<c:forEach items='${bl}' var="bl">
+										<form:option value="${bl.blockId}"> ${bl.blockName}</form:option>
 									</c:forEach>
 
 								</form:select>
@@ -157,32 +138,32 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="country">Country<span class="required">*</span>
+								for="floorId">floorId<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="country" class="form-control " path="country">
-									<c:forEach items='${acl}' var="acl">
-										<form:option value="${acl.countryName}"> ${acl.countryName}</form:option>
+								<form:select id="floorId" class="form-control " path="floorId">
+									<c:forEach items='${fl}' var="fl">
+										<form:option value="${fl.floorId}"> ${fl.floorNumber}</form:option>
 									</c:forEach>
 
 								</form:select>
 							</div>
 						</div>
-						<div class="item form-group">
+							<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="zipcode">Zipcode<span class="required">*</span>
+								for="paymentId">paymentId<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="zipcode" path="zipcode"
+								<form:input type="text" id="paymentId" path="paymentId"
 									required="required" class="form-control"></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="status">Status<span class="required">*</span>
+								for="balance">balance<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="status" path="status"
+								<form:input type="text" id="balance" path="balance"
 									required="required" class="form-control"></form:input>
 							</div>
 						</div>
