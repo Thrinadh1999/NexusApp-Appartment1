@@ -13,6 +13,7 @@ public class NexusAppUsers {
 	private String country;
 	private String zipcode;
 	private String status;
+	private String image;
 
 	public NexusAppUsers() {
 
@@ -114,12 +115,21 @@ public class NexusAppUsers {
 		this.status = status;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "NexusAppUsers [userId=" + userId + ", userName=" + userName + ", userFullName=" + userFullName
 				+ ", userRole=" + userRole + ", userMobile=" + userMobile + ", userEmail=" + userEmail
 				+ ", userAddress=" + userAddress + ", city=" + city + ", state=" + state + ", country=" + country
-				+ ", zipcode=" + zipcode + ", status=" + status + "]";
+				+ ", zipcode=" + zipcode + ", status=" + status + ", image=" + image + "]";
 	}
+
 
 }

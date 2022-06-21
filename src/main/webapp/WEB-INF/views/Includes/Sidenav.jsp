@@ -27,31 +27,31 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="departments"><i class="fas fa-sitemap"></i> Departments </a>
+                  <li id="department"><a href="departments"><i class="fas fa-sitemap"></i>Departments </a>
                     <ul class="nav child_menu">
                       
                     </ul>
                   </li>
-                  <li><a href="employees"><i class="fa fa-user"></i> Employees </a>
+                  <li id="employee"><a href="employees"><i class="fa fa-user"></i> Employees </a>
                     <ul class="nav child_menu">
                      
                     </ul>
                   </li>
-                  <li><a href="projects"><i class="fa fa-desktop"></i> Projects </a>
+                  <li id="projects"><a href="projects"><i class="fa fa-desktop"></i> Projects </a>
                     <ul class="nav child_menu">
                       
                     </ul>
                   </li>
                   
                   
-                    <li><a href="Tasks"><i class="fa fa-tasks"></i> Tasks </a>
+                    <li id="tasks"><a href="Tasks"><i class="fa fa-tasks"></i> Tasks </a>
                     <ul class="nav child_menu">
                     </ul>
                   </li>
                 
                   
                   
-                    <li><a><i class="fa fa-credit-card-alt"></i> Accounts<span class="fa fa-chevron-down"></span></a>
+                    <li id="accounts"><a><i class="fa fa-credit-card-alt"></i> Accounts<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="Categories">Categories</a></li>
                       <li><a href="Transactions">Transactions</a></li>
@@ -61,7 +61,7 @@
                     </ul>
                   </li> 
                   
-                  <li><a><i class="fa fa-server"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
+                  <li id="nexusApp"><a><i class="fa fa-server"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                   	 <li><a href="flatDetails">Flat Details</a></li>
                       <li><a href="noticeDetails">Notices</a></li>
@@ -71,13 +71,14 @@
                   	</ul>
                   	</li>
                   	
-                  	<li><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
+                  	<li id="necusAppAdmin"><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                   	
                   	<li><a href="nexusventuredetails">Venture</a></li>
                     <li><a href="nexusblodckdetails">Block</a></li>
                   	<li><a href="nexusfloordetails">Floor</a></li>
                   	<li><a href="nexusapartmentdetails">Apartment</a></li>
+                  	<li><a href="nexusvisitorsdetails">Visitors</a></li>
                   	<li><a href="nexususerdetails">Users</a></li>
                     <li><a href="nexuscustomersdetails">Customers</a></li>
                     <li><a href="">Monthly Maintenance</a></li>

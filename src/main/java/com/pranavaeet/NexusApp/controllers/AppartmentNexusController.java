@@ -70,7 +70,7 @@ public class AppartmentNexusController {
 	@PostMapping(value = "/addnexusappappartment")
 	public ModelAndView addAppartmentDetails(@ModelAttribute NexusAppAppartment newNexusAppAppartment, HttpServletRequest request,HttpSession session) {
 		logger.info(newNexusAppAppartment);
-	objectDAO.addOrUpdate(SQL_QUERIES.addAppartmentDetails, new String [] {newNexusAppAppartment.getAppartmentName(),newNexusAppAppartment.getAppartmentOwner(),newNexusAppAppartment.getAppartmenStatus(),newNexusAppAppartment.getDescription(),newNexusAppAppartment.getBlockId(),newNexusAppAppartment.getFloorId(),newNexusAppAppartment.getPaymentId(),newNexusAppAppartment.getBalance()});
+	objectDAO.addOrUpdate(SQL_QUERIES.addAppartmentDetails, new String [] {newNexusAppAppartment.getAppartmentName(),newNexusAppAppartment.getAppartmentOwner(),newNexusAppAppartment.getNumber(),newNexusAppAppartment.getAppartmenStatus(),newNexusAppAppartment.getDescription(),newNexusAppAppartment.getBlockId(),newNexusAppAppartment.getFloorId()});
 	
 	return new ModelAndView("redirect:/nexusapartmentdetails");
 }

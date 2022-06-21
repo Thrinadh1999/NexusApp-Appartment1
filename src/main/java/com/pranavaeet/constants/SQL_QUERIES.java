@@ -143,7 +143,8 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	//Nexus Application Admin
 	
 	public static final String getAppartmentDetails="SELECT * FROM appartment_nexusapp";
-	public static final String addAppartmentDetails="INSERT INTO appartment_nexusapp (appartmentName, appartmentOwner, appartmenStatus, description, blockId, floorId, paymentId, balance) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String addAppartmentDetails="INSERT INTO appartment_nexusapp (appartmentName, appartmentOwner,number, appartmenStatus, description, blockId, floorId) VALUES(?, ?, ?, ?, ?, ?, ?)";
+	//public static final String addAppartmentDetails1="I"
 	
 	public static final String getBlockDetails="SELECT * FROM block_nexusapp";
 	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId) VALUES(?, ?)";
@@ -162,9 +163,13 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getNexusUsersByRole="SELECT * FROM users_nexusapp WHERE users_nexusapp.userRole='SA'";
 	public static final String countNexusUsersNumber="SELECT COUNT(*) AS 'Status' FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
 	public static final String getUserListbyrole="SELECT * FROM users_nexusapp WHERE users_nexusapp.userRole='OW'";
+	public static final String getUserListByNumber="SELECT * FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
 	
 	public static final String getVentureDetails="SELECT * FROM venture_nexusapp";
 	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description) VALUES( ?, ?, ?)";
+	
+	public static final String getVisitorNexusDetails="SELECT * FROM visitors_nexusapp";
+	public static final String addVisitorNexusDetails="INSERT INTO visitors_nexusapp (typeOfVisitor, appartmentName, blockName, name, mobile, inTime, inDate, outTime, outDate,elapsedTime,expectedTime,imagePath) VALUES(?, ?, ?, ?, ?, CURTIME(), CURDATE(),?,?,?,?,?)";
 	
 	public static final String getPaymentsDetails="SELECT * FROM monthly_payments_nexusapp";
 	
@@ -175,6 +180,8 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getCountOfNumber ="SELECT COUNT(*)AS 'count' FROM otp_nexusapp WHERE number=? AND otp=?; "; 
 	public static final String updateOtp= "UPDATE otp_nexusapp SET otp=? WHERE number=?";
 	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = ? ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
+	public static final String getVisType="SELECT * FROM visitorsType_lkp_nexusapp";
+	public static final String getRoleForNumber="SELECT users_nexusapp.userRole FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
 	
 }
 

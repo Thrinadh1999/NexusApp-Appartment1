@@ -68,7 +68,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add User</h4>
+					<h4 class="modal-title">Add Customer</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappCustomer"

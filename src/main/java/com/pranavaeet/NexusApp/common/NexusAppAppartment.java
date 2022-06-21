@@ -4,6 +4,7 @@ public class NexusAppAppartment {
 	private String appartmentId;
 	private String appartmentName;
 	private String appartmentOwner;
+	private String number;
 	private String appartmenStatus;
 	private String description;
 	private String blockId;
@@ -37,6 +38,14 @@ public class NexusAppAppartment {
 
 	public void setAppartmentOwner(String appartmentOwner) {
 		this.appartmentOwner = appartmentOwner;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public String getAppartmenStatus() {
@@ -90,9 +99,10 @@ public class NexusAppAppartment {
 	@Override
 	public String toString() {
 		return "NexusAppAppartment [appartmentId=" + appartmentId + ", appartmentName=" + appartmentName
-				+ ", appartmentOwner=" + appartmentOwner + ", appartmenStatus=" + appartmenStatus + ", description="
-				+ description + ", blockId=" + blockId + ", floorId=" + floorId + ", paymentId=" + paymentId
-				+ ", balance=" + balance + "]";
+				+ ", appartmentOwner=" + appartmentOwner + ", number=" + number + ", appartmenStatus=" + appartmenStatus
+				+ ", description=" + description + ", blockId=" + blockId + ", floorId=" + floorId + ", paymentId="
+				+ paymentId + ", balance=" + balance + "]";
 	}
+
 
 }

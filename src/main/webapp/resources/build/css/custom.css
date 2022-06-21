@@ -5117,9 +5117,45 @@ display: inline-flex;
 	padding-left:100px;
 }
 .empPaycolour{
-	colour:1A1A1D !important;
+	color:1A1A1D !important;
 }
 #container_body{
 	background-color:floralwhite;
 }
 
+#employee{
+	display:none;
+}
+#department{
+	display:none;
+}
+#projects{
+	display:none;
+}
+#tasks{
+	display:none;
+}
+#accounts{
+	display:none;
+}
+#nexusApp{
+	display:none;
+}
+
+#blockiframe{
+	height: 30rem;
+	width: 32%;
+	border-radius: 10px;
+	margin-right: 25px;
+}
+#flooriframe{
+	height: 30rem;
+	width: 32%;
+	border-radius: 10px;
+	margin-right: 25px;
+}
+#appartmentiframe{
+	height: 30rem;
+	width: 32%;
+	border-radius: 10px;
+}

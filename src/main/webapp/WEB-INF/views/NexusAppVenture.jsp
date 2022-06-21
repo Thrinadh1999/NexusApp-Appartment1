@@ -52,8 +52,11 @@
 				</c:forEach>
 		</tbody>
 	</table>
-
-
+	<div class="iframeNexusAppAdmin">
+	<iframe id="blockiframe" src="nexusblodckdetails" title="Block Details"></iframe>
+	<iframe id="flooriframe"  src="nexusfloordetails" title="Floor Details"></iframe>
+	<iframe id="appartmentiframe" src="nexusapartmentdetails" title="Appartment Details"</iframe>
+	</div>
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -62,7 +65,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add User</h4>
+					<h4 class="modal-title">Add Venture</h4>
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappVenture"
@@ -118,8 +121,6 @@
 		</div>
 	</div>
 
-
-
 </div>
 
 <!-- /page content -->
@@ -160,6 +161,8 @@ $('#cancel-button').on('click', function() {
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
+
+
 </script>
 
 

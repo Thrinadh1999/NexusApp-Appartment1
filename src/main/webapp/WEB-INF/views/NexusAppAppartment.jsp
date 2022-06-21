@@ -41,12 +41,11 @@
 				<th>appartmentId</th>
 				<th>appartmentName</th>
 				<th>appartmentOwner</th>
+				<th>number</th>
 				<th>appartmenStatus</th>
 				<th>description </th>
 				<th>blockId</th>
 				<th>floorId</th>
-				<th>paymentId</th>
-				<th>balance</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -55,12 +54,11 @@
 				<td>${ad.appartmentId}</td>
 				<td>${ad.appartmentName}</td>
 				<td>${ad.appartmentOwner}</td>
+				<td>${ad.number}</td>
 				<td>${ad.appartmenStatus}</td>
 				<td>${ad.description}</td>
 				<td>${ad.blockId}</td>
 				<td>${ad.floorId}</td>
-				<td>${ad.paymentId}</td>
-				<td>${ad.balance}</td>
 
 			</tr>
 			</c:forEach>
@@ -95,12 +93,25 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmentOwnerV">Appartment Owner<span class="required">*</span>
+								for="appartmentOwner">Appartment Owner<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="appartmentOwner" class="form-control " path="appartmentOwner">
 									<c:forEach items='${ul}' var="ul">
-										<form:option value="${ul.userName}"> ${ul. userFullName}</form:option>
+										<form:option data-usermobile="${ul.userMobile}" value="${ul.userName}"> ${ul. userFullName}</form:option>
+									</c:forEach>
+
+								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label  class="col-form-label col-md-4 col-sm-4 label-align"
+								for="number">Number<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:select  id="number" class="form-control " path="number">
+									<c:forEach items='${ul}' var="ul">
+										<form:option value="${ul.userMobile}"> </form:option>
 									</c:forEach>
 
 								</form:select>
@@ -147,24 +158,6 @@
 									</c:forEach>
 
 								</form:select>
-							</div>
-						</div>
-							<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="paymentId">paymentId<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="paymentId" path="paymentId"
-									required="required" class="form-control"></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="balance">balance<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="balance" path="balance"
-									required="required" class="form-control"></form:input>
 							</div>
 						</div>
 						<div class="ln_solid"></div>
@@ -233,6 +226,12 @@ $('#cancel-button').on('click', function() {
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
+$('#appartmentOwner').change(function(){
+	var userid = $('option:selected', this).attr('data-usermobile');
+	$('#number').val(userid);
+
+})
+
 </script>
 
 
