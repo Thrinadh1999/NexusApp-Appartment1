@@ -213,7 +213,7 @@ public List<NexusAppFloor>getNexusAppFloorList(HttpServletRequest request, HttpS
 }
 //appartment module
 //get appartment details
-@GetMapping(value="nexusapp/getAppartmentDetails")
+@GetMapping(value="nexusapp/getApartmentDetails")
 @ResponseBody
 public List<NexusAppAppartment>getNexusAppAppartmentList(HttpServletRequest request, HttpSession session){
 	@SuppressWarnings("unchecked")

@@ -5,6 +5,7 @@ public class NexusAppVenture {
 	private String ventureName;
 	private String ventureAddress;
 	private String description;
+	private String no_of_blocks;
 
 	public NexusAppVenture() {
 
@@ -42,13 +43,19 @@ public class NexusAppVenture {
 		this.description = description;
 	}
 
+	public String getNo_of_blocks() {
+		return no_of_blocks;
+	}
 
+	public void setNo_of_blocks(String no_of_blocks) {
+		this.no_of_blocks = no_of_blocks;
+	}
 
 	@Override
 	public String toString() {
 		return "NexusAppVenture [ventureId=" + ventureId + ", ventureName=" + ventureName + ", ventureAddress="
-				+ ventureAddress + ", description=" + description + ""
-						+ "]";
+				+ ventureAddress + ", description=" + description + ", no_of_blocks=" + no_of_blocks + "]";
 	}
 
+	
 }

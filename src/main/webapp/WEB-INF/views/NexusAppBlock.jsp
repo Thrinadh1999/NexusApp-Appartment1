@@ -36,7 +36,8 @@
 			<tr>
 				<th>Block Id</th>
 				<th>Block Name</th>
-				<th>Venture Id</th>
+				<th>Venture Name</th>
+				<th>No Of Floors</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,12 +46,16 @@
 					<td>${blockdetails.blockId }</td>
 					<td>${blockdetails.blockName}</td>
 					<td>${blockdetails.ventureId}</td>
+					<td>${blockdetails.no_of_floors}</td>
 
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-
+	<div class="iframeNexusAppAdmin">
+	<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
+	</div>
+	
 
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
@@ -70,7 +75,7 @@
 							type="hidden" path="blockId"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="blockName">blockName<span class="required">*</span>
+								for="blockName">Block Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="blockName" path="blockName"
@@ -79,7 +84,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="ventureId">ventureId<span class="required">*</span>
+								for="ventureId">Venture Id<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="ventureId" class="form-control " path="ventureId">
@@ -90,8 +95,15 @@
 								</form:select>
 							</div>
 						</div>
-
-
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="no_of_floors">No Of Floors<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="no_of_floors" path="no_of_floors"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
 						<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">

@@ -7,12 +7,12 @@
 <%@ include file="Includes/Topnav.jsp"%>
 <!-- page content -->
 <div class="right_col" role="main">
-	<span class="FlatDetails"></span>
+	<span class="VisitorDetails"></span>
 	<div class="container row">
 		<div class="col-md-9">
 			<div>
 				<h1>
-					<large>Venture Details</large>
+					<large>Visitor Details</large>
 				</h1>
 				<hr>
 			</div>
@@ -23,7 +23,7 @@
 		<div class="col-md-12">
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus"></i> Add Venture
+				<i class="fa fa-plus"></i> Add Visitor
 			</button>
 		</div>
 
@@ -34,30 +34,44 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>Venture Id</th>
-				<th>Venture Name</th>
-				<th>Venture Address</th>
-				<th>Description</th>
-				<th>No Of Blocks</th>
+				<th>id</th>
+				<th>typeOfVisitor</th>
+				<th>appartmentName</th>
+				<th>blockName</th>
+				<th>name</th>
+				<th>mobile</th>
+				<th>inTime</th>
+				<th>inDate</th>
+				<th>outTime</th>
+				<th>outDate</th>
+				<th>imagePath</th>
+				
+				
+				
+				
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items='${vd}' var="ventureDetails">
+		<c:forEach items='${visd}' var="vis">
 				<tr>
-					<td>${ventureDetails.ventureId}</td>
-					<td>${ventureDetails.ventureName}</td>
-					<td>${ventureDetails.ventureAddress}</td>
-					<td>${ventureDetails.description}</td>
-					<td>${ventureDetails.no_of_blocks}</td>
+					<td>${vis.id}</td>
+					<td>${vis.typeOfVisitor}</td>
+					<td>${vis.appartmentName}</td>
+					<td>${vis.blockName}</td>
+					<td>${vis.name}</td>
+					<td>${vis.mobile}</td>
+					<td>${vis.inTime}</td>
+					<td>${vis.inDate}</td>
+					<td>${vis.outTime}</td>
+					<td>${vis.outDate}</td>
+					<td>${vis.imagePath}</td>
 
 				</tr>
 				</c:forEach>
 		</tbody>
 	</table>
-	<div class="iframeNexusAppAdmin">
-	<iframe id="blockiframe" src="getVentureIframe" title="Block Details"></iframe>
-	
-	</div>
+
+
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -66,50 +80,99 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Venture</h4>
+					<h4 class="modal-title">Add Visitor</h4>
 				</div>
 				<div class="modal-body">
-					<form:form modelAttribute="newNexusappVenture"
-						action="addnexusappventure" id="demo-form2"
+					<form:form modelAttribute="newNexusappVisitors"
+						action="addnexusappvisitors" id="demo-form2"
 						class="form-horizontal form-label-left" method="POST">
-						<form:input id="ventureId" maxlength="2" class="form-control"
-							type="hidden" path="ventureId"></form:input>
+						<form:input id="id" maxlength="2" class="form-control"
+							type="hidden" path="id"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="ventureName">Venture Name<span class="required">*</span>
+								for="typeOfVisitor">typeOfVisitor<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="ventureName" path="ventureName"
+								<form:select id="typeOfVisitor" class="form-control " path="typeOfVisitor">
+									<c:forEach items='${vtl}' var="vtl">
+										<form:option value="${vtl.visitorType}"> ${vtl. visitorType}</form:option>
+									</c:forEach>
+
+								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="appartmentName">Appartment Name<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:select id="appartmentName" class="form-control " path="appartmentName">
+									<c:forEach items='${al}' var="al">
+										<form:option value="${al.appartmentName }"> ${al.appartmentName}</form:option>
+									</c:forEach>
+
+								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for=blockName>blockName<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:select id="blockName" class="form-control " path="blockName">
+									<c:forEach items='${bl}' var="bl">
+										<form:option value="${bl.blockName}"> ${bl.blockName}</form:option>
+									</c:forEach>
+
+								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="name">name<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="name" path="name"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="ventureAddress">Venture Address<span class="required">*</span>
+								for="mobile">mobile<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="ventureAddress" path="ventureAddress"
+								<form:input type="text" maxlength="10" size="10" id="mobile" path="mobile"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="description">Description<span class="required">*</span>
+								for="outTime">outTime<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:textarea type="text" id="description" path="description"
-									required="required" class="form-control "></form:textarea>
+								<form:input type="text" id="outTime" path="outTime"
+									required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="no_of_blocks">No Of Blocks<span class="required">*</span>
+								for="outDate">outDate<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="no_of_blocks" path="no_of_blocks"
+								<form:input type="text" id="outDate" path="outDate"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="imagePath">imagePath<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="imagePath" path="imagePath"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						
 						<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
@@ -130,6 +193,8 @@
 
 		</div>
 	</div>
+
+
 
 </div>
 
@@ -171,8 +236,6 @@ $('#cancel-button').on('click', function() {
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });
-
-
 </script>
 
 

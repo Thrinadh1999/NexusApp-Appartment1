@@ -1,6 +1,7 @@
 package com.pranavaeet.NexusApp.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -44,6 +45,7 @@ public class AppartmentNexusController {
 				.multipleResultSelect(SQL_QUERIES.getUserListbyrole, null, NexusAppUsers.class);
 		List<NexusAppMonthlyPayments> paymentList = (List<NexusAppMonthlyPayments>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getPaymentsDetails, null, NexusAppMonthlyPayments.class);
+		List<Map<String, Object>> v1 = objectDAO.multipleResultSelect(SQL_QUERIES.joinBlock_Floor, null);
 		
 		
 		ModelAndView page = new ModelAndView();
@@ -56,7 +58,7 @@ public class AppartmentNexusController {
 		page.addObject("fl", floorList);
 		page.addObject("ul", userList);
 		page.addObject("pl", paymentList);
-		
+		page.addObject("v1", v1);
 		
 		
 		
@@ -74,6 +76,12 @@ public class AppartmentNexusController {
 	
 	return new ModelAndView("redirect:/nexusapartmentdetails");
 }
+	@GetMapping(value="/getAppartmentIframe")
+	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		ModelAndView page =new ModelAndView();
+		page.setViewName("Appartment_det");
+		return page;
+	}
 
 }
 

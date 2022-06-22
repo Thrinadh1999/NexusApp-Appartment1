@@ -46,9 +46,15 @@ public class FloorNexusAppController {
 	public ModelAndView newNexusappFloor(@ModelAttribute NexusAppFloor newNexusAppFloor, HttpServletRequest request,
 			HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addFloorDetails,
-				new String[] { newNexusAppFloor.getFloorNumber(), newNexusAppFloor.getBlockName()});
+				new String[] { newNexusAppFloor.getFloorNumber(), newNexusAppFloor.getBlockName(),newNexusAppFloor.getNo_of_appartments()});
 						
 
 		return new ModelAndView("redirect:/nexusfloordetails");
+	}
+	@GetMapping(value="/getFloorIframe")
+	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		ModelAndView page =new ModelAndView();
+		page.setViewName("Floor_det");
+		return page;
 	}
 }

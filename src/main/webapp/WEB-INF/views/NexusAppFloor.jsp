@@ -34,9 +34,10 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>floorId</th>
-				<th>floorNumber</th>
-				<th>blockName</th>
+				<th>Floor Id</th>
+				<th>Floor Number</th>
+				<th>Block Name</th>
+				<th>No Of Appartments</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,12 +46,15 @@
 					<td>${floordetails.floorId}</td>
 					<td>${floordetails.floorNumber}</td>
 					<td>${floordetails.blockName}</td>
+					<td>${floordetails.no_of_appartments}</td>
 
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-
+	<div class="iframeNexusAppAdmin">
+	<iframe id="flooriframe" src="getFloorIframe" title="Floor Details"></iframe>
+	</div>
 
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
@@ -88,6 +92,15 @@
 									</c:forEach>
 
 								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="no_of_appartments">No Of Appartments<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" maxlength="4" size="4" id="no_of_appartments" path="no_of_appartments"
+									required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="ln_solid"></div>

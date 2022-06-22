@@ -4,6 +4,7 @@ public class NexusAppFloor {
 	private String floorId;
 	private String floorNumber;
 	private String blockName;
+	private String no_of_appartments;
 
 	public NexusAppFloor() {
 
@@ -32,10 +33,22 @@ public class NexusAppFloor {
 	public void setBlockName(String blockName) {
 		this.blockName = blockName;
 	}
+	
+
+	public String getNo_of_appartments() {
+		return no_of_appartments;
+	}
+
+	public void setNo_of_appartments(String no_of_appartments) {
+		this.no_of_appartments = no_of_appartments;
+	}
 
 	@Override
 	public String toString() {
-		return "NexusAppFloor [floorId=" + floorId + ", floorNumber=" + floorNumber + ", blockName=" + blockName + "]";
+		return "NexusAppFloor [floorId=" + floorId + ", floorNumber=" + floorNumber + ", blockName=" + blockName
+				+ ", no_of_appartments=" + no_of_appartments + "]";
 	}
+
+	
 
 }

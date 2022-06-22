@@ -46,8 +46,15 @@ public class BlockNexusAppController {
 	public ModelAndView addNexusAppBlocks(@ModelAttribute NexusAppBlocks newNexusAppBlocks, HttpServletRequest request,
 			HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addBlockDetails,
-				new String[] { newNexusAppBlocks.getBlockName(), newNexusAppBlocks.getVentureId()});
+				new String[] { newNexusAppBlocks.getBlockName(), newNexusAppBlocks.getVentureId(),newNexusAppBlocks.getNo_of_floors()});
 
 		return new ModelAndView("redirect:/nexusblodckdetails");
+	}
+	
+	@GetMapping(value="/getBlockIframe")
+	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		ModelAndView page =new ModelAndView();
+		page.setViewName("Block_det");
+		return page;
 	}
 }

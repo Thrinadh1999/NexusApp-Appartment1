@@ -12,7 +12,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="resources/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="resources/images/111.jpeg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -71,7 +71,7 @@
                   	</ul>
                   	</li>
                   	
-                  	<li id="necusAppAdmin"><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
+                  	<li id="nexusAppAdmin"><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
                   	<ul class="nav child_menu">
                   	
                   	<li><a href="nexusventuredetails">Venture</a></li>

@@ -41,9 +41,16 @@ public class VentureNexusAppController {
 
 	@PostMapping(value = "/addnexusappventure")
 	public ModelAndView newNexusappVenture(@ModelAttribute NexusAppVenture newNexusAppVenture, HttpServletRequest request,HttpSession session) {
-	objectDAO.addOrUpdate(SQL_QUERIES.addVentureDetails, new String [] {newNexusAppVenture.getVentureName(),newNexusAppVenture.getVentureAddress(),newNexusAppVenture.getDescription()});
+	objectDAO.addOrUpdate(SQL_QUERIES.addVentureDetails, new String [] {newNexusAppVenture.getVentureName(),newNexusAppVenture.getVentureAddress(),newNexusAppVenture.getDescription(),newNexusAppVenture.getNo_of_blocks()});
 	
 	return new ModelAndView("redirect:/nexusventuredetails");
 }
+	
+	@GetMapping(value="/getVentureIframe")
+	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		ModelAndView page =new ModelAndView();
+		page.setViewName("Venture_det");
+		return page;
+	}
 
 }

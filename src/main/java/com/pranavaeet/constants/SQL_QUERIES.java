@@ -147,13 +147,13 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	//public static final String addAppartmentDetails1="I"
 	
 	public static final String getBlockDetails="SELECT * FROM block_nexusapp";
-	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId) VALUES(?, ?)";
+	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId,no_of_floors) VALUES(?, ?, ?)";
 	
 	public static final String getCustomerDetails="SELECT * FROM customers_nexusapp";
 	public static final String addCustomerDetails="INSERT INTO customers_nexusapp (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureName) VALUES(?, ?, ?, ?, ?, ?)";
 	
 	public static final String getFloorDetails="SELECT * FROM floor_nexusapp";
-	public static final String addFloorDetails="INSERT INTO floor_nexusapp (floorNumber, blockName) VALUES(?, ?)";
+	public static final String addFloorDetails="INSERT INTO floor_nexusapp (floorNumber, blockName,no_of_appartments) VALUES(?,?,?)";
 	
 	public static final String getMonthlyMaintainanceDetails="SELECT * FROM monthly_maintainance_nexusapp";
 	public static final String addMonthlyMaintainanceDetails="INSERT INTO monthly_maintainance_nexusapp (createdBy, amount, createdDate, status, description) VALUES(?, ?, ?, ?, ?)";
@@ -166,7 +166,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getUserListByNumber="SELECT * FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
 	
 	public static final String getVentureDetails="SELECT * FROM venture_nexusapp";
-	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description) VALUES( ?, ?, ?)";
+	public static final String addVentureDetails="INSERT INTO venture_nexusapp (ventureName, ventureAddress, description,no_of_blocks) VALUES( ?, ?, ?,?)";
 	
 	public static final String getVisitorNexusDetails="SELECT * FROM visitors_nexusapp";
 	public static final String addVisitorNexusDetails="INSERT INTO visitors_nexusapp (typeOfVisitor, appartmentName, blockName, name, mobile, inTime, inDate, outTime, outDate,elapsedTime,expectedTime,imagePath) VALUES(?, ?, ?, ?, ?, CURTIME(), CURDATE(),?,?,?,?,?)";
@@ -182,6 +182,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = ? ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
 	public static final String getVisType="SELECT * FROM visitorsType_lkp_nexusapp";
 	public static final String getRoleForNumber="SELECT users_nexusapp.userRole FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
+	public static final String joinBlock_Floor="SELECT * FROM block_nexusapp RIGHT JOIN floor_nexusapp ON block_nexusapp.blockName=floor_nexusapp.blockName";
 	
 }
 

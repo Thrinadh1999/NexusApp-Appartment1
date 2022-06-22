@@ -38,14 +38,14 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>appartmentId</th>
-				<th>appartmentName</th>
-				<th>appartmentOwner</th>
-				<th>number</th>
-				<th>appartmenStatus</th>
-				<th>description </th>
-				<th>blockId</th>
-				<th>floorId</th>
+				<th>Appartment Id</th>
+				<th>Appartment Name</th>
+				<th>Appartment Owner</th>
+				<th>Number</th>
+				<th>Appartmen Status</th>
+				<th>Description </th>
+				<th>Block Id</th>
+				<th>Floor Id</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -64,8 +64,9 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
-
+	<div class="iframeNexusAppAdmin">
+	<iframe id="appartmentiframe" src="getAppartmentIframe" title="Appartment Details"></iframe>
+	</div>
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -119,7 +120,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmenStatus">appartmenStatus</label>
+								for="appartmenStatus">Appartmen Status</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="appartmenStatus" path="appartmenStatus"
 									class="form-control"></form:input>
@@ -127,7 +128,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userEmail">description<span class="required">*</span>
+								for="userEmail">Description<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:textarea type="text" id="description" path="description"
@@ -136,12 +137,12 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="blockId">blockId<span class="required">*</span>
+								for="blockId">Block Id<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="blockId" class="form-control " path="blockId">
-									<c:forEach items='${bl}' var="bl">
-										<form:option value="${bl.blockId}"> ${bl.blockName}</form:option>
+									<c:forEach items='${v1}' var="v1">
+										<form:option value="${v1.blockName}"> ${v1.blockName}</form:option>
 									</c:forEach>
 
 								</form:select>
@@ -149,12 +150,12 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="floorId">floorId<span class="required">*</span>
+								for="floorId">Floor Id<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="floorId" class="form-control " path="floorId">
-									<c:forEach items='${fl}' var="fl">
-										<form:option value="${fl.floorId}"> ${fl.floorNumber}</form:option>
+									<c:forEach items='${v1}' var="v1">
+										<form:option value="${v1.floorNumber}"> ${v1.floorNumber}</form:option>
 									</c:forEach>
 
 								</form:select>
@@ -231,6 +232,11 @@ $('#appartmentOwner').change(function(){
 	$('#number').val(userid);
 
 })
+//$('#blockId').change(function(){
+	//var blockId=$('option:selected',this).attr('data-blockName');
+	//$('#floorId').val(blockId);
+//})
+//data-blockName="${v1.floorNumber }"
 
 </script>
 
