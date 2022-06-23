@@ -78,8 +78,11 @@ public class AppartmentNexusController {
 }
 	@GetMapping(value="/getAppartmentIframe")
 	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		List<NexusAppAppartment> appartmentDet = (List<NexusAppAppartment>) objectDAO
+				.multipleResultSelect(SQL_QUERIES.getAppartmentDetails, null, NexusAppAppartment.class);
 		ModelAndView page =new ModelAndView();
 		page.setViewName("Appartment_det");
+		page.addObject("adi", appartmentDet);
 		return page;
 	}
 

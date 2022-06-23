@@ -5129,9 +5129,17 @@ display: inline-flex;
 }
 #flooriframe,#blockiframe,#appartmentiframe{
 	width: 100%;
+	height: 40rem;
 	border:none;
 }
 
 #department,#employee,#projects,#tasks,#accounts,#nexusApp{
 	display:none;
 }
+#blockiframe{
+	
+}
+
+
+
+

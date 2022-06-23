@@ -28,34 +28,22 @@
 		</div>
 
 	</div>
-
-
-
-	<table id="datatable" class="table">
-		<thead>
-			<tr>
-				<th>Block Id</th>
-				<th>Block Name</th>
-				<th>Venture Name</th>
-				<th>No Of Floors</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items='${bd}' var="blockdetails">
-				<tr>
-					<td>${blockdetails.blockId }</td>
-					<td>${blockdetails.blockName}</td>
-					<td>${blockdetails.ventureId}</td>
-					<td>${blockdetails.no_of_floors}</td>
-
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+		<div id="blockSelect">
+		<label for="venture-select">Choose a Block:</label> 
+			<select id="venture-select">
+				<option value="blockname">--Please choose a Block--</option>
+					<c:forEach items='${bd}' var="blockdetails">
+						<option value="blockname">${blockdetails.blockName}</option>
+					</c:forEach>
+			</select>
+				
+					<button id="fetchdetails-button" "
+						type="submit" class="btn btn-success">Fecth Deails!</button>
+				</div>
 	<div class="iframeNexusAppAdmin">
-	<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
+		<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
 	</div>
-	
+
 
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
@@ -87,11 +75,11 @@
 								for="ventureId">Venture Id<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="ventureId" class="form-control " path="ventureId">
+								<form:select id="ventureId" class="form-control "
+									path="ventureId">
 									<c:forEach items='${vll}' var="vl">
 										<form:option value="${vl.ventureName }"> ${vl.ventureName}</form:option>
 									</c:forEach>
-
 								</form:select>
 							</div>
 						</div>
@@ -104,28 +92,18 @@
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
-						<div class="ln_solid"></div>
-						<div class="item form-group">
-							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
-								<form:button id="submit-button" type="submit"
-									class="btn btn-success">Submit</form:button>
-
-								<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
-							</div>
-
-						</div>
-					</form:form>
-
-
-
+							<div class="ln_solid"></div>
+								<div class="item form-group">
+									<div class="col-md-6 col-sm-6 offset-md-3 text-center">
+										<form:button id="submit-button" type="submit" class="btn btn-success">Submit</form:button>
+											<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+									</div>
+								</div>
+										</form:form>
 				</div>
 			</div>
-
 		</div>
 	</div>
-
-
-
 </div>
 
 <!-- /page content -->
@@ -165,6 +143,9 @@
 	});
 	$('#submit-button').on('click', function() {
 		$('#demo-form2').submit();
+	});
+	$('#fetchdetails-button').on('click', function(){
+		$('#blockSelect').submit();
 	});
 </script>
 

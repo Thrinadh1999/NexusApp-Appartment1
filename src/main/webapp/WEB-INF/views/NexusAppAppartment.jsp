@@ -32,38 +32,17 @@
 		</div>
 
 	</div>
+<label for="appartment-select">Choose a Appartment:</label> <select
+		id="appartment-select">
+		<option value="">--Please choose a Appartment--</option>
+		<c:forEach items='${ad}' var="appartmentdetails">
+
+			<option value="appartmentname">${appartmentdetails.appartmentName}</option>
+		</c:forEach>
+	</select>
 
 
-
-	<table id="datatable" class="table">
-		<thead>
-			<tr>
-				<th>Appartment Id</th>
-				<th>Appartment Name</th>
-				<th>Appartment Owner</th>
-				<th>Number</th>
-				<th>Appartmen Status</th>
-				<th>Description </th>
-				<th>Block Id</th>
-				<th>Floor Id</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach items='${ad}' var="ad">
-			<tr>
-				<td>${ad.appartmentId}</td>
-				<td>${ad.appartmentName}</td>
-				<td>${ad.appartmentOwner}</td>
-				<td>${ad.number}</td>
-				<td>${ad.appartmenStatus}</td>
-				<td>${ad.description}</td>
-				<td>${ad.blockId}</td>
-				<td>${ad.floorId}</td>
-
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	
 	<div class="iframeNexusAppAdmin">
 	<iframe id="appartmentiframe" src="getAppartmentIframe" title="Appartment Details"></iframe>
 	</div>
@@ -232,13 +211,7 @@ $('#appartmentOwner').change(function(){
 	$('#number').val(userid);
 
 })
-//$('#blockId').change(function(){
-	//var blockId=$('option:selected',this).attr('data-blockName');
-	//$('#floorId').val(blockId);
-//})
-//data-blockName="${v1.floorNumber }"
 
-</script>
 
 
 

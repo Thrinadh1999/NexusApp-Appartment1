@@ -26,37 +26,11 @@
 				<i class="fa fa-plus"></i> Add Venture
 			</button>
 		</div>
-
 	</div>
-
-
-
-	<table id="datatable" class="table">
-		<thead>
-			<tr>
-				<th>Venture Id</th>
-				<th>Venture Name</th>
-				<th>Venture Address</th>
-				<th>Description</th>
-				<th>No Of Blocks</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach items='${vd}' var="ventureDetails">
-				<tr>
-					<td>${ventureDetails.ventureId}</td>
-					<td>${ventureDetails.ventureName}</td>
-					<td>${ventureDetails.ventureAddress}</td>
-					<td>${ventureDetails.description}</td>
-					<td>${ventureDetails.no_of_blocks}</td>
-
-				</tr>
-				</c:forEach>
-		</tbody>
-	</table>
-	<div class="iframeNexusAppAdmin">
-	<iframe id="blockiframe" src="getVentureIframe" title="Block Details"></iframe>
 	
+	<div class="iframeNexusAppAdmin">
+		<iframe id="blockiframe" src="getVentureIframe" title="Block Details"></iframe>
+
 	</div>
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
@@ -85,11 +59,12 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="ventureAddress">Venture Address<span class="required">*</span>
+								for="ventureAddress">Venture Address<span
+								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="ventureAddress" path="ventureAddress"
-									required="required" class="form-control "></form:input>
+								<form:input type="text" id="ventureAddress"
+									path="ventureAddress" required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
@@ -165,14 +140,16 @@
 	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-$('#cancel-button').on('click', function() {
-	$('#myModal').modal('hide');
-});
-$('#submit-button').on('click', function() {
-	$('#demo-form2').submit();
-});
-
-
+	$('#cancel-button').on('click', function() {
+		$('#myModal').modal('hide');
+	});
+	$('#submit-button').on('click', function() {
+		$('#demo-form2').submit();
+	});
+	$('#venture-select').on('click', function(){
+		 
+		});
+		</script>
 </script>
 
 

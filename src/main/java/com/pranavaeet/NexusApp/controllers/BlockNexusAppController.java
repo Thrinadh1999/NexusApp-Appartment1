@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import com.pranavaeet.NexusApp.common.NexusAppVenture;
 
 @Controller
 public class BlockNexusAppController {
+	final static Logger logger = LogManager.getLogger();
 	@Autowired
 	ObjectDAO objectDAO;
 
@@ -52,9 +55,17 @@ public class BlockNexusAppController {
 	}
 	
 	@GetMapping(value="/getBlockIframe")
-	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+	public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,
+			HttpSession session) {
+		logger.info(blockname);
+		@SuppressWarnings("unchecked")
+		List<NexusAppBlocks> blockDet = (List<NexusAppBlocks>) objectDAO
+				.multipleResultSelect(SQL_QUERIES.getBlockDetailsByBlockName, new String[] {blockname}, NexusAppBlocks.class);
+		logger.info(blockname, blockDet);
 		ModelAndView page =new ModelAndView();
 		page.setViewName("Block_det");
-		return page;
+		page.addObject("bd",blockDet);
+		//return page;
+		return null;
 	}
 }

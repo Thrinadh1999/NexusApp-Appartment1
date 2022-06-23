@@ -45,11 +45,14 @@ public class VentureNexusAppController {
 	
 	return new ModelAndView("redirect:/nexusventuredetails");
 }
-	
+	//VEN_DET PAGE
 	@GetMapping(value="/getVentureIframe")
 	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		@SuppressWarnings("unchecked")
+		List<NexusAppVenture> ventureDet = (List<NexusAppVenture>) objectDAO.multipleResultSelect(SQL_QUERIES.getVentureDetails, null, NexusAppVenture.class);
 		ModelAndView page =new ModelAndView();
 		page.setViewName("Venture_det");
+		page.addObject("vdi", ventureDet);
 		return page;
 	}
 

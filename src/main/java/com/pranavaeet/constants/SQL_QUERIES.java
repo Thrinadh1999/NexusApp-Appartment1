@@ -148,6 +148,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getBlockDetails="SELECT * FROM block_nexusapp";
 	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId,no_of_floors) VALUES(?, ?, ?)";
+	public static final String getBlockDetailsByBlockName="SELECT * FROM block_nexusapp WHERE block_nexusapp.blockName=?";
 	
 	public static final String getCustomerDetails="SELECT * FROM customers_nexusapp";
 	public static final String addCustomerDetails="INSERT INTO customers_nexusapp (customerName, customerMobile, customerAddress, customerPincode, customerRole, ventureName) VALUES(?, ?, ?, ?, ?, ?)";
@@ -182,7 +183,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String otpValidation="SELECT DISTINCT IF(otp_nexusapp.otp = ? ,'VALID', 'INVALID')AS 'STATUS' FROM otp_nexusapp";
 	public static final String getVisType="SELECT * FROM visitorsType_lkp_nexusapp";
 	public static final String getRoleForNumber="SELECT users_nexusapp.userRole FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
-	public static final String joinBlock_Floor="SELECT * FROM block_nexusapp RIGHT JOIN floor_nexusapp ON block_nexusapp.blockName=floor_nexusapp.blockName";
+	public static final String joinBlock_Floor="SELECT * FROM block_nexusapp RIGHT JOIN floor_nexusapp ON block_nexusapp.blockName=floor_nexusapp.blockName GROUP BY block_nexusapp.blockName";
 	
 }
 

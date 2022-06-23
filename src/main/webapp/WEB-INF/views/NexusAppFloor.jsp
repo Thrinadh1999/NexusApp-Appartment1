@@ -28,30 +28,17 @@
 		</div>
 
 	</div>
+<label for="floor-select">Choose a Floor:</label> <select
+		id="floor-select">
+		<option value="">--Please choose a Floor--</option>
+		<c:forEach items='${fd}' var="floordetails">
+
+			<option value="floorname">${floordetails.floorNumber}</option>
+		</c:forEach>
+	</select>
 
 
-
-	<table id="datatable" class="table">
-		<thead>
-			<tr>
-				<th>Floor Id</th>
-				<th>Floor Number</th>
-				<th>Block Name</th>
-				<th>No Of Appartments</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items='${fd}' var="floordetails">
-				<tr>
-					<td>${floordetails.floorId}</td>
-					<td>${floordetails.floorNumber}</td>
-					<td>${floordetails.blockName}</td>
-					<td>${floordetails.no_of_appartments}</td>
-
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	
 	<div class="iframeNexusAppAdmin">
 	<iframe id="flooriframe" src="getFloorIframe" title="Floor Details"></iframe>
 	</div>

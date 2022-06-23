@@ -53,8 +53,11 @@ public class FloorNexusAppController {
 	}
 	@GetMapping(value="/getFloorIframe")
 	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+		List<NexusAppFloor> floorDet = (List<NexusAppFloor>) objectDAO
+				.multipleResultSelect(SQL_QUERIES.getFloorDetails, null, NexusAppFloor.class);
 		ModelAndView page =new ModelAndView();
 		page.setViewName("Floor_det");
+		page.addObject("fdi", floorDet);
 		return page;
 	}
 }

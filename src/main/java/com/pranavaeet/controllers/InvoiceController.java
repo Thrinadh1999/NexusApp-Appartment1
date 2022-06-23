@@ -69,6 +69,7 @@ public class InvoiceController {
 		logger.info(id);
 		Invoices invoicedet = (Invoices)objectDAO.singleResultSelect(SQL_QUERIES.getInvoiceById, new String[] {id}, Invoices.class);
 		//to get list of invoice items
+		@SuppressWarnings("unchecked")
 		List<InvoiceItems> invoiceItemsList = (List<InvoiceItems>) objectDAO.multipleResultSelect(SQL_QUERIES.getInvoicesItems, new String[] {id}, InvoiceItems.class);
 		//to get single result for item price with respect to id
 		Map<String,Object> totalItemAmount = objectDAO.singleResultSelect(SQL_QUERIES.sumItemPriceById, new String[] {id});
