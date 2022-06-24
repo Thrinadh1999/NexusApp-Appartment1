@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pranavaeet.common.ObjectDAO;
 import com.pranavaeet.constants.SQL_QUERIES;
+import com.pranavaeet.NexusApp.common.NexusAppBlocks;
 import com.pranavaeet.NexusApp.common.NexusAppVenture;
 
 @Controller
 public class VentureNexusAppController {
+	final static Logger logger = LogManager.getLogger();
 	@Autowired
 	ObjectDAO objectDAO;
 
@@ -46,14 +50,19 @@ public class VentureNexusAppController {
 	return new ModelAndView("redirect:/nexusventuredetails");
 }
 	//VEN_DET PAGE
-	@GetMapping(value="/getVentureIframe")
-	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
+	@GetMapping(value="/getBlockIframe")
+	public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,
+			HttpSession session) {
+		logger.info(blockname);
 		@SuppressWarnings("unchecked")
-		List<NexusAppVenture> ventureDet = (List<NexusAppVenture>) objectDAO.multipleResultSelect(SQL_QUERIES.getVentureDetails, null, NexusAppVenture.class);
+		List<NexusAppBlocks> blockDet = (List<NexusAppBlocks>) objectDAO
+				.multipleResultSelect(SQL_QUERIES.getBlockDetails, null,  NexusAppBlocks.class);
+		logger.info(blockname, blockDet);
 		ModelAndView page =new ModelAndView();
-		page.setViewName("Venture_det");
-		page.addObject("vdi", ventureDet);
+		page.setViewName("Block_det");
+		page.addObject("bd",blockDet);
 		return page;
+		
 	}
 
 }

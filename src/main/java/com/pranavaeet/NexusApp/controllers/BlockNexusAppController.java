@@ -49,23 +49,23 @@ public class BlockNexusAppController {
 	public ModelAndView addNexusAppBlocks(@ModelAttribute NexusAppBlocks newNexusAppBlocks, HttpServletRequest request,
 			HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addBlockDetails,
-				new String[] { newNexusAppBlocks.getBlockName(), newNexusAppBlocks.getVentureId(),newNexusAppBlocks.getNo_of_floors()});
+				new String[] { newNexusAppBlocks.getBlockName(), newNexusAppBlocks.getVentureId(),newNexusAppBlocks.getNo_of_floors(),newNexusAppBlocks.getNo_of_appartments()});
 
 		return new ModelAndView("redirect:/nexusblodckdetails");
 	}
 	
-	@GetMapping(value="/getBlockIframe")
-	public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,
-			HttpSession session) {
-		logger.info(blockname);
-		@SuppressWarnings("unchecked")
-		List<NexusAppBlocks> blockDet = (List<NexusAppBlocks>) objectDAO
-				.multipleResultSelect(SQL_QUERIES.getBlockDetailsByBlockName, new String[] {blockname}, NexusAppBlocks.class);
-		logger.info(blockname, blockDet);
-		ModelAndView page =new ModelAndView();
-		page.setViewName("Block_det");
-		page.addObject("bd",blockDet);
+	//@GetMapping(value="/getBlockIframe")
+	//public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,
+	//		HttpSession session) {
+		//logger.info(blockname);
+		//@SuppressWarnings("unchecked")
+		//List<NexusAppBlocks> blockDet = (List<NexusAppBlocks>) objectDAO
+				//.multipleResultSelect(SQL_QUERIES.getBlockDetailsByBlockName, new String[] {blockname}, NexusAppBlocks.class);
+		//logger.info(blockname, blockDet);
+		//ModelAndView page =new ModelAndView();
+		//page.setViewName("Block_det");
+		//page.addObject("bd",blockDet);
 		//return page;
-		return null;
-	}
+		//return null;
+	//}
 }

@@ -203,6 +203,7 @@
 $('#cancel-button').on('click', function() {
 	$('#myModal').modal('hide');
 });
+
 $('#submit-button').on('click', function() {
 	$('#demo-form2').submit();
 });

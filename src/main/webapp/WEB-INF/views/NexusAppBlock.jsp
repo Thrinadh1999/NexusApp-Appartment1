@@ -56,8 +56,8 @@
 					<h4 class="modal-title">Add Block</h4>
 				</div>
 				<div class="modal-body">
-					<form:form modelAttribute="newNexusappBlock"
-						action="addnexusappblock" id="demo-form2"
+					<form:form modelAttribute="newNexusappBlocks"
+						action="addnexusappblocks" id="demo-form2"
 						class="form-horizontal form-label-left" method="POST">
 						<form:input id="blockId" maxlength="2" class="form-control"
 							type="hidden" path="blockId"></form:input>
@@ -88,7 +88,16 @@
 								for="no_of_floors">No Of Floors<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="no_of_floors" path="no_of_floors"
+								<form:input type="text" maxlength="2" size="2" id="no_of_floors" path="no_of_floors"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="no_of_appartments">No Of Appartments<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" maxlength="2" size="2" id="no_of_appartments" path="no_of_appartments"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>

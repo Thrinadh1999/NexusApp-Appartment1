@@ -27,10 +27,9 @@
 			</button>
 		</div>
 	</div>
-	
+	<hr>
 	<div class="iframeNexusAppAdmin">
-		<iframe id="blockiframe" src="getVentureIframe" title="Block Details"></iframe>
-
+		<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
 	</div>
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
