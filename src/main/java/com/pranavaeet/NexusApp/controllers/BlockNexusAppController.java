@@ -26,7 +26,7 @@ public class BlockNexusAppController {
 	ObjectDAO objectDAO;
 
 	@SuppressWarnings("unchecked")
-	@GetMapping(value = "/nexusblodckdetails")
+	@GetMapping(value = "/nexusblockdetails")
 	public ModelAndView getBlockDetails(HttpServletRequest request, HttpSession session) {
 		List<NexusAppBlocks> blockDetails = (List<NexusAppBlocks>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getBlockDetails, null, NexusAppBlocks.class);
@@ -40,18 +40,18 @@ public class BlockNexusAppController {
 		page.addObject("bd", blockDetails);
 		page.addObject("vll", ventureList);
 
-		page.addObject("newNexusappBlock", new NexusAppBlocks());
+		page.addObject("newNexusappBlocks", new NexusAppBlocks());
 
 		return page;
 	}
 
-	@PostMapping(value = "/addnexusappblock")
+	@PostMapping(value = "/addnexusappblocks")
 	public ModelAndView addNexusAppBlocks(@ModelAttribute NexusAppBlocks newNexusAppBlocks, HttpServletRequest request,
 			HttpSession session) {
 		objectDAO.addOrUpdate(SQL_QUERIES.addBlockDetails,
 				new String[] { newNexusAppBlocks.getBlockName(), newNexusAppBlocks.getVentureId(),newNexusAppBlocks.getNo_of_floors(),newNexusAppBlocks.getNo_of_appartments()});
 
-		return new ModelAndView("redirect:/nexusblodckdetails");
+		return new ModelAndView("redirect:/nexusblockdetails");
 	}
 	
 	//@GetMapping(value="/getBlockIframe")

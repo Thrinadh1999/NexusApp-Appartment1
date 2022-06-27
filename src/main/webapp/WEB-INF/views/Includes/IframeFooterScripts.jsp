@@ -23,7 +23,6 @@
 <script src="resources/js/firefoxDropdown.js"></script>
 <script src="resources/js/customValidation.js"></script>
 <script src="resources/js/disableAutofill.js"></script>
-<script src="resources/vendors/summernote.0.8.12/summernote.min.js"></script>
 <script>
 $(function(){
     $('.phoneMask').inputmask("999-999-9999");

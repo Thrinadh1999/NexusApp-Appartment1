@@ -38,11 +38,11 @@
 			</select>
 				
 					<button id="fetchdetails-button" "
-						type="submit" class="btn btn-success">Fecth Deails!</button>
-				</div>
+			NexusAppBlock			type="submit" class="btn btn-success">Fecth Deails!</button>
+				</div>Add
 	<div class="iframeNexusAppAdmin">
-		<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
-	</div>
+		<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe></div>
+	
 
 
 	<!-- Trigger the modal with a button -->
@@ -57,7 +57,7 @@
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappBlocks"
-						action="addnexusappblocks" id="demo-form2"
+						action="addnexusappblocks" id="demo-form"
 						class="form-horizontal form-label-left" method="POST">
 						<form:input id="blockId" maxlength="2" class="form-control"
 							type="hidden" path="blockId"></form:input>
@@ -108,7 +108,7 @@
 											<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
 									</div>
 								</div>
-										</form:form>
+						</form:form>
 				</div>
 			</div>
 		</div>
@@ -151,7 +151,7 @@
 		$('#myModal').modal('hide');
 	});
 	$('#submit-button').on('click', function() {
-		$('#demo-form2').submit();
+		$('#demo-form').submit();
 	});
 	$('#fetchdetails-button').on('click', function(){
 		$('#blockSelect').submit();

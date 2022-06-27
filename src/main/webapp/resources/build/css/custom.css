@@ -5133,7 +5133,7 @@ display: inline-flex;
 	border:none;
 }
 
-#department,#employee,#projects,#tasks,#accounts,#nexusApp{
+#department,#employee,#projects,#tasks,#accounts,#nexusApp,#floorsidenav{
 	display:none;
 }
 #blockDet_button{

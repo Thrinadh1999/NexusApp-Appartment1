@@ -39,6 +39,7 @@ public class VentureNexusAppController {
 		page.addObject("vd", ventureDetails);
 		
 		page.addObject("newNexusappVenture", new NexusAppVenture());
+		page.addObject("newNexusappBlock", new NexusAppBlocks());
 		
 		return page;
 	}
@@ -53,11 +54,11 @@ public class VentureNexusAppController {
 	@GetMapping(value="/getBlockIframe")
 	public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,
 			HttpSession session) {
-		logger.info(blockname);
+		//logger.info(blockname);
 		@SuppressWarnings("unchecked")
 		List<NexusAppBlocks> blockDet = (List<NexusAppBlocks>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getBlockDetails, null,  NexusAppBlocks.class);
-		logger.info(blockname, blockDet);
+		//logger.info(blockname, blockDet);
 		ModelAndView page =new ModelAndView();
 		page.setViewName("Block_det");
 		page.addObject("bd",blockDet);

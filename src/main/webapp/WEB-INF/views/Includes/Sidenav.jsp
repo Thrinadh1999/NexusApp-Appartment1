@@ -75,8 +75,8 @@
                   	<ul class="nav child_menu">
                   	
                   	<li><a href="nexusventuredetails">Venture</a></li>
-                    <li><a href="nexusblodckdetails">Block</a></li>
-                  	<li><a href="nexusfloordetails">Floor</a></li>
+                    <li><a href="nexusblockdetails">Block</a></li>
+                  	<li><a id="floorsidenav" href="nexusfloordetails">Floor</a></li>
                   	<li><a href="nexusapartmentdetails">Apartment</a></li>
                   	<li><a href="nexusvisitorsdetails">Visitors</a></li>
                   	<li><a href="nexususerdetails">Users</a></li>

@@ -25,6 +25,10 @@
 				data-toggle="modal" data-target="#myModal">
 				<i class="fa fa-plus"></i> Add Venture
 			</button>
+			<button type="button" class="btn btn-info btn-md page-action-btn"
+				data-toggle="modal" data-target="#blockModal">
+				<i class="fa fa-plus"></i> Add Block
+			</button>
 		</div>
 	</div>
 	<hr>
@@ -43,7 +47,7 @@
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappVenture"
-						action="addnexusappventure" id="demo-form2"
+						action="addnexusappventure" id="demo-form"
 						class="form-horizontal form-label-left" method="POST">
 						<form:input id="ventureId" maxlength="2" class="form-control"
 							type="hidden" path="ventureId"></form:input>
@@ -105,6 +109,74 @@
 		</div>
 	</div>
 
+
+<!-- modal 2 -->
+<div id="blockModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Block</h4>
+				</div>
+				<div class="modal-body">
+					<form:form modelAttribute="newNexusappBlock"
+						action="addnexusappblock" id="demo-form2"
+						class="form-horizontal form-label-left" method="POST">
+						<form:input id="blockId" maxlength="2" class="form-control"
+							type="hidden" path="blockId"></form:input>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="blockName">Block Name<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" id="blockName" path="blockName"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="ventureId">Venture Id<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:select id="ventureId" class="form-control "
+									path="ventureId">
+									<c:forEach items='${vll}' var="vl">
+										<form:option value="${vl.ventureName }"> ${vl.ventureName}</form:option>
+									</c:forEach>
+								</form:select>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="no_of_floors">No Of Floors<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" maxlength="2" size="2" id="no_of_floors" path="no_of_floors"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+						<div class="item form-group">
+							<label class="col-form-label col-md-4 col-sm-4 label-align"
+								for="no_of_appartments">No Of Appartments<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 ">
+								<form:input type="text" maxlength="2" size="2" id="no_of_appartments" path="no_of_appartments"
+									required="required" class="form-control "></form:input>
+							</div>
+						</div>
+							<div class="ln_solid"></div>
+								<div class="item form-group">
+									<div class="col-md-6 col-sm-6 offset-md-3 text-center">
+										<form:button id="submit-button" type="submit" class="btn btn-success">Submit</form:button>
+											<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+									</div>
+								</div>
+					</form:form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- /page content -->
@@ -139,15 +211,12 @@
 	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-	$('#cancel-button').on('click', function() {
+	$('#cancel-button1').on('click', function() {
 		$('#myModal').modal('hide');
 	});
-	$('#submit-button').on('click', function() {
-		$('#demo-form2').submit();
+	$('#submit-button1').on('click', function() {
+		$('#demo-form').submit();
 	});
-	$('#venture-select').on('click', function(){
-		 
-		});
 		</script>
 </script>
 
