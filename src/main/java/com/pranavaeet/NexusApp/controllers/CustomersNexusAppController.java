@@ -29,7 +29,7 @@ public class CustomersNexusAppController {
 	public ModelAndView getCustomerDetails(HttpServletRequest request, HttpSession session) {
 		List<NexusAppCustomers> customerDetails = (List<NexusAppCustomers>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getCustomerDetails, null, NexusAppCustomers.class);
-		List<NexusAppUserRole>roleList = (List<NexusAppUserRole>)objectDAO.multipleResultSelect(SQL_QUERIES.getRoleList, null, NexusAppUserRole.class);
+		List<NexusAppUserRole>roleList = (List<NexusAppUserRole>)objectDAO.multipleResultSelect(SQL_QUERIES.getRoleAd_SAd, null, NexusAppUserRole.class);
 		List<NexusAppVenture>ventureList = (List<NexusAppVenture>)objectDAO.multipleResultSelect(SQL_QUERIES.getVentureDetails, null, NexusAppVenture.class);
 
 		ModelAndView page = new ModelAndView();

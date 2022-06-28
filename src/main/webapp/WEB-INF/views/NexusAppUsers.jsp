@@ -154,7 +154,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="state">state<span class="required">*</span>
+								for="state">State<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="state" class="form-control " path="state">

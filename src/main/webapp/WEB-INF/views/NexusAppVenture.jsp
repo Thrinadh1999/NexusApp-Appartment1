@@ -91,10 +91,10 @@
 						<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
-								<form:button id="submit-button" type="submit"
+								<form:button id="submit-button1" type="submit"
 									class="btn btn-success">Submit</form:button>
 
-								<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
+								<button id="cancel-button1" type="button" class="btn btn-danger">Cancel</button>
 							</div>
 
 						</div>
@@ -217,8 +217,13 @@
 	$('#submit-button1').on('click', function() {
 		$('#demo-form').submit();
 	});
-		</script>
-</script>
+	$('#submit-button').on('click', function() {
+		$('demo-form2').submit();
+	});
+	$('#cancel-button').on('click', function() {
+		$('#blockModal').modal('hide');
+	});
+	</script>
 
 
 

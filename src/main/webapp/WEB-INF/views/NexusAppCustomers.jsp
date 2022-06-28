@@ -34,13 +34,13 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>customerId</th>
-				<th>customerName</th>
-				<th>customerMobile</th>
-				<th>customerAddress</th>
-				<th>customerPincode</th>
-				<th>customerRole</th>
-				<th>ventureName</th>
+				<th>Customer Id</th>
+				<th>Customer Name</th>
+				<th>Customer Mobile</th>
+				<th>Customer Address</th>
+				<th>Customer Pincode</th>
+				<th>Customer Role</th>
+				<th>Vnture Name</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -78,7 +78,7 @@
 							type="hidden" path="customerId"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerName">customerName<span class="required">*</span>
+								for="customerName">Customer Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="customerName" path="customerName"
@@ -87,7 +87,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerMobile">customerMobile<span class="required">*</span>
+								for="customerMobile">Customer Mobile<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="number" id="customerMobile" path="customerMobile"
@@ -96,7 +96,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerAddress">customerAddress<span class="required">*</span>
+								for="customerAddress">Customer Address<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="customerAddress" path="customerAddress"
@@ -105,15 +105,15 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerPincode">customerPincode</label>
+								for="customerPincode">Customer Pincode</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="customerPincode" path="customerPincode"
+								<form:input type="number" maxlength="6" size="6" id="customerPincode" path="customerPincode"
 									class="form-control"></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerRole">customerRole<span class="required">*</span>
+								for="customerRole">Customer Role<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="customerRole" class="form-control " path="customerRole">
@@ -126,7 +126,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="ventureName">ventureName<span class="required">*</span>
+								for="ventureName">Venture Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="ventureName" class="form-control " path="ventureName">

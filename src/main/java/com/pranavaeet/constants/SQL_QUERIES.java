@@ -184,7 +184,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	public static final String getVisType="SELECT * FROM visitorsType_lkp_nexusapp";
 	public static final String getRoleForNumber="SELECT users_nexusapp.userRole FROM users_nexusapp WHERE users_nexusapp.userMobile=?";
 	public static final String joinBlock_Floor="SELECT * FROM block_nexusapp RIGHT JOIN floor_nexusapp ON block_nexusapp.blockName=floor_nexusapp.blockName GROUP BY block_nexusapp.blockName";
-	
+	public static final String getRoleAd_SAd="SELECT * FROM user_role_Lookup_nexusapp WHERE user_role_Lookup_nexusapp.role='Admin' OR user_role_Lookup_nexusapp.role='SuperAdmin'";
 }
 
 

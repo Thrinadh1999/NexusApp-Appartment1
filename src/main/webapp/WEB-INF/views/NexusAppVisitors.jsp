@@ -34,17 +34,17 @@
 	<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>typeOfVisitor</th>
-				<th>appartmentName</th>
-				<th>blockName</th>
-				<th>name</th>
-				<th>mobile</th>
-				<th>inTime</th>
-				<th>inDate</th>
-				<th>outTime</th>
-				<th>outDate</th>
-				<th>imagePath</th>
+				<th>Id</th>
+				<th>Type Of Visitor</th>
+				<th>Apartment Name</th>
+				<th>Block Name</th>
+				<th>Name</th>
+				<th>Mobile</th>
+				<th>In Time</th>
+				<th>In Date</th>
+				<th>Out Time</th>
+				<th>Out Date</th>
+				<th>Image Path</th>
 				
 				
 				
@@ -90,7 +90,7 @@
 							type="hidden" path="id"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="typeOfVisitor">typeOfVisitor<span class="required">*</span>
+								for="typeOfVisitor">Type Of Visitor<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="typeOfVisitor" class="form-control " path="typeOfVisitor">
@@ -103,7 +103,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmentName">Appartment Name<span class="required">*</span>
+								for="appartmentName">Apartment Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="appartmentName" class="form-control " path="appartmentName">
@@ -116,7 +116,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for=blockName>blockName<span class="required">*</span>
+								for=blockName>Block Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="blockName" class="form-control " path="blockName">
@@ -129,7 +129,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="name">name<span class="required">*</span>
+								for="name">Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="name" path="name"
@@ -138,7 +138,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="mobile">mobile<span class="required">*</span>
+								for="mobile">Mobile<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" maxlength="10" size="10" id="mobile" path="mobile"
@@ -147,7 +147,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="outTime">outTime<span class="required">*</span>
+								for="outTime">Out Time<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="outTime" path="outTime"
@@ -156,7 +156,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="outDate">outDate<span class="required">*</span>
+								for="outDate">Out Date<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="outDate" path="outDate"
@@ -165,7 +165,7 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="imagePath">imagePath<span class="required">*</span>
+								for="imagePath">Image Path<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" id="imagePath" path="imagePath"
