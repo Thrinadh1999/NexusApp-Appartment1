@@ -81,33 +81,39 @@
 								for="customerName">Customer Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="customerName" path="customerName"
-									required="required" class="form-control "></form:input>
+								<form:input type="text" maxlength="280" size="280"
+									id="customerName" path="customerName" required="required"
+									class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerMobile">Customer Mobile<span class="required">*</span>
+								for="customerMobile">Customer Mobile<span
+								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="customerMobile" path="customerMobile"
-									required="required" class="form-control "></form:input>
+								<form:input type="text" placeholder=" Only 12+ allowed"
+									maxlength="12" size="12" id="customerMobile"
+									path="customerMobile" required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="customerAddress">Customer Address<span class="required">*</span>
+								for="customerAddress">Customer Address<span
+								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="customerAddress" path="customerAddress"
-									required="required" class="form-control "></form:input>
+								<form:textarea type="text" maxlength="300" size="300"
+									id="customerAddress" path="customerAddress" required="required"
+									class="form-control "></form:textarea>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
 								for="customerPincode">Customer Pincode</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" maxlength="6" size="6" id="customerPincode" path="customerPincode"
+								<form:input type="text" maxlength="6" size="6"
+									id="customerPincode" path="customerPincode"
 									class="form-control"></form:input>
 							</div>
 						</div>
@@ -116,7 +122,8 @@
 								for="customerRole">Customer Role<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="customerRole" class="form-control " path="customerRole">
+								<form:select id="customerRole" class="form-control "
+									path="customerRole">
 									<c:forEach items='${rl}' var="role">
 										<form:option value="${role.dispName }"> ${role.role}</form:option>
 									</c:forEach>
@@ -129,7 +136,8 @@
 								for="ventureName">Venture Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:select id="ventureName" class="form-control " path="ventureName">
+								<form:select id="ventureName" class="form-control "
+									path="ventureName">
 									<c:forEach items='${vn}' var="vl">
 										<form:option value="${vl.ventureId }"> ${vl.ventureName}</form:option>
 									</c:forEach>
@@ -194,12 +202,12 @@
 	src="resources/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
 <script>
-$('#cancel-button').on('click', function() {
-	$('#myModal').modal('hide');
-});
-$('#submit-button').on('click', function() {
-	$('#demo-form2').submit();
-});
+	$('#cancel-button').on('click', function() {
+		$('#myModal').modal('hide');
+	});
+	$('#submit-button').on('click', function() {
+		$('#demo-form2').submit();
+	});
 </script>
 
 

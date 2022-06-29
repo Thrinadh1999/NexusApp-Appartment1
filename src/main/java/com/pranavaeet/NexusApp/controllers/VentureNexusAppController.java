@@ -49,7 +49,7 @@ public class VentureNexusAppController {
 	objectDAO.addOrUpdate(SQL_QUERIES.addVentureDetails, new String [] {newNexusAppVenture.getVentureName(),newNexusAppVenture.getVentureAddress(),newNexusAppVenture.getDescription(),newNexusAppVenture.getNo_of_blocks()});
 	
 	return new ModelAndView("redirect:/nexusventuredetails");
-}
+}//venture page block iframe
 	//VEN_DET PAGE
 	@GetMapping(value="/getBlockIframe")
 	public ModelAndView getVentureDet(@ModelAttribute String blockname, HttpServletRequest request,

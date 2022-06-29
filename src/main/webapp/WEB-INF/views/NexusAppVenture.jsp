@@ -25,6 +25,31 @@
 				data-toggle="modal" data-target="#myModal">
 				<i class="fa fa-plus"></i> Add Venture
 			</button>
+			<table id="datatable" class="table">
+		<thead>
+			<tr>
+				<th>Venture Id</th>
+				<th>Venture Name</th>
+				<th>Venture Address</th>
+				<th>Description</th>
+				<th>No_of_blocks</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items='${vd}' var="venturedet">
+				<tr>
+					<td>${venturedet.ventureId}</td>
+					<td>${venturedet.ventureName}</td>
+					<td>${venturedet.ventureAddress}</td>
+					<td>${venturedet.description}</td>
+					<td>${venturedet.no_of_blocks}</td>
+
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+			</div>
+		<div class="col-md-12">	
 			<button type="button" class="btn btn-info btn-md page-action-btn"
 				data-toggle="modal" data-target="#blockModal">
 				<i class="fa fa-plus"></i> Add Block
@@ -34,6 +59,7 @@
 	<hr>
 	<div class="iframeNexusAppAdmin">
 		<iframe id="blockiframe" src="getBlockIframe" title="Block Details"></iframe>
+		
 	</div>
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
@@ -121,7 +147,7 @@
 				</div>
 				<div class="modal-body">
 					<form:form modelAttribute="newNexusappBlock"
-						action="addnexusappblock" id="demo-form2"
+						action="addnexusappblocks" id="demo-form2"
 						class="form-horizontal form-label-left" method="POST">
 						<form:input id="blockId" maxlength="2" class="form-control"
 							type="hidden" path="blockId"></form:input>
@@ -141,7 +167,8 @@
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="ventureId" class="form-control "
 									path="ventureId">
-									<c:forEach items='${vll}' var="vl">
+									<!--<form:option value="Test Venture 2">Test Venture 2</form:option>-->
+									<c:forEach items='${vd}' var="vl">
 										<form:option value="${vl.ventureName }"> ${vl.ventureName}</form:option>
 									</c:forEach>
 								</form:select>
@@ -180,10 +207,10 @@
 </div>
 
 <!-- /page content -->
-
 <%@ include file="Includes/Footer.jsp"%>
 
 <%@ include file="Includes/FooterScripts.jsp"%>
+
 <!-- Datatables -->
 <script
 	src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -223,7 +250,7 @@
 	$('#cancel-button').on('click', function() {
 		$('#blockModal').modal('hide');
 	});
-	</script>
+</script>
 
 
 

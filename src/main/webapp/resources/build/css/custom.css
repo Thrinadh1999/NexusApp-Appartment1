@@ -1515,7 +1515,8 @@ a:hover, a:focus {
 
 footer {
   background: #fff;
-  padding: 10px 20px;
+  padding-top:35rem;
+  padding-left:20px;
   display: block; }
 
 .nav-sm footer {

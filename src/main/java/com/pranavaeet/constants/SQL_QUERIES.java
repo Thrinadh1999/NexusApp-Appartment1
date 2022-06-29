@@ -144,7 +144,7 @@ public static final String addUserLoginTime = "INSERT INTO user_login_activity (
 	
 	public static final String getAppartmentDetails="SELECT * FROM appartment_nexusapp";
 	public static final String addAppartmentDetails="INSERT INTO appartment_nexusapp (appartmentName, appartmentOwner,number, appartmenStatus, description, blockId, floorId) VALUES(?, ?, ?, ?, ?, ?, ?)";
-	//public static final String addAppartmentDetails1="I"
+	public static final String addAppartmentDetailsbyBlockId="SELECT * FROM appartment_nexusapp WHERE appartment_nexusapp.blockId=1";
 	
 	public static final String getBlockDetails="SELECT * FROM block_nexusapp";
 	public static final String addBlockDetails="INSERT INTO block_nexusapp (blockName, ventureId,no_of_floors,no_of_appartments) VALUES(?, ?, ?, ?)";

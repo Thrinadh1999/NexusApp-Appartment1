@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pranavaeet.NexusApp.common.NexusAppAppartment;
 import com.pranavaeet.NexusApp.common.NexusAppBlocks;
 import com.pranavaeet.NexusApp.common.NexusAppFloor;
-import com.pranavaeet.NexusApp.common.NexusAppMonthlyPayments;
 import com.pranavaeet.NexusApp.common.NexusAppUsers;
 import com.pranavaeet.NexusApp.common.NexusAppVenture;
 import com.pranavaeet.common.ObjectDAO;
@@ -43,8 +42,8 @@ public class AppartmentNexusController {
 				.multipleResultSelect(SQL_QUERIES.getFloorDetails, null, NexusAppFloor.class);
 		List<NexusAppUsers> userList = (List<NexusAppUsers>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getUserListbyrole, null, NexusAppUsers.class);
-		List<NexusAppMonthlyPayments> paymentList = (List<NexusAppMonthlyPayments>) objectDAO
-				.multipleResultSelect(SQL_QUERIES.getPaymentsDetails, null, NexusAppMonthlyPayments.class);
+		//List<NexusAppMonthlyPayments> paymentList = (List<NexusAppMonthlyPayments>) objectDAO
+		//		.multipleResultSelect(SQL_QUERIES.getPaymentsDetails, null, NexusAppMonthlyPayments.class);
 		List<Map<String, Object>> v1 = objectDAO.multipleResultSelect(SQL_QUERIES.joinBlock_Floor, null);
 		
 		
@@ -57,7 +56,7 @@ public class AppartmentNexusController {
 		page.addObject("bl", blockList);
 		page.addObject("fl", floorList);
 		page.addObject("ul", userList);
-		page.addObject("pl", paymentList);
+		//page.addObject("pl", paymentList);
 		page.addObject("v1", v1);
 		
 		
@@ -76,7 +75,7 @@ public class AppartmentNexusController {
 	
 	return new ModelAndView("redirect:/nexusapartmentdetails");
 }
-	@GetMapping(value="/getAppartmentIframe")
+	/**@GetMapping(value="/getAppartmentIframe")
 	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
 		List<NexusAppAppartment> appartmentDet = (List<NexusAppAppartment>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getAppartmentDetails, null, NexusAppAppartment.class);
@@ -84,7 +83,7 @@ public class AppartmentNexusController {
 		page.setViewName("Appartment_det");
 		page.addObject("adi", appartmentDet);
 		return page;
-	}
+	}**/
 
 }
 
