@@ -40,7 +40,7 @@
 				<th>Customer Address</th>
 				<th>Customer Pincode</th>
 				<th>Customer Role</th>
-				<th>Vnture Name</th>
+				<th>Venture Name</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -81,7 +81,7 @@
 								for="customerName">Customer Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" maxlength="280" size="280"
+								<form:input type="text" maxlength="50" size="50"
 									id="customerName" path="customerName" required="required"
 									class="form-control "></form:input>
 							</div>
@@ -93,7 +93,7 @@
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:input type="text" placeholder=" Only 12+ allowed"
-									maxlength="12" size="12" id="customerMobile"
+									maxlength="10" size="10" id="customerMobile"
 									path="customerMobile" required="required" class="form-control "></form:input>
 							</div>
 						</div>

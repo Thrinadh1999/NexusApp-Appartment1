@@ -81,7 +81,7 @@
 								for="blockName">Block Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="blockName" path="blockName"
+								<form:input type="text" maxlength="20" size="20" id="blockName" path="blockName"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 								for="no_of_floors">No Of Floors<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="no_of_floors" path="no_of_floors"
+								<form:input type="text" maxlength="2" size="2" id="no_of_floors" path="no_of_floors"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>

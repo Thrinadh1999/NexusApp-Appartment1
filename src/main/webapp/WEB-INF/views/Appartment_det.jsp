@@ -7,10 +7,10 @@
 			<table id="datatable" class="table">
 		<thead>
 			<tr>
-				<th>Appartment Name</th>
-				<th>Appartment Owner</th>
+				<th>Apartment Name</th>
+				<th>Apartment Owner</th>
 				<th>Number</th>
-				<th>Appartmen Status</th>
+				<th>Apartment Status</th>
 				<th>Description </th>
 				<th>Block Id</th>
 				<th>Floor Id</th>

@@ -61,17 +61,17 @@
 							type="hidden" path="appartmentId"></form:input>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmentName">Appartment Name <span
+								for="appartmentName">Apartment Name <span
 								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="appartmentName"
+								<form:input type="text" maxlength="30" size="30" id="appartmentName"
 									path="appartmentName" required="required" class="form-control "></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmentOwner">Appartment Owner<span
+								for="appartmentOwner">Apartment Owner<span
 								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
@@ -99,15 +99,15 @@
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmenStatus">Appartmen Status</label>
+								for="appartmenStatus">Apartmen Status</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="appartmenStatus"
+								<form:input type="text" maxlength="30" size="30" id="appartmenStatus"
 									path="appartmenStatus" class="form-control"></form:input>
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="userEmail">Description<span class="required">*</span>
+								for="description">Description<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
 								<form:textarea type="text" id="description" path="description"
@@ -121,7 +121,7 @@
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="blockId" class="form-control " path="blockId">
 									<c:forEach items='${v1}' var="v1">
-										<form:option value="${v1.blockName}"> ${v1.blockName}</form:option>
+										<form:option value="${v1.blockId}"> ${v1.blockName}</form:option>
 									</c:forEach>
 								</form:select>
 							</div>
@@ -133,7 +133,7 @@
 							<div class="col-md-6 col-sm-6 ">
 								<form:select id="floorId" class="form-control " path="floorId">
 									<c:forEach items='${v1}' var="v1">
-										<form:option value="${v1.floorNumber}"> ${v1.floorNumber}</form:option>
+										<form:option value="${v1.floorId}"> ${v1.floorNumber}</form:option>
 									</c:forEach>
 								</form:select>
 							</div>

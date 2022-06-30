@@ -44,7 +44,7 @@
 				<th>City</th>
 				<th>State</th>
 				<th>Country</th>
-				<th>Zip Code</th>
+				<th>ZipCode</th>
 				<th>status</th>
 			</tr>
 		</thead>

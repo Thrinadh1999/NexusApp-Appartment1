@@ -86,7 +86,7 @@
 								for="no_of_appartments">No Of Apartments<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" maxlength="4" size="4" id="no_of_appartments" path="no_of_appartments"
+								<form:input type="text" maxlength="2" size="2" id="no_of_appartments" path="no_of_appartments"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>

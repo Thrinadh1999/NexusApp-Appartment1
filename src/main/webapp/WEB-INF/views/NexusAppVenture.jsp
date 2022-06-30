@@ -32,7 +32,7 @@
 				<th>Venture Name</th>
 				<th>Venture Address</th>
 				<th>Description</th>
-				<th>No_of_blocks</th>
+				<th>No of Blocks</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -82,7 +82,7 @@
 								for="ventureName">Venture Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="ventureName" path="ventureName"
+								<form:input type="text" maxlength="50" size="50" id="ventureName" path="ventureName"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
@@ -92,7 +92,7 @@
 								class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="ventureAddress"
+								<form:input type="text" maxlength="50" size="50" id="ventureAddress"
 									path="ventureAddress" required="required" class="form-control "></form:input>
 							</div>
 						</div>
@@ -101,7 +101,7 @@
 								for="description">Description<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:textarea type="text" id="description" path="description"
+								<form:textarea type="text" maxlength="100" id="description" path="description"
 									required="required" class="form-control "></form:textarea>
 							</div>
 						</div>
@@ -110,7 +110,7 @@
 								for="no_of_blocks">No Of Blocks<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="number" id="no_of_blocks" path="no_of_blocks"
+								<form:input type="number" maxlength="2" size="2" id="no_of_blocks" path="no_of_blocks"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>

@@ -18,7 +18,7 @@
 						<th>Block Name</th>
 						<th>Venture Name</th>
 						<th>No of Floors</th>
-						<th>No of Appartments</th>
+						<th>No of Apartments</th>
 					</tr>
 				</thead>
 					<tbody>

@@ -132,7 +132,7 @@
 								for="name">Name<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="name" path="name"
+								<form:input type="text" maxlength="50" size="50" id="name" path="name"
 									required="required" class="form-control "></form:input>
 							</div>
 						</div>
