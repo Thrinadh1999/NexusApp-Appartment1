@@ -4,33 +4,7 @@
 <body id="iframe-body">
 	<div class="iframe_content">
 		<div class="block1">
-			<table id="datatable" class="table">
-		<thead>
-			<tr>
-				<th>Apartment Name</th>
-				<th>Apartment Owner</th>
-				<th>Number</th>
-				<th>Apartment Status</th>
-				<th>Description </th>
-				<th>Block Id</th>
-				<th>Floor Id</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach items='${adi}' var="ad">
-			<tr>
-				<td>${ad.appartmentName}</td>
-				<td>${ad.appartmentOwner}</td>
-				<td>${ad.number}</td>
-				<td>${ad.appartmenStatus}</td>
-				<td>${ad.description}</td>
-				<td>${ad.blockId}</td>
-				<td>${ad.floorId}</td>
-
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			
 		</div>
 	</div>
 

@@ -75,15 +75,15 @@ public class AppartmentNexusController {
 	
 	return new ModelAndView("redirect:/nexusapartmentdetails");
 }
-	/**@GetMapping(value="/getAppartmentIframe")
+	@GetMapping(value="/getnexusappartment")
 	public ModelAndView getVentureDet(HttpServletRequest request, HttpSession session) {
 		List<NexusAppAppartment> appartmentDet = (List<NexusAppAppartment>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getAppartmentDetails, null, NexusAppAppartment.class);
 		ModelAndView page =new ModelAndView();
-		page.setViewName("Appartment_det");
+		page.setViewName("NexusAppAppartment");
 		page.addObject("adi", appartmentDet);
 		return page;
-	}**/
+	}
 
 }
 

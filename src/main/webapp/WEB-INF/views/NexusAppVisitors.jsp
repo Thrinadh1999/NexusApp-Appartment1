@@ -20,12 +20,6 @@
 			<icon type="icon" class="icon-block" data-toggle="modal"
 				data-target="#myModal">
 		</div>
-		<div class="col-md-12">
-			<button type="button" class="btn btn-info btn-md page-action-btn"
-				data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus"></i> Add Visitor
-			</button>
-		</div>
 
 	</div>
 
@@ -44,6 +38,8 @@
 				<th>In Date</th>
 				<th>Out Time</th>
 				<th>Out Date</th>
+				<th>elapsedTime</th>
+				<th>expectedTime</th>
 				<th>Image Path</th>
 				
 				
@@ -64,6 +60,8 @@
 					<td>${vis.inDate}</td>
 					<td>${vis.outTime}</td>
 					<td>${vis.outDate}</td>
+					<td>${vis.elapsedTime}
+					<td>${vis.expectedTime}
 					<td>${vis.imagePath}</td>
 
 				</tr>
@@ -74,126 +72,7 @@
 
 	<!-- Trigger the modal with a button -->
 	<!-- Model -->
-	<div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Add Visitor</h4>
-				</div>
-				<div class="modal-body">
-					<form:form modelAttribute="newNexusappVisitors"
-						action="addnexusappvisitors" id="demo-form2"
-						class="form-horizontal form-label-left" method="POST">
-						<form:input id="id" maxlength="2" class="form-control"
-							type="hidden" path="id"></form:input>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="typeOfVisitor">Type Of Visitor<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:select id="typeOfVisitor" class="form-control " path="typeOfVisitor">
-									<c:forEach items='${vtl}' var="vtl">
-										<form:option value="${vtl.visitorType}"> ${vtl. visitorType}</form:option>
-									</c:forEach>
-
-								</form:select>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="appartmentName">Apartment Name<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:select id="appartmentName" class="form-control " path="appartmentName">
-									<c:forEach items='${al}' var="al">
-										<form:option value="${al.appartmentName }"> ${al.appartmentName}</form:option>
-									</c:forEach>
-
-								</form:select>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for=blockName>Block Name<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:select id="blockName" class="form-control " path="blockName">
-									<c:forEach items='${bl}' var="bl">
-										<form:option value="${bl.blockName}"> ${bl.blockName}</form:option>
-									</c:forEach>
-
-								</form:select>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="name">Name<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" maxlength="50" size="50" id="name" path="name"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="mobile">Mobile<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" maxlength="10" size="10" id="mobile" path="mobile"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="outTime">Out Time<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="outTime" path="outTime"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="outDate">Out Date<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="outDate" path="outDate"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-4 label-align"
-								for="imagePath">Image Path<span class="required">*</span>
-							</label>
-							<div class="col-md-6 col-sm-6 ">
-								<form:input type="text" id="imagePath" path="imagePath"
-									required="required" class="form-control "></form:input>
-							</div>
-						</div>
-						
-						<div class="ln_solid"></div>
-						<div class="item form-group">
-							<div class="col-md-6 col-sm-6 offset-md-3 text-center">
-								<form:button id="submit-button" type="submit"
-									class="btn btn-success">Submit</form:button>
-
-								<button id="cancel-button" type="button" class="btn btn-danger">Cancel</button>
-							</div>
-
-						</div>
-
-					</form:form>
-
-
-
-				</div>
-			</div>
-
-		</div>
-	</div>
-
+	
 
 
 </div>

@@ -37,6 +37,8 @@ public class BlockNexusAppController {
 				.multipleResultSelect(SQL_QUERIES.getVentureDetails, null, NexusAppVenture.class);
 		List<NexusAppBlocks> blockList = (List<NexusAppBlocks>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getBlockDetails, null, NexusAppBlocks.class);
+		List<NexusAppAppartment> aprtmentList = (List<NexusAppAppartment>) objectDAO
+				.multipleResultSelect(SQL_QUERIES.getAppartmentDetails, null, NexusAppAppartment.class);
 		List<NexusAppFloor> floorList = (List<NexusAppFloor>) objectDAO
 				.multipleResultSelect(SQL_QUERIES.getFloorDetails, null, NexusAppFloor.class);
 		List<NexusAppUsers> userList = (List<NexusAppUsers>) objectDAO
@@ -47,6 +49,7 @@ public class BlockNexusAppController {
 		ModelAndView page =new ModelAndView();
 		page.addObject("vl", ventureList);
 		page.addObject("bl", blockList);
+		page.addObject("ad", aprtmentList);
 		page.addObject("fl", floorList);
 		page.addObject("ul", userList);
 		page.addObject("pl", paymentList);
