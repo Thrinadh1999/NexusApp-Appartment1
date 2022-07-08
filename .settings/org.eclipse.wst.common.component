@@ -50,6 +50,7 @@
                         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/NexusApp"/>
                                                 
         
         
