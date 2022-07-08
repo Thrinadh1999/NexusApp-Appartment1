@@ -5128,13 +5128,6 @@ display: inline-flex;
 #container_body{
 	background-color:floralwhite;
 }
-#flooriframe,#blockiframe,#appartmentiframe{
-	width: 100%;
-	height:41rem;
-	border:none;
-}
-
-
 #blockDet_button{
 	float: left;
 }

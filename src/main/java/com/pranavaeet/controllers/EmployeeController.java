@@ -1,16 +1,11 @@
 package com.pranavaeet.controllers;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.common.io.Files;
 import com.pranavaeet.common.Countrylkp;
 import com.pranavaeet.common.Department;
 import com.pranavaeet.common.Employee;
@@ -78,20 +72,6 @@ public class EmployeeController {
 				}
 				genderList.add(map);
 			}
-			
-			BufferedImage image;
-			try {
-				image = ImageIO.read(new File("/home/smssols/Desktop/Nexus/NexusPics/rakesh.jpg"));
-				ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-				ImageIO.write(image, "jpg", byteArrayOutputStream);
-				String imageString = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-				byteArrayOutputStream.flush();
-				byteArrayOutputStream.close();
-				page.addObject("imageStr",imageString);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 	        
 			page.setViewName("Employee");
 			page.addObject("employeeList", empList);
@@ -112,20 +92,7 @@ public class EmployeeController {
 			
 			
 			
-			logger.info("join date: "+newEmployee.getJoinDate()+"  and departmentId :"+newEmployee.getDepartmentId());
-			Integer eId = objectDAO.insertAndGetResult(SQL_QUERIES.addEmployee,"id", new String[]
-			{newEmployee.getFirstName(),newEmployee.getLastName(),newEmployee.getAddress()+newEmployee.getCity()+newEmployee.getStateName()+newEmployee.getCountryId()+newEmployee.getZipCode(),newEmployee.getMobile(),newEmployee.getJoinDate(),newEmployee.getDepartmentId(),newEmployee.getRole()});
-			newEmployee.setId(String.valueOf(eId));
-			newEmployee.setImageFilePath("/home/smssols/Desktop/EmployeePics/"+newEmployee.getId()+".jpeg");
-			File dir = new File ("/home/smssols/Desktop/EmployeePics/"+newEmployee.getId()+".jpeg");
 			
-			
-				try {
-					Files.write( newEmployee.getImageUpload().getBytes(),dir);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block for Employees Page
-					e.printStackTrace();
-				}
 			
 			objectDAO.addOrUpdate(SQL_QUERIES.createUser, new String[]
 					{newEmployee.getEmail(),newEmployee.getMobile()});

@@ -27,7 +27,7 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li id="department"><a href="departments"><i class="fas fa-sitemap"></i>Departments </a>
+                  <li id="department"><a href="departments"><i class="fa fa-sitemap"></i> Departments </a>
                     <ul class="nav child_menu">
                       
                     </ul>
@@ -61,33 +61,9 @@
                     </ul>
                   </li> 
                   
-                  <li id="nexusApp"><a><i class="fa fa-server"></i>Nexus App<span class="fa fa-chevron-down"></span></a>
-                  	<ul class="nav child_menu">
-                  	 <li><a href="flatDetails">Flat Details</a></li>
-                      <li><a href="noticeDetails">Notices</a></li>
-                      <li><a href="userDetailsNexus">users</a></li>
-                      <li><a href="userProfileDetails">User Profiles</a></li>
-                      <li><a href="visitorsDetailsNexus">Visitors</a></li>
-                  	</ul>
-                  	</li>
+                  
                   	
-                  	<li id="nexusAppAdmin"><a><i class="fa fa-server"></i>NexusAppAdmin<span class="fa fa-chevron-down"></span></a>
-                  	<ul class="nav child_menu">
                   	
-                  	<li><a href="nexusventuredetails">Venture</a></li>
-                    <li><a href="nexusblockdetails">Block</a></li>
-                  	<li><a id="floorsidenav" href="nexusfloordetails">Floor</a></li>
-                  	<li><a href="nexusapartmentdetails">Apartment</a></li>
-                  	<li><a href="nexusvisitorsdetails">Visitors</a></li>
-                  	<li><a href="nexususerdetails">Users</a></li>
-                    <li><a href="nexuscustomersdetails">Customers</a></li>
-                    <li><a href="">Monthly Maintenance</a></li>
-                    <li><a href="">Payments</a></li> 
-                     
-                      
-                      
-                  	</ul>
-                  	</li>
                       
               </div>
             </div>
